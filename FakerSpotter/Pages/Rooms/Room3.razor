@@ -1,0 +1,21 @@
+﻿@page "/room/3"
+
+@inject NavigationManager navigationManager
+
+<div style="position: absolute; text-align: center; top: 30vh; width: 100%;">
+    <h3>Room 3</h3>
+    <p>
+        This is just a placeholder for the actual room.
+    </p>
+    <button class="btn btn-primary" type="submit" @onclick="NextRoom">Next</button>
+</div>
+
+@code
+{
+
+    private void NextRoom()
+    {
+        navigationManager.NavigateTo("/room/4");
+    }
+
+}
