@@ -1,6 +1,6 @@
 ﻿@page "/room/5"
 
-@inject NavigationManager navigationManager
+@inject NavigationManager _navigationManager
 
 <div style="position: absolute; text-align: center; top: 30vh; width: 100%;">
     <h3>Room 5 - Spot the fake news!</h3>
@@ -15,7 +15,7 @@
 
     private void NextRoom()
     {
-        navigationManager.NavigateTo(navigationManager.BaseUri + "complete");
+        _navigationManager.NavigateTo("complete");
     }
 
 }

@@ -1,12 +1,41 @@
-﻿@inherits LayoutComponentBase
+﻿@using Blazorise.Icons.FontAwesome
 
-<div class="page">
-    <div class="main">
-        <div class="px-4 top-row">
-            <a href="https://github.com/dentolos19/FakerSpotter" target="_blank" class="ml-md-auto">GitHub</a>
-        </div>
-        <div class="content px-4">
-            @Body
-        </div>
-    </div>
-</div>
+@inherits LayoutComponentBase
+
+<Layout>
+    <LayoutHeader>
+        <Bar ThemeContrast="ThemeContrast.Dark">
+            <BarBrand>
+                <BarLink To="">
+                    <BarIcon IconName="_brandIcon"/>
+                    FakerSpotter
+                </BarLink>
+            </BarBrand>
+            <BarToggler/>
+            <BarMenu>
+                <BarStart>
+                    <BarItem>
+                        <BarLink To="https://dentolos19.github.io">
+                            <BarIcon IconName="FontAwesomeIcons.Home"/> Home
+                        </BarLink>
+                    </BarItem>
+                </BarStart>
+                <BarEnd>
+                    <BarItem>
+                        <BarLink To="https://github.com/dentolos19/FakerSpotter">GitHub</BarLink>
+                    </BarItem>
+                </BarEnd>
+            </BarMenu>
+        </Bar>
+    </LayoutHeader>
+    <LayoutContent>
+        @Body
+    </LayoutContent>
+</Layout>
+
+@code
+{
+
+    private readonly RenderFragment _brandIcon =@<img src="assets/img/favicons/favicon-32x32.png" />;
+
+}

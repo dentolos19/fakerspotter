@@ -1,11 +1,11 @@
 ﻿@page "/room/1"
 
-@inject NavigationManager navigationManager
+@inject NavigationManager _navigationManager
 
 <div>
     <h3>Room 1 - Q&amp;A</h3>
     <div>
-        <img src="img/fake-news-0.jpg" width="200" height="200" />
+        <img src="assets/img/0.jpg" width="200" height="200" />
         <div class="form-group">
             <p>Do you think this picture is authentic?</p>
             <div class="form-check">
@@ -47,7 +47,7 @@
 
     private void NextRoom()
     {
-        navigationManager.NavigateTo(navigationManager.BaseUri + "room/2");
+        _navigationManager.NavigateTo("room/2");
     }
 
 }
