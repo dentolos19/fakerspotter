@@ -1,8 +1,8 @@
 ﻿@page "/"
 
-@inject NavigationManager navigationManager
+@inject NavigationManager _navigationManager
 
-<div style="position: absolute;text-align: center; top: 30vh; width: 100%;">
+<div style="position: absolute; text-align: center; top: 30vh; width: 100%;">
     <h3>FakeSpotter (Prototype)</h3>
     <p>
         Please note that this is only a prototype, some features are not
@@ -17,7 +17,7 @@
     private void Begin()
     {
         
-        navigationManager.NavigateTo("room/1");
+        _navigationManager.NavigateTo("room/1");
     }
 
 }
