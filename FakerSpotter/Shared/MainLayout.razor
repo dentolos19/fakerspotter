@@ -1,3 +1,25 @@
 ﻿@inherits LayoutComponentBase
 
-@Body
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="assets/favicon/favicon-32x32.png" />
+            <span class="align-middle">FakerSpotter</span>
+        </a>
+        <a class="d-flex" href="https://github.com/dentolos19/FakerSpotter" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<div id="body" class="container-fluid" style="height: 100%; position: absolute; padding: 0;">
+    <div class="row" style="height: 100%; position: relative">
+        <div class="col">
+            <!-- nothing -->
+        </div>
+        <div class="col-8">
+            @Body
+        </div>
+        <div class="col">
+            <!-- nothing -->
+        </div>
+    </div>
+</div>
