@@ -2,38 +2,38 @@
 
 @inject NavigationManager _navigationManager
 
+<h3>Room 1 - Q&amp;A</h3>
+
 <div>
-    <h3>Room 1 - Q&amp;A</h3>
-    <div>
-        <img src="assets/images/0.jpg" width="200" height="200" />
-        <div class="form-group">
-            <p>Do you think this picture is authentic?</p>
-            <div class="form-check">
-                <input id="yesOption" name="yesNo" class="form-check-input" type="radio" checked @onclick="ToggleOption"/>
-                <label class="form-check-label" for="yesOption">Yes</label>
-            </div>
-            <div class="form-check">
-                <input id="noOption" name="yesNo" class="form-check-input" type="radio" @onclick="ToggleOption"/>
-                <label class="form-check-label" for="noOption">No</label>
-            </div>
+    <img src="assets/images/0.jpg" width="200" height="200" />
+    <div class="form-group">
+        <p>Do you think this picture is authentic?</p>
+        <div class="form-check">
+            <input id="yesOption" name="yesNo" class="form-check-input" type="radio" checked @onclick="ToggleOption"/>
+            <label class="form-check-label" for="yesOption">Yes</label>
         </div>
-        @if (_yesNoOption)
-        {
-            <div class="form-group">
-                <label for="yesBox">If yes, did you attempt to check other reliable sources? And why?</label>
-                <input id="yesBox" class="form-control" type="text"/>
-            </div>
-        }
-        else
-        {
-            <div class="form-group">
-                <label for="noBox">If no, what makes to think so?</label>
-                <input id="noBox" class="form-control" type="text"/>
-            </div>
-        }
+        <div class="form-check">
+            <input id="noOption" name="yesNo" class="form-check-input" type="radio" @onclick="ToggleOption"/>
+            <label class="form-check-label" for="noOption">No</label>
+        </div>
     </div>
-    <button class="btn btn-primary" @onclick="NextRoom">Next</button>
+    @if (_yesNoOption)
+    {
+        <div class="form-group">
+            <label for="yesBox">If yes, did you attempt to check other reliable sources? And why?</label>
+            <input id="yesBox" class="form-control" type="text"/>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <label for="noBox">If no, what makes to think so?</label>
+            <input id="noBox" class="form-control" type="text"/>
+        </div>
+    }
 </div>
+
+<button class="btn btn-primary" @onclick="NextRoom">Next</button>
     
 @code
 {

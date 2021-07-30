@@ -20,9 +20,9 @@ jobs:
       run: dotnet publish ./FakerSpotter/FakerSpotter.csproj --configuration Release --output ./output
     - 
       name: Fix BaseURL
-      run: >-
+      run: |
         sed --in-place 's/<base href="\/"\/>/<base href="\/FakerSpotter\/"\/>/g' ./output/wwwroot/index.html
-        sed --in-place 's/<base href="\/" \/>/<base href="\/FakerSpotter\/"\/>/g' ./output/wwwroot/index.html
+        sed --in-place 's/<base href="\/" \/>/<base href="\/FakerSpotter\/" \/>/g' ./output/wwwroot/index.html
     - 
       name: Disable Jekyll
       run: touch ./output/wwwroot/.nojekyll
