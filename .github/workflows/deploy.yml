@@ -19,7 +19,7 @@ jobs:
       name: Publish Website
       run: dotnet publish ./FakerSpotter/FakerSpotter.csproj --configuration Release --output ./output
     - 
-      name: Fix BaseURL
+      name: Fix Base URL
       run: |
         sed --in-place 's/<base href="\/"\/>/<base href="\/FakerSpotter\/"\/>/g' ./output/wwwroot/index.html
         sed --in-place 's/<base href="\/" \/>/<base href="\/FakerSpotter\/" \/>/g' ./output/wwwroot/index.html

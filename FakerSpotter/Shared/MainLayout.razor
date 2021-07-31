@@ -1,27 +1,76 @@
 ﻿@inherits LayoutComponentBase
 
-<nav class="bg-light navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="assets/favicon/favicon-32x32.png"/>
-            <span class="align-middle">FakerSpotter</span>
-        </a>
-        <a class="d-flex" href="https://github.com/dentolos19/FakerSpotter" target="_blank">GitHub</a>
-    </div>
-</nav>
-
-<div id="body" class="container-fluid" style="height: 100%; padding: 0; position: absolute;">
-    <div class="row" style="height: 100%; position: relative">
-        <div class="col">
-            <!-- nothing -->
-        </div>
-        <div class="col-8">
-            <div class="align-self-center">
-                @Body
+<Layout>
+    <LayoutHeader>
+        <nav class="bg-light navbar navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="">
+                    <img src="assets/favicon/favicon-32x32.png"/>
+                    <span class="align-middle">FakerSpotter</span>
+                </a>
+                <a class="d-flex" href="https://github.com/dentolos19/FakerSpotter" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </LayoutHeader>
+    <LayoutContent>
+        <div class="container">
+            <div class="row">
+                <Steps SelectedStep="room3">
+                    <Items>
+                        <Step Name="start">
+                            <Marker>
+                                <Icon Name="IconName.Home"/>
+                            </Marker>
+                            <Caption>
+                                Start
+                            </Caption>
+                        </Step>
+                        <Step Name="room1">Step 1</Step>
+                        <Step Name="room2">Step 2</Step>
+                        <Step Name="room3">Step 3</Step>
+                        <Step Name="room4">Step 4</Step>
+                        <Step Name="room5">Step 5</Step>
+                        <Step Name="finish">
+                            <Marker>
+                                <Icon Name="IconName.Flag"/>
+                            </Marker>
+                            <Caption>
+                                Finish
+                            </Caption>
+                        </Step>
+                    </Items>
+                    <Content>
+                        <StepPanel Name="room1">
+                            Room 1
+                        </StepPanel>
+                        <StepPanel Name="room2">
+                            Room 2
+                        </StepPanel>
+                        <StepPanel Name="room3">
+                            Room 3
+                        </StepPanel>
+                        <StepPanel Name="room4">
+                            Room 4
+                        </StepPanel>
+                        <StepPanel Name="room5">
+                            Room 5
+                        </StepPanel>
+                    </Content>
+                </Steps>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <!-- empty -->
+                </div>
+                <div class="col-10 p-4">
+                    <div>
+                        @Body
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- empty -->
+                </div>
             </div>
         </div>
-        <div class="col">
-            <!-- nothing -->
-        </div>
-    </div>
-</div>
+    </LayoutContent>
+</Layout>

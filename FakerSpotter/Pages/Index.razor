@@ -1,23 +1,51 @@
 ﻿@page "/"
 
-@inject NavigationManager _navigationManager
-
 <div style="text-align: center;">
     <h3>FakeSpotter (Prototype)</h3>
     <p>
         Please note that this is only a prototype, some features are not
         final and may experience major changes in the future.
     </p>
-    <button class="btn btn-primary" @onclick="Begin">Begin</button>
+    <button class="btn btn-primary" @onclick="Continue">Continue</button>
 </div>
 
 @code
 {
 
-    private void Begin()
+    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
+
+    protected override void OnInitialized()
     {
-        
-        _navigationManager.NavigateTo("room/1");
+        UserSettings.LocalStorage ??= LocalStorage;
+    }
+
+    private void Continue()
+    {
+        if (UserSettings.IsRoomOneCompleted != true)
+        {
+            NavigationManager.NavigateTo("room/1");
+        }
+        else if (UserSettings.IsRoomTwoCompleted != true)
+        {
+            NavigationManager.NavigateTo("room/2");
+        }
+        else if (UserSettings.IsRoomThreeCompleted != true)
+        {
+            NavigationManager.NavigateTo("room/3");
+        }
+        else if (UserSettings.IsRoomFourCompleted != true)
+        {
+            NavigationManager.NavigateTo("room/4");
+        }
+        else if (UserSettings.IsRoomFiveCompleted != true)
+        {
+            NavigationManager.NavigateTo("room/5");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("finish");
+        }
     }
 
 }

@@ -1,0 +1,27 @@
+﻿@page "/room/3"
+
+<h3>Room 3 - Spot the fake news!</h3>
+
+<p>
+    This is just a placeholder for the actual room.
+</p>
+
+<button class="btn btn-primary" @onclick="NextRoom">Next</button>
+
+@code
+{
+    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        UserSettings.LocalStorage ??= LocalStorage;
+    }
+
+    private void NextRoom()
+    {
+        UserSettings.IsRoomThreeCompleted = true;
+        NavigationManager.NavigateTo("room/4");
+    }
+
+}

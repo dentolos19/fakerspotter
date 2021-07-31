@@ -1,0 +1,31 @@
+﻿@page "/finish"
+
+<div style="text-align: center;">
+    <h3>Congratulations!</h3>
+    <p>
+        You have successfully cleared this escape room! Thank you for playing!
+    </p>
+    <button class="btn btn-primary" @onclick="Restart">Restart</button>
+</div>
+
+@code
+{
+    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        UserSettings.LocalStorage ??= LocalStorage;
+    }
+
+    private void Restart()
+    {
+        UserSettings.IsRoomOneCompleted = false;
+        UserSettings.IsRoomTwoCompleted = false;
+        UserSettings.IsRoomThreeCompleted = false;
+        UserSettings.IsRoomFourCompleted = false;
+        UserSettings.IsRoomFiveCompleted = false;
+        NavigationManager.NavigateTo("");
+    }
+
+}

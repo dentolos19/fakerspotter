@@ -1,7 +1,5 @@
 ﻿@page "/room/1"
 
-@inject NavigationManager _navigationManager
-
 <h3>Room 1 - Q&amp;A</h3>
 
 <div>
@@ -38,7 +36,15 @@
 @code
 {
 
+    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
+
     private bool _yesNoOption = true;
+
+    protected override void OnInitialized()
+    {
+        UserSettings.LocalStorage ??= LocalStorage;
+    }
 
     private void ToggleOption()
     {
@@ -47,7 +53,8 @@
 
     private void NextRoom()
     {
-        _navigationManager.NavigateTo("room/2");
+        UserSettings.IsRoomOneCompleted = true;
+        NavigationManager.NavigateTo("room/2");
     }
 
 }
