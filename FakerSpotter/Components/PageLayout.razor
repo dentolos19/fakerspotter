@@ -1,0 +1,15 @@
+﻿@inherits LayoutComponentBase
+
+@Body
+
+@code
+{
+
+    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        UserSettings.LocalStorage ??= LocalStorage;
+    }
+
+}

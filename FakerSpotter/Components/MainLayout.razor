@@ -5,7 +5,7 @@
         <nav class="bg-light navbar navbar-light">
             <div class="container">
                 <a class="navbar-brand" href="">
-                    <img src="assets/favicon/favicon-32x32.png"/>
+                    <img src="assets/images/icon.png" width="32"/>
                     <span class="align-middle">FakerSpotter</span>
                 </a>
                 <a class="d-flex" href="https://github.com/dentolos19/FakerSpotter" target="_blank">GitHub</a>
@@ -14,10 +14,10 @@
     </LayoutHeader>
     <LayoutContent>
         <div class="container">
-            <div class="row">
-                <Steps SelectedStep="room3">
+            <div class="row p-1">
+                <Steps SelectedStep="SelectedStep" SelectedStepChanged="() => SelectedStep = null">
                     <Items>
-                        <Step Name="start">
+                        <Step Name="start" Color="Color.Primary" Completed="true">
                             <Marker>
                                 <Icon Name="IconName.Home"/>
                             </Marker>
@@ -25,12 +25,12 @@
                                 Start
                             </Caption>
                         </Step>
-                        <Step Name="room1">Step 1</Step>
-                        <Step Name="room2">Step 2</Step>
-                        <Step Name="room3">Step 3</Step>
-                        <Step Name="room4">Step 4</Step>
-                        <Step Name="room5">Step 5</Step>
-                        <Step Name="finish">
+                        <Step Name="room1" Index="1" Color="Color.Success" Completed="UserSettings.IsRoomOneCompleted">Room 1</Step>
+                        <Step Name="room2" Index="2" Color="Color.Success" Completed="UserSettings.IsRoomTwoCompleted">Room 2</Step>
+                        <Step Name="room3" Index="3" Color="Color.Warning" Completed="UserSettings.IsRoomThreeCompleted">Room 3</Step>
+                        <Step Name="room4" Index="4" Color="Color.Danger" Completed="UserSettings.IsRoomFourCompleted">Room 4</Step>
+                        <Step Name="room5" Index="5" Color="Color.Danger" Completed="UserSettings.IsRoomFiveCompleted">Room 5</Step>
+                        <Step Name="finish" Color="Color.Primary" Completed="IsFinishStepCompleted">
                             <Marker>
                                 <Icon Name="IconName.Flag"/>
                             </Marker>
@@ -40,21 +40,7 @@
                         </Step>
                     </Items>
                     <Content>
-                        <StepPanel Name="room1">
-                            Room 1
-                        </StepPanel>
-                        <StepPanel Name="room2">
-                            Room 2
-                        </StepPanel>
-                        <StepPanel Name="room3">
-                            Room 3
-                        </StepPanel>
-                        <StepPanel Name="room4">
-                            Room 4
-                        </StepPanel>
-                        <StepPanel Name="room5">
-                            Room 5
-                        </StepPanel>
+                        <!-- empty -->
                     </Content>
                 </Steps>
             </div>
@@ -62,7 +48,7 @@
                 <div class="col">
                     <!-- empty -->
                 </div>
-                <div class="col-10 p-4">
+                <div class="col-10 p-2">
                     <div>
                         @Body
                     </div>
@@ -74,3 +60,19 @@
         </div>
     </LayoutContent>
 </Layout>
+
+@code
+{
+
+    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
+
+    private string SelectedStep { get; set; }
+
+    private bool IsFinishStepCompleted => UserSettings.IsRoomOneCompleted && UserSettings.IsRoomTwoCompleted && UserSettings.IsRoomThreeCompleted && UserSettings.IsRoomFourCompleted && UserSettings.IsRoomFiveCompleted;
+
+    protected override void OnInitialized()
+    {
+        UserSettings.LocalStorage ??= LocalStorage;
+    }
+
+}

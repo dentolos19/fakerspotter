@@ -1,7 +1,8 @@
-﻿@page "/"
+﻿@inherits PageLayout
+@page "/"
 
 <div style="text-align: center;">
-    <h3>FakeSpotter (Prototype)</h3>
+    <h3>FakeSpotter</h3>
     <p>
         Please note that this is only a prototype, some features are not
         final and may experience major changes in the future.
@@ -12,13 +13,8 @@
 @code
 {
 
-    [Inject] private NavigationManager NavigationManager { get; set; }
-    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
-
-    protected override void OnInitialized()
-    {
-        UserSettings.LocalStorage ??= LocalStorage;
-    }
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
 
     private void Continue()
     {

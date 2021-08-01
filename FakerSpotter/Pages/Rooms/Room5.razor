@@ -1,4 +1,5 @@
-﻿@page "/room/5"
+﻿@inherits PageLayout
+@page "/room/5"
 
 <h3>Room 5 - Spot the fake news!</h3>
 
@@ -12,12 +13,6 @@
 {
 
     [Inject] private NavigationManager NavigationManager { get; set; }
-    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
-
-    protected override void OnInitialized()
-    {
-        UserSettings.LocalStorage ??= LocalStorage;
-    }
 
     private void NextRoom()
     {

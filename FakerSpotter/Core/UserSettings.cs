@@ -8,33 +8,33 @@ namespace FakerSpotter.Core
         
         public static ISyncLocalStorageService LocalStorage { get; set; }
 
-        public static bool? IsRoomOneCompleted
+        public static bool IsRoomOneCompleted
         {
-            get => LocalStorage.ContainKey(nameof(IsRoomOneCompleted)) ? null : LocalStorage.GetItem<bool>(nameof(IsRoomOneCompleted));
+            get => LocalStorage.ContainKey(nameof(IsRoomOneCompleted)) && LocalStorage.GetItem<bool>(nameof(IsRoomOneCompleted));
             set => LocalStorage.SetItem(nameof(IsRoomOneCompleted), value);
         }
 
-        public static bool? IsRoomTwoCompleted
+        public static bool IsRoomTwoCompleted
         {
-            get => LocalStorage.ContainKey(nameof(IsRoomTwoCompleted)) ? null : LocalStorage.GetItem<bool>(nameof(IsRoomTwoCompleted));
+            get => LocalStorage.ContainKey(nameof(IsRoomTwoCompleted)) && LocalStorage.GetItem<bool>(nameof(IsRoomTwoCompleted));
             set => LocalStorage.SetItem(nameof(IsRoomTwoCompleted), value);
         }
 
-        public static bool? IsRoomThreeCompleted
+        public static bool IsRoomThreeCompleted
         {
-            get => LocalStorage.ContainKey(nameof(IsRoomThreeCompleted)) ? null : LocalStorage.GetItem<bool>(nameof(IsRoomThreeCompleted));
+            get => LocalStorage.ContainKey(nameof(IsRoomThreeCompleted)) && LocalStorage.GetItem<bool>(nameof(IsRoomThreeCompleted));
             set => LocalStorage.SetItem(nameof(IsRoomThreeCompleted), value);
         }
 
-        public static bool? IsRoomFourCompleted
+        public static bool IsRoomFourCompleted
         {
-            get => LocalStorage.ContainKey(nameof(IsRoomFourCompleted)) ? null : LocalStorage.GetItem<bool>(nameof(IsRoomFourCompleted));
+            get => LocalStorage.ContainKey(nameof(IsRoomFourCompleted)) && LocalStorage.GetItem<bool>(nameof(IsRoomFourCompleted));
             set => LocalStorage.SetItem(nameof(IsRoomFourCompleted), value);
         }
 
-        public static bool? IsRoomFiveCompleted
+        public static bool IsRoomFiveCompleted
         {
-            get => LocalStorage.ContainKey(nameof(IsRoomFiveCompleted)) ? null : LocalStorage.GetItem<bool>(nameof(IsRoomFiveCompleted));
+            get => LocalStorage.ContainKey(nameof(IsRoomFiveCompleted)) && LocalStorage.GetItem<bool>(nameof(IsRoomFiveCompleted));
             set => LocalStorage.SetItem(nameof(IsRoomFiveCompleted), value);
         }
 

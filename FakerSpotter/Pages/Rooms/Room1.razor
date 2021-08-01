@@ -1,9 +1,10 @@
-﻿@page "/room/1"
+﻿@inherits PageLayout
+@page "/room/1"
 
 <h3>Room 1 - Q&amp;A</h3>
 
 <div>
-    <img src="assets/images/0.jpg" width="200" height="200" />
+    <img src="assets/images/0.jpg" width="200" height="200"/>
     <div class="form-group">
         <p>Do you think this picture is authentic?</p>
         <div class="form-check">
@@ -18,14 +19,14 @@
     @if (_yesNoOption)
     {
         <div class="form-group">
-            <label for="yesBox">If yes, did you attempt to check other reliable sources? And why?</label>
+            <label for="yesBox">Did you attempt to check other reliable sources? And why?</label>
             <input id="yesBox" class="form-control" type="text"/>
         </div>
     }
     else
     {
         <div class="form-group">
-            <label for="noBox">If no, what makes to think so?</label>
+            <label for="noBox">What makes to think so?</label>
             <input id="noBox" class="form-control" type="text"/>
         </div>
     }
@@ -37,14 +38,8 @@
 {
 
     [Inject] private NavigationManager NavigationManager { get; set; }
-    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
 
     private bool _yesNoOption = true;
-
-    protected override void OnInitialized()
-    {
-        UserSettings.LocalStorage ??= LocalStorage;
-    }
 
     private void ToggleOption()
     {

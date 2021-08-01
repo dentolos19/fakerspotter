@@ -1,4 +1,5 @@
-﻿@page "/finish"
+﻿@inherits PageLayout
+@page "/finish"
 
 <div style="text-align: center;">
     <h3>Congratulations!</h3>
@@ -10,13 +11,8 @@
 
 @code
 {
-    [Inject] private NavigationManager NavigationManager { get; set; }
-    [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
 
-    protected override void OnInitialized()
-    {
-        UserSettings.LocalStorage ??= LocalStorage;
-    }
+    [Inject] private NavigationManager NavigationManager { get; set; }
 
     private void Restart()
     {
