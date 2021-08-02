@@ -1,5 +1,15 @@
 ﻿@inherits PageLayout
-@page "/room/1"
+@page "/room1"
+
+@if (UserSettings.IsRoomOneCompleted)
+{
+    <div style="text-align: center;">
+        <h3>Halt</h3>
+        <p>This room is already completed.</p>
+        <Button Color="Color.Primary" Clicked="NextRoom">Next</Button>
+    </div>
+    return;
+}
 
 <h3>Room 1 - Q&amp;A</h3>
 
@@ -16,7 +26,7 @@
             <label class="form-check-label" for="noOption">No</label>
         </div>
     </div>
-    @if (_yesNoOption)
+    @if (YesNoOption)
     {
         <div class="form-group">
             <label for="yesBox">Did you attempt to check other reliable sources? And why?</label>
@@ -39,17 +49,17 @@
 
     [Inject] private NavigationManager NavigationManager { get; set; }
 
-    private bool _yesNoOption = true;
+    private bool YesNoOption { get; set; } = true;
 
     private void ToggleOption()
     {
-        _yesNoOption = !_yesNoOption;
+        YesNoOption = !YesNoOption;
     }
 
     private void NextRoom()
     {
         UserSettings.IsRoomOneCompleted = true;
-        NavigationManager.NavigateTo("room/2");
+        NavigationManager.NavigateTo("room2");
     }
 
 }

@@ -38,6 +38,12 @@ namespace FakerSpotter.Core
             set => LocalStorage.SetItem(nameof(IsRoomFiveCompleted), value);
         }
 
+        public static int PointsAccumulated
+        {
+            get => LocalStorage.ContainKey(nameof(PointsAccumulated)) ? LocalStorage.GetItem<int>(nameof(PointsAccumulated)) : 0;
+            set => LocalStorage.SetItem(nameof(PointsAccumulated), value);
+        }
+
     }
 
 }

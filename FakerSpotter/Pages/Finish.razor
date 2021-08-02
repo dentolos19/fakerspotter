@@ -1,11 +1,23 @@
 ﻿@inherits PageLayout
 @page "/finish"
 
+@if (!UserSettings.IsRoomOneCompleted && !UserSettings.IsRoomTwoCompleted && !UserSettings.IsRoomThreeCompleted && !UserSettings.IsRoomFourCompleted && !UserSettings.IsRoomFiveCompleted)
+{
+    <div style="text-align: center;">
+        <h3>Halt</h3>
+        <p>You must complete every room to finish.</p>
+        <Button Color="Color.Primary" Clicked="Back">Back</Button>
+    </div>
+    return;
+}
+
 <div style="text-align: center;">
     <h3>Congratulations!</h3>
-    <p>
-        You have successfully cleared this escape room! Thank you for playing!
-    </p>
+    <div>
+        <img src="@RewardImageUrl" width="300"/>
+        <p>You have been awarded with <b>@RewardText</b></p>
+    </div>
+    <p>Thank you for playing!</p>
     <button class="btn btn-primary" @onclick="Restart">Restart</button>
 </div>
 
@@ -14,6 +26,35 @@
 
     [Inject] private NavigationManager NavigationManager { get; set; }
 
+    private string RewardImageUrl { get; set; }
+    private string RewardText { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        var pointsAccumulated = UserSettings.PointsAccumulated;
+        if (pointsAccumulated >= 80)
+        {
+            RewardImageUrl = "assets/images/awards/champion.svg";
+            RewardText = "Cyberwellness Champion";
+        }
+        else if (pointsAccumulated >= 60)
+        {
+            RewardImageUrl = "assets/images/awards/master.svg";
+            RewardText = "Cyberwellness Master";
+        }
+        else if (pointsAccumulated >= 40)
+        {
+            RewardImageUrl = "assets/images/awards/apprentice.svg";
+            RewardText = "Cyberwellness Apprentice";
+        }
+        else
+        {
+            RewardImageUrl = "assets/images/awards/novice.svg";
+            RewardText = "Cyberwellness Novice";
+        }
+    }
+
     private void Restart()
     {
         UserSettings.IsRoomOneCompleted = false;
@@ -21,6 +62,11 @@
         UserSettings.IsRoomThreeCompleted = false;
         UserSettings.IsRoomFourCompleted = false;
         UserSettings.IsRoomFiveCompleted = false;
+        NavigationManager.NavigateTo("");
+    }
+
+    private void Back()
+    {
         NavigationManager.NavigateTo("");
     }
 

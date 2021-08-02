@@ -13,12 +13,4 @@
 
 </div>
 
-This project is currently work-in-progress! This game is made for my school about cyberwellness.
-
-## Game Plan
-
-* **Room 1**: Answering basic cyberwellness questions
-* **Room 2**: Answering what ways to because responsible and protect yourself online
-* **Room 3**: Spotting fake news with headlines
-* **Room 4**: Spotting fake news with articles handwritten by students
-* **Room 5**: Spotting fake news with real-world articles
+This game is made for my school. Read more about this project by reading [this post](https://dentolos19.github.io/go/ncac).

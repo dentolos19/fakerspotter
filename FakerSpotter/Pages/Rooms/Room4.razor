@@ -1,5 +1,25 @@
 ﻿@inherits PageLayout
-@page "/room/4"
+@page "/room4"
+
+@if (UserSettings.IsRoomFourCompleted)
+{
+    <div style="text-align: center;">
+        <h3>Halt</h3>
+        <p>This room is already completed.</p>
+        <Button Color="Color.Primary" Clicked="NextRoom">Next</Button>
+    </div>
+    return;
+}
+
+@if (!UserSettings.IsRoomThreeCompleted)
+{
+    <div style="text-align: center;">
+        <h3>Halt</h3>
+        <p>The previous room needs to be completed first.</p>
+        <Button Color="Color.Primary" Clicked="PreviousRoom">Back</Button>
+    </div>
+    return;
+}
 
 <h3>Room 4 - Spot the fake news!</h3>
 
@@ -12,12 +32,18 @@
 @code
 {
 
-    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
 
     private void NextRoom()
     {
         UserSettings.IsRoomFourCompleted = true;
-        NavigationManager.NavigateTo("room/5");
+        NavigationManager.NavigateTo("room5");
+    }
+
+    private void PreviousRoom()
+    {
+        NavigationManager.NavigateTo("room3");
     }
 
 }
