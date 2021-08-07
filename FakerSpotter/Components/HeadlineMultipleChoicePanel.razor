@@ -1,0 +1,50 @@
+﻿@if (ShowEnd)
+{
+    @if (Points > 0)
+    {
+        <h5>+@Points</h5>
+    }
+    else if (Points < 0)
+    {
+        <h5>-@Points</h5>
+    }
+    else
+    {
+        <h5>Scored no points!</h5>
+    }
+}
+else
+{
+    <h3>Pick the fake headline!</h3>
+    <ListGroup Mode="ListGroupMode.Selectable">
+        @foreach (var (headline, isFake) in Question)
+        {
+            <ListGroupItem Clicked="() => PickChoice(isFake)">@headline</ListGroupItem>
+        }
+    </ListGroup>
+}
+
+@code
+{
+
+    [Parameter] public IDictionary<string, bool> Question { get; set; }
+    [Parameter] public EventCallback<int> OnComplete { get; set; }
+
+    private int Points { get; set; }
+    private bool ShowEnd { get; set; }
+
+    protected override bool ShouldRender()
+    {
+        return Question != null;
+    }
+
+    private async void PickChoice(bool isFake)
+    {
+        if (isFake)
+            Points += 100;
+        ShowEnd = true;
+        BlazorUtilities.DelayTask(3);
+        await OnComplete.InvokeAsync(Points);
+    }
+
+}

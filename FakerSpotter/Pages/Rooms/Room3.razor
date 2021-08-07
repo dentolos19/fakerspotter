@@ -21,19 +21,66 @@
     return;
 }
 
-<h3>Room 3 - Spot the fake news!</h3>
-
-<p>
-    This is just a placeholder for the actual room.
-</p>
-
-<button class="btn btn-primary" @onclick="NextRoom">Next</button>
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Room 3</h5>
+    </div>
+    <div class="card-body">
+        @QuestionPanel
+    </div>
+</div>
 
 @code
 {
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; }
+    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject] private HttpClient HttpClient { get; set; }
+
+    private HeadlineQuestions Questions { get; set; }
+    private RenderFragment QuestionPanel { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Questions = JsonSerializer.Deserialize<HeadlineQuestions>(await HttpClient.GetStringAsync("data/headlines.json"));
+        NextQuestion();
+    }
+
+    private RenderFragment BuildClosedQuestion(HeadlineClosedQuestion question) => builder =>
+    {
+        builder.OpenComponent(0, typeof(HeadlineClosedPanel));
+        builder.AddAttribute(1, "Question", question);
+        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<int>(this, QuestionCompleted));
+        builder.CloseComponent();
+    };
+
+    private RenderFragment BuildMultipleChoiceQuestion(IDictionary<string, bool> question) => builder =>
+    {
+        builder.OpenComponent(0, typeof(HeadlineClosedPanel));
+        builder.AddAttribute(1, "Question", question);
+        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<int>(this, QuestionCompleted));
+        builder.CloseComponent();
+    };
+
+    private void NextQuestion()
+    {
+        var random = new Random();
+        if (new Random().Next(100) >= 50)
+        {
+            var closedQuestion = Questions.ClosedQuestions[random.Next(Questions.ClosedQuestions.Length)];
+            QuestionPanel = BuildClosedQuestion(closedQuestion);
+        }
+        else
+        {
+            var multipleChoiceQuestion = Questions.MultipleChoiceQuestions[random.Next(Questions.MultipleChoiceQuestions.Length)];
+            QuestionPanel = BuildMultipleChoiceQuestion(multipleChoiceQuestion);
+        }
+    }
+
+    private void QuestionCompleted(int points)
+    {
+        UserSettings.PointsAccumulated += points;
+        NextQuestion();
+    }
 
     private void NextRoom()
     {

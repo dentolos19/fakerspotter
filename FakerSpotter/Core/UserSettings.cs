@@ -5,7 +5,7 @@ namespace FakerSpotter.Core
 
     public static class UserSettings
     {
-        
+
         public static ISyncLocalStorageService LocalStorage { get; set; }
 
         public static bool IsRoomOneCompleted

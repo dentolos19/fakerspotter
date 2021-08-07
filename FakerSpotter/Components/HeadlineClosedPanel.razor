@@ -1,0 +1,57 @@
+﻿@if (ShowEnd)
+{
+    @if (Points > 0)
+    {
+        <h5>+@Points</h5>
+    }
+    else if (Points < 0)
+    {
+        <h5>-@Points</h5>
+    }
+    else
+    {
+        <h5>Scored no points!</h5>
+    }
+}
+else
+{
+    <h3>@Question.Headline</h3>
+    <ListGroup Mode="ListGroupMode.Selectable">
+        <ListGroupItem Color="Color.Success" Clicked="PickRealNews">Real News</ListGroupItem>
+        <ListGroupItem Color="Color.Danger" Clicked="PickFakeNews">Fake News</ListGroupItem>
+    </ListGroup>
+}
+
+@code
+{
+
+    [Parameter] public HeadlineClosedQuestion Question { get; init; }
+    [Parameter] public EventCallback<int> OnComplete { get; set; }
+
+    private int Points { get; set; }
+    private bool ShowEnd { get; set; }
+
+    protected override bool ShouldRender()
+    {
+        return Question != null;
+    }
+
+    private async void PickRealNews()
+    {
+        if (!Question.IsFake)
+            Points += 100;
+        ShowEnd = true;
+        // BlazorUtilities.DelayTask(3);
+        await OnComplete.InvokeAsync(Points);
+    }
+
+    private async void PickFakeNews()
+    {
+        if (Question.IsFake)
+            Points += 100;
+        ShowEnd = true;
+        // BlazorUtilities.DelayTask(3);
+        await OnComplete.InvokeAsync(Points);
+    }
+
+}
