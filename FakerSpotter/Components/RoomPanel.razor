@@ -1,0 +1,34 @@
+﻿<Card>
+    <CardHeader>@RoomName</CardHeader>
+    <CardBody>
+        @if (IsCompleted)
+        {
+            <Alert Color="Color.Success" Visible="true">
+                <AlertMessage>Completed</AlertMessage>
+                <AlertDescription>This room is already completed, proceed to the <Blazorise.Link To="@NextRoomEndpoint">next room</Blazorise.Link>.</AlertDescription>
+            </Alert>
+            return;
+        }
+        @if (IsLocked)
+        {
+            <Alert Color="Color.Danger" Visible="true">
+                <AlertMessage>Locked</AlertMessage>
+                <AlertDescription>This room is locked until the <Blazorise.Link To="@PreviousRoomEndpoint">previous room</Blazorise.Link> is unlocked.</AlertDescription>
+            </Alert>
+            return;
+        }
+        @ChildContent
+    </CardBody>
+</Card>
+
+@code
+{
+
+    [Parameter] public string RoomName { get; set; }
+    [Parameter] public bool IsCompleted { get; set; }
+    [Parameter] public bool IsLocked { get; set; }
+    [Parameter] public string NextRoomEndpoint { get; set; } = string.Empty;
+    [Parameter] public string PreviousRoomEndpoint { get; set; } = string.Empty;
+    [Parameter] public RenderFragment ChildContent { get; set; }
+
+}

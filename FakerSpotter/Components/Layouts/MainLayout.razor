@@ -30,7 +30,7 @@
                         <Step Name="room3" Index="3" Color="Color.Warning" Completed="UserSettings.IsRoomThreeCompleted">Room 3</Step>
                         <Step Name="room4" Index="4" Color="Color.Danger" Completed="UserSettings.IsRoomFourCompleted">Room 4</Step>
                         <Step Name="room5" Index="5" Color="Color.Danger" Completed="UserSettings.IsRoomFiveCompleted">Room 5</Step>
-                        <Step Name="finish" Color="Color.Primary" Completed="IsFinishStepCompleted">
+                        <Step Name="finish" Color="Color.Primary" Completed="UserSettings.IsRoomOneCompleted && UserSettings.IsRoomTwoCompleted && UserSettings.IsRoomThreeCompleted && UserSettings.IsRoomFourCompleted && UserSettings.IsRoomFiveCompleted">
                             <Marker>
                                 <Icon Name="IconName.Flag"/>
                             </Marker>
@@ -67,8 +67,6 @@
     [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
 
     private string SelectedStep { get; set; }
-
-    private bool IsFinishStepCompleted => UserSettings.IsRoomOneCompleted && UserSettings.IsRoomTwoCompleted && UserSettings.IsRoomThreeCompleted && UserSettings.IsRoomFourCompleted && UserSettings.IsRoomFiveCompleted;
 
     protected override void OnInitialized()
     {

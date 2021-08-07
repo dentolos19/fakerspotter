@@ -1,14 +1,15 @@
-﻿@inherits PageLayout
-@page "/"
+﻿@page "/"
 
-<div style="text-align: center;">
-    <h3>FakeSpotter</h3>
-    <p>
-        Please note that this is only a prototype, some features are not
-        final and may experience major changes in the future.
-    </p>
-    <button class="btn btn-primary" @onclick="Continue">Continue</button>
-</div>
+<Jumbotron Background="Background.Light" Padding="Padding.Is4">
+    <JumbotronTitle Size="JumbotronTitleSize.Is4">FakerSpotter</JumbotronTitle>
+    <JumbotronSubtitle>
+        Please note that this is only a prototype, some features are not final and may experience major changes in the future.
+    </JumbotronSubtitle>
+    <Divider/>
+    <Paragraph>
+        <Button Color="Color.Primary" Clicked="Continue">Continue</Button>
+    </Paragraph>
+</Jumbotron>
 
 @code
 {

@@ -1,34 +1,10 @@
-﻿@inherits PageLayout
-@page "/room3"
+﻿@page "/room3"
 
-@if (UserSettings.IsRoomThreeCompleted)
-{
-    <div style="text-align: center;">
-        <h3>Halt</h3>
-        <p>This room is already completed.</p>
-        <Button Color="Color.Primary" Clicked="NextRoom">Next</Button>
-    </div>
-    return;
-}
-
-@if (!UserSettings.IsRoomTwoCompleted)
-{
-    <div style="text-align: center;">
-        <h3>Halt</h3>
-        <p>The previous room needs to be completed first.</p>
-        <Button Color="Color.Primary" Clicked="PreviousRoom">Back</Button>
-    </div>
-    return;
-}
-
-<div class="card">
-    <div class="card-header">
-        <h5 class="card-title">Room 3</h5>
-    </div>
-    <div class="card-body">
+<RoomPanel RoomName="Room 3" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="room2" PreviousRoomEndpoint="room4">
+    <ChildContent>
         @QuestionPanel
-    </div>
-</div>
+    </ChildContent>
+</RoomPanel>
 
 @code
 {

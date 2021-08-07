@@ -1,33 +1,7 @@
-﻿@inherits PageLayout
-@page "/room1"
+﻿@page "/room1"
 
-@if (UserSettings.IsRoomOneCompleted)
-{
-    <div style="text-align: center;">
-        <h3>Halt</h3>
-        <p>This room is already completed.</p>
-        <Button Color="Color.Primary" Clicked="NextRoom">Next</Button>
-    </div>
-    return;
-}
-
-<h3>Room 1 - Q&amp;A</h3>
-
-<p>
-    This is just a placeholder for the actual room.
-</p>
-
-<button class="btn btn-primary" @onclick="NextRoom">Next</button>
-
-@code
-{
-
-    [Inject] private NavigationManager NavigationManager { get; set; }
-
-    private void NextRoom()
-    {
-        UserSettings.IsRoomOneCompleted = true;
-        NavigationManager.NavigateTo("room2");
-    }
-
-}
+<RoomPanel RoomName="Room 1" IsCompleted="UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room2">
+    <ChildContent>
+        Hello World!
+    </ChildContent>
+</RoomPanel>
