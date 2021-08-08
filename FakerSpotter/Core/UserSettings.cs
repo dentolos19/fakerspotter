@@ -26,18 +26,6 @@ namespace FakerSpotter.Core
             set => LocalStorage.SetItem(nameof(IsRoomThreeCompleted), value);
         }
 
-        public static bool IsRoomFourCompleted
-        {
-            get => LocalStorage.ContainKey(nameof(IsRoomFourCompleted)) && LocalStorage.GetItem<bool>(nameof(IsRoomFourCompleted));
-            set => LocalStorage.SetItem(nameof(IsRoomFourCompleted), value);
-        }
-
-        public static bool IsRoomFiveCompleted
-        {
-            get => LocalStorage.ContainKey(nameof(IsRoomFiveCompleted)) && LocalStorage.GetItem<bool>(nameof(IsRoomFiveCompleted));
-            set => LocalStorage.SetItem(nameof(IsRoomFiveCompleted), value);
-        }
-
         public static int PointsAccumulated
         {
             get => LocalStorage.ContainKey(nameof(PointsAccumulated)) ? LocalStorage.GetItem<int>(nameof(PointsAccumulated)) : 0;

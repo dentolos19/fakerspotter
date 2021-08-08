@@ -1,9 +1,7 @@
 ﻿@page "/room3"
 
-<RoomPanel RoomName="Room 3" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="room4" PreviousRoomEndpoint="room2">
+<RoomPanel RoomName="Room 3: Spot the Fake News!" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
     <RoomContent>
-        @QuestionPanel
-        <Divider/>
         This room is currently incomplete, you may proceed to the next room
         <Button Color="Color.Primary" Clicked="Continue">Continue</Button>
     </RoomContent>
@@ -13,58 +11,11 @@
 {
 
     [Inject] private NavigationManager NavigationManager { get; set; }
-    [Inject] private HttpClient HttpClient { get; set; }
-
-    private HeadlineQuestions Questions { get; set; }
-    private RenderFragment QuestionPanel { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        Questions = JsonSerializer.Deserialize<HeadlineQuestions>(await HttpClient.GetStringAsync("data/headlines.json"));
-        NextQuestion();
-    }
-
-    private RenderFragment BuildClosedQuestion(HeadlineClosedQuestion question) => builder =>
-    {
-        builder.OpenComponent(0, typeof(HeadlineClosedPanel));
-        builder.AddAttribute(1, "Question", question);
-        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<int>(this, QuestionCompleted));
-        builder.CloseComponent();
-    };
-
-    private RenderFragment BuildMultipleChoiceQuestion(IDictionary<string, bool> question) => builder =>
-    {
-        builder.OpenComponent(0, typeof(HeadlineMultipleChoicePanel));
-        builder.AddAttribute(1, "Question", question);
-        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<int>(this, QuestionCompleted));
-        builder.CloseComponent();
-    };
-
-    private void NextQuestion()
-    {
-        var random = new Random();
-        if (new Random().Next(100) >= 50)
-        {
-            var closedQuestion = Questions.ClosedQuestions[random.Next(Questions.ClosedQuestions.Length)];
-            QuestionPanel = BuildClosedQuestion(closedQuestion);
-        }
-        else
-        {
-            var multipleChoiceQuestion = Questions.MultipleChoiceQuestions[random.Next(Questions.MultipleChoiceQuestions.Length)];
-            QuestionPanel = BuildMultipleChoiceQuestion(multipleChoiceQuestion);
-        }
-    }
-
-    private void QuestionCompleted(int points)
-    {
-        UserSettings.PointsAccumulated += points;
-        NextQuestion();
-    }
 
     private void Continue()
     {
         UserSettings.IsRoomThreeCompleted = true;
-        NavigationManager.NavigateTo("room4");
+        NavigationManager.NavigateTo("finish");
     }
 
 }

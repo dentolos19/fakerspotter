@@ -1,6 +1,6 @@
 ﻿@page "/finish"
 
-@if (!UserSettings.IsRoomOneCompleted && !UserSettings.IsRoomTwoCompleted && !UserSettings.IsRoomThreeCompleted && !UserSettings.IsRoomFourCompleted && !UserSettings.IsRoomFiveCompleted)
+@if (!(UserSettings.IsRoomOneCompleted && UserSettings.IsRoomTwoCompleted && UserSettings.IsRoomThreeCompleted))
 {
     <Alert Color="Color.Danger" Visible="true">
         <AlertMessage>Locked</AlertMessage>
@@ -30,26 +30,24 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        var pointsAccumulated = UserSettings.PointsAccumulated;
-        if (pointsAccumulated >= 80)
+        switch (UserSettings.PointsAccumulated)
         {
-            RewardImageUrl = "assets/images/awards/champion.svg";
-            RewardText = "Cyberwellness Champion";
-        }
-        else if (pointsAccumulated >= 60)
-        {
-            RewardImageUrl = "assets/images/awards/master.svg";
-            RewardText = "Cyberwellness Master";
-        }
-        else if (pointsAccumulated >= 40)
-        {
-            RewardImageUrl = "assets/images/awards/apprentice.svg";
-            RewardText = "Cyberwellness Apprentice";
-        }
-        else
-        {
-            RewardImageUrl = "assets/images/awards/novice.svg";
-            RewardText = "Cyberwellness Novice";
+            case >= 80:
+                RewardImageUrl = "assets/images/awards/champion.svg";
+                RewardText = "Cyberwellness Champion";
+                break;
+            case >= 60:
+                RewardImageUrl = "assets/images/awards/master.svg";
+                RewardText = "Cyberwellness Master";
+                break;
+            case >= 40:
+                RewardImageUrl = "assets/images/awards/apprentice.svg";
+                RewardText = "Cyberwellness Apprentice";
+                break;
+            default:
+                RewardImageUrl = "assets/images/awards/novice.svg";
+                RewardText = "Cyberwellness Novice";
+                break;
         }
     }
 
@@ -58,8 +56,6 @@
         UserSettings.IsRoomOneCompleted = false;
         UserSettings.IsRoomTwoCompleted = false;
         UserSettings.IsRoomThreeCompleted = false;
-        UserSettings.IsRoomFourCompleted = false;
-        UserSettings.IsRoomFiveCompleted = false;
         UserSettings.PointsAccumulated = 0;
         NavigationManager.NavigateTo("");
     }

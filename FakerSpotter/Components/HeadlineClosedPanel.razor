@@ -1,28 +1,10 @@
-﻿@if (ShowEnd)
-{
-    @if (Points > 0)
-    {
-        <h5>+@Points</h5>
-    }
-    else if (Points < 0)
-    {
-        <h5>-@Points</h5>
-    }
-    else
-    {
-        <h5>0</h5>
-    }
-}
-else
-{
-    <Field>
-        <FieldLabel>@Question.Headline</FieldLabel>
-        <ListGroup Mode="ListGroupMode.Selectable">
-            <ListGroupItem Clicked="PickRealNews">Real News</ListGroupItem>
-            <ListGroupItem Clicked="PickFakeNews">Fake News</ListGroupItem>
-        </ListGroup>
-    </Field>
-}
+﻿<Field>
+    <FieldLabel>@Question.Headline</FieldLabel>
+    <ListGroup Mode="ListGroupMode.Selectable">
+        <ListGroupItem Color="Color.Light" Clicked="PickRealNews">Real News</ListGroupItem>
+        <ListGroupItem Color="Color.Light" Clicked="PickFakeNews">Fake News</ListGroupItem>
+    </ListGroup>
+</Field>
 
 @code
 {
@@ -31,7 +13,6 @@ else
     [Parameter] public EventCallback<int> OnComplete { get; set; }
 
     private int Points { get; set; }
-    private bool ShowEnd { get; set; }
 
     protected override bool ShouldRender()
     {
@@ -42,7 +23,6 @@ else
     {
         if (!Question.IsFake)
             Points += 100;
-        ShowEnd = true;
         await OnComplete.InvokeAsync(Points);
     }
 
@@ -50,7 +30,6 @@ else
     {
         if (Question.IsFake)
             Points += 100;
-        ShowEnd = true;
         await OnComplete.InvokeAsync(Points);
     }
 
