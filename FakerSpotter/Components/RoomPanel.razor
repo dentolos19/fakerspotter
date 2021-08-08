@@ -1,5 +1,5 @@
 ﻿<Card>
-    <CardHeader>@RoomName</CardHeader>
+    <CardHeader>@RoomName | @UserSettings.PointsAccumulated points</CardHeader>
     <CardBody>
         @if (IsCompleted)
         {
@@ -13,11 +13,11 @@
         {
             <Alert Color="Color.Danger" Visible="true">
                 <AlertMessage>Locked</AlertMessage>
-                <AlertDescription>This room is locked until the <Blazorise.Link To="@PreviousRoomEndpoint">previous room</Blazorise.Link> is unlocked.</AlertDescription>
+                <AlertDescription>This room is locked until the <Blazorise.Link To="@PreviousRoomEndpoint">previous room</Blazorise.Link> is completed.</AlertDescription>
             </Alert>
             return;
         }
-        @ChildContent
+        @RoomContent
     </CardBody>
 </Card>
 
@@ -25,10 +25,10 @@
 {
 
     [Parameter] public string RoomName { get; set; }
+    [Parameter] public RenderFragment RoomContent { get; set; }
     [Parameter] public bool IsCompleted { get; set; }
     [Parameter] public bool IsLocked { get; set; }
     [Parameter] public string NextRoomEndpoint { get; set; } = string.Empty;
     [Parameter] public string PreviousRoomEndpoint { get; set; } = string.Empty;
-    [Parameter] public RenderFragment ChildContent { get; set; }
 
 }

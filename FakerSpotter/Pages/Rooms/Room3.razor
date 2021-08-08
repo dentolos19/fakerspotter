@@ -1,9 +1,12 @@
 ﻿@page "/room3"
 
-<RoomPanel RoomName="Room 3" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="room2" PreviousRoomEndpoint="room4">
-    <ChildContent>
+<RoomPanel RoomName="Room 3" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="room4" PreviousRoomEndpoint="room2">
+    <RoomContent>
         @QuestionPanel
-    </ChildContent>
+        <Divider/>
+        This room is currently incomplete, you may proceed to the next room
+        <Button Color="Color.Primary" Clicked="Continue">Continue</Button>
+    </RoomContent>
 </RoomPanel>
 
 @code
@@ -31,7 +34,7 @@
 
     private RenderFragment BuildMultipleChoiceQuestion(IDictionary<string, bool> question) => builder =>
     {
-        builder.OpenComponent(0, typeof(HeadlineClosedPanel));
+        builder.OpenComponent(0, typeof(HeadlineMultipleChoicePanel));
         builder.AddAttribute(1, "Question", question);
         builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<int>(this, QuestionCompleted));
         builder.CloseComponent();
@@ -58,15 +61,10 @@
         NextQuestion();
     }
 
-    private void NextRoom()
+    private void Continue()
     {
         UserSettings.IsRoomThreeCompleted = true;
         NavigationManager.NavigateTo("room4");
-    }
-
-    private void PreviousRoom()
-    {
-        NavigationManager.NavigateTo("room2");
     }
 
 }

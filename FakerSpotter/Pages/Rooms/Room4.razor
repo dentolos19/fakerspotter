@@ -1,7 +1,21 @@
 ﻿@page "/room4"
 
 <RoomPanel RoomName="Room 4" IsCompleted="UserSettings.IsRoomFourCompleted" IsLocked="!UserSettings.IsRoomThreeCompleted" NextRoomEndpoint="room5" PreviousRoomEndpoint="room3">
-    <ChildContent>
-        Hello World!
-    </ChildContent>
+    <RoomContent>
+        This room is currently incomplete, you may proceed to the next room
+        <Button Color="Color.Primary" Clicked="Continue">Continue</Button>
+    </RoomContent>
 </RoomPanel>
+
+@code
+{
+
+    [Inject] private NavigationManager NavigationManager { get; set; }
+
+    private void Continue()
+    {
+        UserSettings.IsRoomFourCompleted = true;
+        NavigationManager.NavigateTo("room5");
+    }
+
+}

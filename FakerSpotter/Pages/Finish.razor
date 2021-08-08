@@ -2,11 +2,10 @@
 
 @if (!UserSettings.IsRoomOneCompleted && !UserSettings.IsRoomTwoCompleted && !UserSettings.IsRoomThreeCompleted && !UserSettings.IsRoomFourCompleted && !UserSettings.IsRoomFiveCompleted)
 {
-    <div style="text-align: center;">
-        <h3>Halt</h3>
-        <p>You must complete every room to finish.</p>
-        <Button Color="Color.Primary" Clicked="Back">Back</Button>
-    </div>
+    <Alert Color="Color.Danger" Visible="true">
+        <AlertMessage>Locked</AlertMessage>
+        <AlertDescription>This page is locked until you've completed all the rooms.</AlertDescription>
+    </Alert>
     return;
 }
 
@@ -61,11 +60,7 @@
         UserSettings.IsRoomThreeCompleted = false;
         UserSettings.IsRoomFourCompleted = false;
         UserSettings.IsRoomFiveCompleted = false;
-        NavigationManager.NavigateTo("");
-    }
-
-    private void Back()
-    {
+        UserSettings.PointsAccumulated = 0;
         NavigationManager.NavigateTo("");
     }
 

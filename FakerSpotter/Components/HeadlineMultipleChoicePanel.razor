@@ -10,18 +10,20 @@
     }
     else
     {
-        <h5>Scored no points!</h5>
+        <h5>0</h5>
     }
 }
 else
 {
-    <h3>Pick the fake headline!</h3>
-    <ListGroup Mode="ListGroupMode.Selectable">
-        @foreach (var (headline, isFake) in Question)
-        {
-            <ListGroupItem Clicked="() => PickChoice(isFake)">@headline</ListGroupItem>
-        }
-    </ListGroup>
+    <Field>
+        <FieldLabel>Find the fake news headline!</FieldLabel>
+        <ListGroup Mode="ListGroupMode.Selectable">
+            @foreach (var (headline, isFake) in Question)
+            {
+                <ListGroupItem Clicked="() => PickChoice(isFake)">@headline</ListGroupItem>
+            }
+        </ListGroup>
+    </Field>
 }
 
 @code
@@ -43,7 +45,6 @@ else
         if (isFake)
             Points += 100;
         ShowEnd = true;
-        BlazorUtilities.DelayTask(3);
         await OnComplete.InvokeAsync(Points);
     }
 
