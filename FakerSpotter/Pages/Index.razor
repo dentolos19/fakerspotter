@@ -1,15 +1,17 @@
 ﻿@page "/"
 
-<Jumbotron Background="Background.Light" Padding="Padding.Is4">
-    <JumbotronTitle Size="JumbotronTitleSize.Is4">FakerSpotter</JumbotronTitle>
-    <JumbotronSubtitle>
-        Please note that this is only a prototype, some features are not final and may experience major changes in the future.
-    </JumbotronSubtitle>
-    <Divider/>
-    <Paragraph>
-        <Button Color="Color.Primary" Clicked="Continue">Continue</Button>
-    </Paragraph>
-</Jumbotron>
+<Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
+    <Jumbotron Background="Background.Light" Padding="Padding.Is4">
+        <JumbotronTitle Size="JumbotronTitleSize.Is4">FakerSpotter</JumbotronTitle>
+        <JumbotronSubtitle>
+            Please note that this is only a prototype, some features are not final and may experience major changes in the future.
+        </JumbotronSubtitle>
+        <Divider/>
+        <Paragraph>
+            <Button Color="Color.Primary" Clicked="Continue">Continue</Button>
+        </Paragraph>
+    </Jumbotron>
+</Animate>
 
 @code
 {
