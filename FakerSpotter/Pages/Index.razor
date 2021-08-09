@@ -8,34 +8,8 @@
         </JumbotronSubtitle>
         <Divider/>
         <Paragraph>
-            <Button Color="Color.Primary" Clicked="Continue">Continue</Button>
+            It is recommended that you use a mobile (phone) device for a better experience.
         </Paragraph>
+        <Button Color="Color.Primary" Type="ButtonType.Link" To="tutorial">Continue</Button>
     </Jumbotron>
 </Animate>
-
-@code
-{
-
-    [Inject] private NavigationManager NavigationManager { get; set; }
-
-    private void Continue()
-    {
-        if (UserSettings.IsRoomOneCompleted != true)
-        {
-            NavigationManager.NavigateTo("room1");
-        }
-        else if (UserSettings.IsRoomTwoCompleted != true)
-        {
-            NavigationManager.NavigateTo("room2");
-        }
-        else if (UserSettings.IsRoomThreeCompleted != true)
-        {
-            NavigationManager.NavigateTo("room3");
-        }
-        else
-        {
-            NavigationManager.NavigateTo("finish");
-        }
-    }
-
-}

@@ -1,9 +1,11 @@
 ﻿@page "/room3"
 
-<RoomPanel RoomName="Room 3: Spot the Fake News!" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
+<RoomPanel RoomName="Room 3: Spot the fake news!" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
     <RoomContent>
-        This room is currently incomplete, you may proceed to the next room
-        <Button Color="Color.Primary" Clicked="Continue">Continue</Button>
+        <Paragraph>
+            This room is currently incomplete, you may proceed to the next room.
+        </Paragraph>
+        <Button Color="Color.Primary" Clicked="OnContinue">Continue</Button>
     </RoomContent>
 </RoomPanel>
 
@@ -12,7 +14,7 @@
 
     [Inject] private NavigationManager NavigationManager { get; set; }
 
-    private void Continue()
+    private void OnContinue()
     {
         UserSettings.IsRoomThreeCompleted = true;
         NavigationManager.NavigateTo("finish");

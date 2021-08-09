@@ -1,0 +1,36 @@
+﻿@page "/tutorial"
+
+<Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
+    <Title Size="3" TextAlignment="TextAlignment.Center">Tutorial</Title>
+    <Divider/>
+    <Paragraph>Hello World! This is the simple tutorial</Paragraph>
+    <Button Color="Color.Primary" Clicked="OnContinue">Play</Button>
+</Animate>
+
+@code
+{
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
+
+    private void OnContinue()
+    {
+        if (UserSettings.IsRoomOneCompleted != true)
+        {
+            NavigationManager.NavigateTo("room1");
+        }
+        else if (UserSettings.IsRoomTwoCompleted != true)
+        {
+            NavigationManager.NavigateTo("room2");
+        }
+        else if (UserSettings.IsRoomThreeCompleted != true)
+        {
+            NavigationManager.NavigateTo("room3");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("finish");
+        }
+    }
+
+}

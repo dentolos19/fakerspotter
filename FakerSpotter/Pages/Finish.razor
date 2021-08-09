@@ -9,15 +9,16 @@
     return;
 }
 
-<div style="text-align: center;">
-    <h3>Congratulations!</h3>
-    <div>
-        <img src="@RewardImageUrl" width="300"/>
-        <p>You have been awarded with <b>@RewardText</b></p>
-    </div>
-    <p>Thank you for playing!</p>
-    <button class="btn btn-primary" @onclick="Restart">Restart</button>
-</div>
+<Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
+    <Title Size="3" TextAlignment="TextAlignment.Center">Congratulations!</Title>
+    <Container TextAlignment="TextAlignment.Center">
+        <img src="@RewardImageUrl" width="400"/>
+        <p>
+            You have been awarded with <b>@RewardText</b>!
+        </p>
+        <Button Color="Color.Primary" Clicked="OnRestart">Restart</Button>
+    </Container>
+</Animate>
 
 @code
 {
@@ -51,7 +52,7 @@
         }
     }
 
-    private void Restart()
+    private void OnRestart()
     {
         UserSettings.IsRoomOneCompleted = false;
         UserSettings.IsRoomTwoCompleted = false;
