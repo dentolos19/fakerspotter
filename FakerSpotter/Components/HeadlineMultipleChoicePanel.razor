@@ -16,11 +16,6 @@
 
     private int Points { get; set; }
 
-    protected override bool ShouldRender()
-    {
-        return Question != null;
-    }
-
     private async void PickChoice(bool isFake)
     {
         if (isFake)

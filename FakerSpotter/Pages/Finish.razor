@@ -10,20 +10,25 @@
 }
 
 <Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
-    <Title Size="3" TextAlignment="TextAlignment.Center">Congratulations!</Title>
     <Container TextAlignment="TextAlignment.Center">
-        <img src="@RewardImageUrl" width="400"/>
-        <p>
-            You have been awarded with <b>@RewardText</b>!
-        </p>
-        <Button Color="Color.Primary" Clicked="OnRestart">Restart</Button>
+        <Title Size="3" TextAlignment="TextAlignment.Center">Congratulations!</Title>
+        <Figure Size="FigureSize.Is256x256">
+            <FigureImage Source="@RewardImageUrl"/>
+            <FigureCaption>
+                You have been awarded with <b>@RewardText</b>!
+            </FigureCaption>
+        </Figure>
+        <Paragraph Margin="Margin.Is4.FromTop">
+            <Button Color="Color.Primary" Clicked="OnRestart">Restart</Button>
+        </Paragraph>
     </Container>
 </Animate>
 
 @code
 {
 
-    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
 
     private string RewardImageUrl { get; set; }
     private string RewardText { get; set; }
