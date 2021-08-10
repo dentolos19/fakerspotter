@@ -3,15 +3,22 @@
 <Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
     <Title Size="3" TextAlignment="TextAlignment.Center">Tutorial</Title>
     <Divider/>
-    <Paragraph>Hello World! This is the simple tutorial</Paragraph>
+    <MarkdownPanel Content="@MarkdownContent"/>
     <Button Color="Color.Primary" Clicked="OnContinue">Play</Button>
 </Animate>
 
 @code
 {
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; }
+    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject] private HttpClient HttpClient { get; set; }
+
+    private string MarkdownContent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        MarkdownContent = await HttpClient.GetStringAsync("data/tutorial.md");
+    }
 
     private void OnContinue()
     {
