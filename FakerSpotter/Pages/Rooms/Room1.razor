@@ -2,6 +2,8 @@
 
 <RoomPanel RoomName="Room 1: Is it a fact or a opinion?" IsCompleted="UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room2">
     <RoomContent>
+        @QuestionPanel
+        <Divider/>
         <Paragraph>
             This room is currently incomplete, you may proceed to the next room.
         </Paragraph>
@@ -13,6 +15,37 @@
 {
 
     [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject] private HttpClient HttpClient { get; set; }
+
+    private StatementQuestion[] Questions { get; set; }
+    private RenderFragment QuestionPanel { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Questions = JsonSerializer.Deserialize<StatementQuestion[]>(await HttpClient.GetStringAsync("data/statements.json"));
+        NextQuestion();
+    }
+
+    private RenderFragment BuildQuestion(StatementQuestion question) => builder =>
+    {
+        builder.OpenComponent(0, typeof(FactOpinionPanel));
+        builder.AddAttribute(1, "Question", question);
+        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<int>(this, OnQuestionCompleted));
+        builder.CloseComponent();
+    };
+
+    private void NextQuestion()
+    {
+        var random = new Random();
+        var question = Questions[random.Next(Questions.Length)];
+        QuestionPanel = BuildQuestion(question);
+    }
+
+    private void OnQuestionCompleted(int points)
+    {
+        UserSettings.PointsAccumulated += points;
+        NextQuestion();
+    }
 
     private void OnContinue()
     {

@@ -1,10 +1,11 @@
-﻿<Field>
-    <FieldLabel>@Question.Headline</FieldLabel>
-    <ListGroup Mode="ListGroupMode.Selectable">
-        <ListGroupItem Color="Color.Light" Clicked="PickRealNews">Real News</ListGroupItem>
-        <ListGroupItem Color="Color.Light" Clicked="PickFakeNews">Fake News</ListGroupItem>
-    </ListGroup>
-</Field>
+﻿<Title Size="5">@Question.Headline</Title>
+
+<br/>
+
+<ListGroup Mode="ListGroupMode.Selectable">
+    <ListGroupItem Color="Color.Light" Clicked="OnRealPicked">Real News</ListGroupItem>
+    <ListGroupItem Color="Color.Light" Clicked="OnFakePicked">Fake News</ListGroupItem>
+</ListGroup>
 
 @code
 {
@@ -14,14 +15,14 @@
 
     private int Points { get; set; }
 
-    private async void PickRealNews()
+    private async void OnRealPicked()
     {
         if (!Question.IsFake)
             Points += 100;
         await OnComplete.InvokeAsync(Points);
     }
 
-    private async void PickFakeNews()
+    private async void OnFakePicked()
     {
         if (Question.IsFake)
             Points += 100;

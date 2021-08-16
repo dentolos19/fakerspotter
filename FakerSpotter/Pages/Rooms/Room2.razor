@@ -3,7 +3,7 @@
 <RoomPanel RoomName="Room 2: Spot the fake headline!" IsCompleted="UserSettings.IsRoomTwoCompleted" IsLocked="!UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room3" PreviousRoomEndpoint="room1">
     <RoomContent>
         @QuestionPanel
-        <Divider />
+        <Divider/>
         <Paragraph>
             This room is currently incomplete, you may proceed to the next room.
         </Paragraph>
@@ -45,7 +45,7 @@
     private void NextQuestion()
     {
         var random = new Random();
-        if (random.Next(100) >= 50)
+        if (random.Next(0, 2) == 0)
         {
             var closedQuestion = Questions.ClosedQuestions[random.Next(Questions.ClosedQuestions.Length)];
             QuestionPanel = BuildClosedQuestion(closedQuestion);

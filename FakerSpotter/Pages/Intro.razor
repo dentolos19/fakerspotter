@@ -1,7 +1,7 @@
-﻿@page "/tutorial"
+﻿@page "/intro"
 
 <Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
-    <Title Size="3" TextAlignment="TextAlignment.Center">Tutorial</Title>
+    <Title Size="3" TextAlignment="TextAlignment.Center">Intro</Title>
     <Divider/>
     <MarkdownPanel Content="@MarkdownContent"/>
     <Paragraph TextAlignment="TextAlignment.Center">
@@ -19,7 +19,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        MarkdownContent = await HttpClient.GetStringAsync("data/tutorial.md");
+        MarkdownContent = await HttpClient.GetStringAsync("data/intro.md");
     }
 
     private void OnContinue()

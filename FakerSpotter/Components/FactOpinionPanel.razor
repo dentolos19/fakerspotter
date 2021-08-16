@@ -1,0 +1,32 @@
+﻿<Title Size="5">@Question.Statement</Title>
+
+<br/>
+
+<ListGroup Mode="ListGroupMode.Selectable">
+    <ListGroupItem Color="Color.Light" Clicked="OnFactPicked">Fact</ListGroupItem>
+    <ListGroupItem Color="Color.Light" Clicked="OnOpinionPicked">Opinion</ListGroupItem>
+</ListGroup>
+
+@code
+{
+
+    [Parameter] public StatementQuestion Question { get; init; }
+    [Parameter] public EventCallback<int> OnComplete { get; set; }
+
+    private int Points { get; set; }
+
+    private async void OnFactPicked()
+    {
+        if (Question.IsFact)
+            Points += 100;
+        await OnComplete.InvokeAsync(Points);
+    }
+
+    private async void OnOpinionPicked()
+    {
+        if (!Question.IsFact)
+            Points += 100;
+        await OnComplete.InvokeAsync(Points);
+    }
+
+}

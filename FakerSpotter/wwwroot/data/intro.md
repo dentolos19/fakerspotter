@@ -1,10 +1,10 @@
-﻿Welcome to FakerSpotter! This is a digital toolkit prepared by the Brooksians' Cyberwellness Team!
+﻿Welcome to FakerSpotter! This is a digital toolkit prepared by the Brooksians' Cyberwellness Team! Learn more about this app by visiting the [about page](./about).
 
-WORK-IN-PROGRESS
+<details>
 
-#### Short Tutorial
-
-You should have seen multiple posters around the school displaying many tips and tricks on how to identify fake news. But just in case you didn't, I added a few pointers below.
+<summary>
+You should have seen multiple posters around the school displaying many tips and tricks on how to identify fake news. But just in case you didn't, expand this to get some few pointers.
+</summary>
 
 ##### Distinguish a factual statement
 
@@ -40,7 +40,9 @@ Examples of these opinion statements are:
 * It is better to live in Singapore than in Japan.
 * Dennise is the best programmer in the world.
 
-#### Game Details
+</details>
+
+<br/>
 
 ##### Game Plan
 

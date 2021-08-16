@@ -1,12 +1,9 @@
-﻿<Field>
-    <FieldLabel>Find the fake news headline!</FieldLabel>
-    <ListGroup Mode="ListGroupMode.Selectable">
-        @foreach (var (headline, isFake) in Question)
-        {
-            <ListGroupItem Color="Color.Light" Clicked="() => PickChoice(isFake)">@headline</ListGroupItem>
-        }
-    </ListGroup>
-</Field>
+﻿<ListGroup Mode="ListGroupMode.Selectable">
+    @foreach (var (headline, isFake) in Question)
+    {
+        <ListGroupItem Color="Color.Light" Clicked="() => OnChoicePicked(isFake)">@headline</ListGroupItem>
+    }
+</ListGroup>
 
 @code
 {
@@ -16,7 +13,7 @@
 
     private int Points { get; set; }
 
-    private async void PickChoice(bool isFake)
+    private async void OnChoicePicked(bool isFake)
     {
         if (isFake)
             Points += 100;

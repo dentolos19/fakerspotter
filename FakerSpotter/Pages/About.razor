@@ -1,0 +1,24 @@
+﻿@page "/about"
+
+<Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
+    <Title Size="3" TextAlignment="TextAlignment.Center">Intro</Title>
+    <Divider />
+    <MarkdownPanel Content="@MarkdownContent"/>
+    <Paragraph TextAlignment="TextAlignment.Center">
+        <Button Color="Color.Primary" Type="ButtonType.Link" To="">Back</Button>
+    </Paragraph>
+</Animate>
+
+@code
+{
+
+    [Inject] private HttpClient HttpClient { get; set; }
+
+    private string MarkdownContent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        MarkdownContent = await HttpClient.GetStringAsync("data/about.md");
+    }
+
+}

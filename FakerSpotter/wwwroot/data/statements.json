@@ -1,0 +1,95 @@
+[
+  {
+    "statement": "Your heart pumps blood through your body.",
+    "isFact": true
+  },
+  {
+    "statement": "The leaves of growing plants are usually green.",
+    "isFact": true
+  },
+  {
+    "statement": "People use their legs to walk.",
+    "isFact": true
+  },
+  {
+    "statement": "Some people keep dogs as pets.",
+    "isFact": true
+  },
+  {
+    "statement": "1 liter of water weighs 1 kilogram.",
+    "isFact": true
+  },
+  {
+    "statement": "There are 50 states in the United States.",
+    "isFact": true
+  },
+  {
+    "statement": "Water always comes from the sky.",
+    "isFact": true
+  },
+  {
+    "statement": "The capital of Singapore is Singapore.",
+    "isFact": true
+  },
+  {
+    "statement": "The first president of Singapore was Yusof Ishak.",
+    "isFact": true
+  },
+  {
+    "statement": "Bali tigers are extinct.",
+    "isFact": true
+  },
+  {
+    "statement": "Sir Ian McKellan played Gandalf in the Lord of the Rings and the Hobbit franchises.",
+    "isFact": true
+  },
+  {
+    "statement": "Singapore gained independence on 1965.",
+    "isFact": true
+  },
+  {
+    "statement": "Beethoven had a reputation as a virtuoso pianist.",
+    "isFact": true
+  },
+  {
+    "statement": "The cake tastes delicious.",
+    "isFact": false
+  },
+  {
+    "statement": "The movie was boring.",
+    "isFact": false
+  },
+  {
+    "statement": "To solve traffic, it is better to invest in subways and trains than in road widening programs.",
+    "isFact": false
+  },
+  {
+    "statement": "It is better to live in Singapore than in Japan.",
+    "isFact": false
+  },
+  {
+    "statement": "I prefer using Facebook to Twitter because Twitter has limited characters per caption.",
+    "isFact": false
+  },
+  {
+    "statement": "Traveling in Asia is more fun than traveling in Europe.",
+    "isFact": false
+  },
+  {
+    "statement": "Liza Soberano is more beautiful than Janella Salvador.",
+    "isFact": false
+  },
+  {
+    "statement": "Today seems hotter than yesterday.",
+    "isFact": false
+  },
+  {
+    "statement": "Beethoven’s reputation as a virtuoso pianist is overrated.",
+    "isFact": false
+  },
+  {
+    "statement": "The internet is being used by teenagers to waste their time in social media.",
+    "isFact": false
+  },
+  
+]
