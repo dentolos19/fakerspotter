@@ -1,1 +1,1 @@
-﻿Hello World
+﻿FakerSpotter is a escape room questionnaire where it tests as well as teach you how to protect yourself from fake news.

@@ -15,8 +15,7 @@
 
     private async void OnChoicePicked(bool isFake)
     {
-        if (isFake)
-            Points += 100;
+        Points = isFake ? 100 : 0;
         await OnComplete.InvokeAsync(Points);
     }
 

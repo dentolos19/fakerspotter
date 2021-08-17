@@ -28,7 +28,7 @@
 
     private RenderFragment BuildQuestion(StatementQuestion question) => builder =>
     {
-        builder.OpenComponent(0, typeof(FactOpinionPanel));
+        builder.OpenComponent(0, typeof(StatementPanel));
         builder.AddAttribute(1, "Question", question);
         builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<int>(this, OnQuestionCompleted));
         builder.CloseComponent();

@@ -1,7 +1,5 @@
 ﻿<Title Size="5">@Question.Headline</Title>
-
 <br/>
-
 <ListGroup Mode="ListGroupMode.Selectable">
     <ListGroupItem Color="Color.Light" Clicked="OnRealPicked">Real News</ListGroupItem>
     <ListGroupItem Color="Color.Light" Clicked="OnFakePicked">Fake News</ListGroupItem>
@@ -10,22 +8,20 @@
 @code
 {
 
-    [Parameter] public HeadlineClosedQuestion Question { get; init; }
+    [Parameter] public HeadlineClosedQuestion Question { get; set; }
     [Parameter] public EventCallback<int> OnComplete { get; set; }
 
     private int Points { get; set; }
 
     private async void OnRealPicked()
     {
-        if (!Question.IsFake)
-            Points += 100;
+        Points = !Question.IsFake ? 100 : 0;
         await OnComplete.InvokeAsync(Points);
     }
 
     private async void OnFakePicked()
     {
-        if (Question.IsFake)
-            Points += 100;
+        Points = Question.IsFake ? 100 : 0;
         await OnComplete.InvokeAsync(Points);
     }
 
