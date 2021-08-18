@@ -21,6 +21,7 @@ namespace FakerSpotter
             builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; }).AddBootstrapProviders().AddFontAwesomeIcons();
             builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped(_ => new Random());
             await builder.Build().RunAsync();
         }
 

@@ -9,14 +9,13 @@
 {
 
     [Parameter] public IDictionary<string, bool> Question { get; set; }
-    [Parameter] public EventCallback<int> OnComplete { get; set; }
+    [Parameter] public EventCallback<bool> OnComplete { get; set; }
 
     private int Points { get; set; }
 
     private async void OnChoicePicked(bool isFake)
     {
-        Points = isFake ? 100 : 0;
-        await OnComplete.InvokeAsync(Points);
+        await OnComplete.InvokeAsync(isFake);
     }
 
 }

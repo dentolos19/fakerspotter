@@ -1,4 +1,4 @@
-﻿Welcome to FakerSpotter! This is a digital toolkit prepared by the Sec 3 Cyberwellness Team! Learn more about this app by visiting the [about page](./about).
+﻿Welcome to FakerSpotter! This is a digital toolkit prepared by the Sec 3s Cyberwellness Team! Learn more about this toolkit by visiting the [about page](./about).
 
 <details>
 
@@ -44,6 +44,8 @@ Examples of these opinion statements are:
 
 <br/>
 
+In order to pass through one room, you must correctly answer a certain amount of questions correctly with retries. However, there is a limit on how many times you can retry and the minimum that you can get on one room is 100 points.
+
 ##### Game Plan
 
 * **Room 1**: Is it a fact or a opinion?
@@ -52,7 +54,7 @@ Examples of these opinion statements are:
 
 ##### End Awards
 
-* **Cyberwellness Champion**: 80-100 points 👑
-* **Cyberwellness Master**: 60-80 points ⚔
-* **Cyberwellness Apprentice**: 40-60 points 💁‍♂️
-* **Cyberwellness Novice**: 0-40 points 🤔
+* **Cyberwellness Champion**: 800-1000 points 👑
+* **Cyberwellness Master**: 600-800 points ⚔
+* **Cyberwellness Apprentice**: 400-600 points 💁‍♂️
+* **Cyberwellness Novice**: 0-400 points 🤔

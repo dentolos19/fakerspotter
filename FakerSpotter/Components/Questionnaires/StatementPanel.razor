@@ -9,20 +9,16 @@
 {
 
     [Parameter] public StatementQuestion Question { get; set; }
-    [Parameter] public EventCallback<int> OnComplete { get; set; }
-
-    private int Points { get; set; }
+    [Parameter] public EventCallback<bool> OnComplete { get; set; }
 
     private async void OnFactPicked()
     {
-        Points = Question.IsFact ? 100 : 0;
-        await OnComplete.InvokeAsync(Points);
+        await OnComplete.InvokeAsync(Question.IsFact);
     }
 
     private async void OnOpinionPicked()
     {
-        Points = !Question.IsFact ? 100 : 0;
-        await OnComplete.InvokeAsync(Points);
+        await OnComplete.InvokeAsync(!Question.IsFact);
     }
 
 }
