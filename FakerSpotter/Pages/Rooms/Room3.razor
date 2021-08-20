@@ -1,9 +1,11 @@
 ﻿@page "/room3"
 
-<RoomPanel RoomName="Room 3: Spot the fake news!" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
+<RoomPanel RoomName="@string.Format("Room 3: Spot the fake news! ({0}/3)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
     <RoomContent>
+        COMING SOON
+        <Divider/>
         <Paragraph>In order to pass this room, you must correctly answer 3 questions in a row!</Paragraph>
-        <Button Color="Color.Primary" Clicked="OnSkip">Skip</Button>
+        <Button Color="Color.Primary" Clicked="NextRoom">Skip</Button>
     </RoomContent>
 </RoomPanel>
 
@@ -16,10 +18,54 @@
 
     private int PointsScored { get; set; } = 500;
     private int QuestionsAnswered { get; set; }
-    private HeadlineQuestions Questions { get; set; }
+    private NewsQuestion[] Questions { get; set; }
     private RenderFragment QuestionPanel { get; set; }
 
-    private void OnSkip()
+    protected override async Task OnInitializedAsync()
+    {
+        Questions = JsonSerializer.Deserialize<NewsQuestion[]>(await HttpClient.GetStringAsync("data/news.json"));
+        NextQuestion();
+    }
+
+    private void OnQuestionCompleted(bool answeredCorrectly)
+    {
+        if (answeredCorrectly)
+        {
+            QuestionsAnswered++;
+        }
+        else
+        {
+            QuestionsAnswered = 0;
+            PointsScored -= Random.Next(0, 20);
+            if (PointsScored < 100)
+                NextRoom();
+        }
+        if (QuestionsAnswered < 3)
+        {
+            NextQuestion();
+        }
+        else
+        {
+            NextRoom();
+        }
+    }
+
+    private RenderFragment BuildQuestion(NewsQuestion question) => builder =>
+    {
+        /*
+        builder.OpenComponent(0, typeof(NewsPanel));
+        builder.AddAttribute(1, "Question", question);
+        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
+        builder.CloseComponent();
+        */
+    };
+
+    private void NextQuestion()
+    {
+        // TODO
+    }
+
+    private void NextRoom()
     {
         UserSettings.PointsAccumulated += PointsScored;
         UserSettings.IsRoomThreeCompleted = true;

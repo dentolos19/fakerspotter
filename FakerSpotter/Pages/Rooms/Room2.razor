@@ -27,6 +27,29 @@
         NextQuestion();
     }
 
+    private void OnQuestionCompleted(bool answeredCorrectly)
+    {
+        if (answeredCorrectly)
+        {
+            QuestionsAnswered++;
+        }
+        else
+        {
+            QuestionsAnswered = 0;
+            PointsScored -= Random.Next(0, 40);
+            if (PointsScored < 100)
+                NextRoom();
+        }
+        if (QuestionsAnswered < 5)
+        {
+            NextQuestion();
+        }
+        else
+        {
+            NextRoom();
+        }
+    }
+
     private RenderFragment BuildClosedQuestion(HeadlineClosedQuestion question) => builder =>
     {
         builder.OpenComponent(0, typeof(HeadlineClosedPanel));
@@ -62,29 +85,6 @@
         UserSettings.PointsAccumulated += PointsScored;
         UserSettings.IsRoomTwoCompleted = true;
         NavigationManager.NavigateTo("room3");
-    }
-
-    private void OnQuestionCompleted(bool answeredCorrectly)
-    {
-        if (answeredCorrectly)
-        {
-            QuestionsAnswered++;
-        }
-        else
-        {
-            QuestionsAnswered = 0;
-            PointsScored -= Random.Next(0, 40);
-            if (PointsScored < 100)
-                NextRoom();
-        }
-        if (QuestionsAnswered < 8)
-        {
-            NextQuestion();
-        }
-        else
-        {
-            NextRoom();
-        }
     }
 
 }

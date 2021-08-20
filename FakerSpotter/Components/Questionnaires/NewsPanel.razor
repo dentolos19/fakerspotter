@@ -1,0 +1,27 @@
+﻿<Figure Size="FigureSize.Is256x256">
+    <FigureImage Source="@Question.ImageUrl"/>
+</Figure>
+<Title Size="5">@Question.Headline</Title>
+<Paragraph>@Question.Background</Paragraph>
+<br/>
+<ListGroup Mode="ListGroupMode.Selectable">
+    <ListGroupItem Color="Color.Light" Clicked="OnRealPicked">Real News</ListGroupItem>
+    <ListGroupItem Color="Color.Light" Clicked="OnFakePicked">Fake News</ListGroupItem>
+</ListGroup>
+
+@code {
+
+    [Parameter] public NewsQuestion Question { get; set; }
+    [Parameter] public EventCallback<bool> OnComplete { get; set; }
+
+    private async void OnRealPicked()
+    {
+        await OnComplete.InvokeAsync(!Question.IsFake);
+    }
+
+    private async void OnFakePicked()
+    {
+        await OnComplete.InvokeAsync(Question.IsFake);
+    }
+
+}

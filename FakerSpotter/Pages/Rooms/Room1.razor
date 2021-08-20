@@ -27,27 +27,6 @@
         NextQuestion();
     }
 
-    private RenderFragment BuildQuestion(StatementQuestion question) => builder =>
-    {
-        builder.OpenComponent(0, typeof(StatementPanel));
-        builder.AddAttribute(1, "Question", question);
-        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
-        builder.CloseComponent();
-    };
-
-    private void NextQuestion()
-    {
-        var question = Questions[Random.Next(Questions.Length)];
-        QuestionPanel = BuildQuestion(question);
-    }
-
-    private void NextRoom()
-    {
-        UserSettings.PointsAccumulated += PointsScored;
-        UserSettings.IsRoomOneCompleted = true;
-        NavigationManager.NavigateTo("room2");
-    }
-
     private void OnQuestionCompleted(bool answeredCorrectly)
     {
         if (answeredCorrectly)
@@ -69,6 +48,27 @@
         {
             NextRoom();
         }
+    }
+
+    private RenderFragment BuildQuestion(StatementQuestion question) => builder =>
+    {
+        builder.OpenComponent(0, typeof(StatementPanel));
+        builder.AddAttribute(1, "Question", question);
+        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
+        builder.CloseComponent();
+    };
+
+    private void NextQuestion()
+    {
+        var question = Questions[Random.Next(Questions.Length)];
+        QuestionPanel = BuildQuestion(question);
+    }
+
+    private void NextRoom()
+    {
+        UserSettings.PointsAccumulated += PointsScored;
+        UserSettings.IsRoomOneCompleted = true;
+        NavigationManager.NavigateTo("room2");
     }
 
 }

@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/Powered%20By-.NET-blue?logo=microsoft&style=flat-square)](https://dotnet.microsoft.com)
 [![](https://img.shields.io/badge/Made%20With-Visual%20Studio-blue?logo=visual-studio&style=flat-square)](https://visualstudio.microsoft.com)
 
-This project is built for my school, currently work-in-progress!
+This project is built for my school!
 
 ## About This App
 
@@ -11,9 +11,9 @@ This project was built to test people (particularily students) on their cyberwel
 
 ### Game Plan
 
-* **Room 1**: Is it a _fact_ or a _opinion_?
-* **Room 2**: Spot the _fake_ headline!
-* **Room 3**: Spot the _fake_ news!
+* **Room 1**: Is it a fact or a opinion?
+* **Room 2**: Spot the fake headline!
+* **Room 3**: Spot the fake news!
 
 ### End Awards
 

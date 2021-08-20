@@ -17,14 +17,13 @@ jobs:
         dotnet-version: 5.0.x
     -
       name: Publish Website
-      run: |
-        cp ./FakerSpotter/FakerSpotter/wwwroot/index.html ./FakerSpotter/FakerSpotter/wwwroot/404.html
-        dotnet publish ./FakerSpotter/FakerSpotter.csproj --configuration Release --output ./output
+      run: dotnet publish ./FakerSpotter/FakerSpotter.csproj --configuration Release --output ./output
     - 
-      name: Fix Base URL
+      name: Website Patches
       run: |
         sed --in-place 's/<base href="\/"\/>/<base href="\/FakerSpotter\/"\/>/g' ./output/wwwroot/index.html
         sed --in-place 's/<base href="\/" \/>/<base href="\/FakerSpotter\/" \/>/g' ./output/wwwroot/index.html
+        cp ./output/wwwroot/index.html ./output/wwwroot/404.html
     - 
       name: Disable Jekyll
       run: touch ./output/wwwroot/.nojekyll
