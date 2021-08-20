@@ -17,7 +17,9 @@ jobs:
         dotnet-version: 5.0.x
     -
       name: Publish Website
-      run: dotnet publish ./FakerSpotter/FakerSpotter.csproj --configuration Release --output ./output
+      run: |
+        cp ./FakerSpotter/FakerSpotter/wwwroot/index.html ./FakerSpotter/FakerSpotter/wwwroot/404.html
+        dotnet publish ./FakerSpotter/FakerSpotter.csproj --configuration Release --output ./output
     - 
       name: Fix Base URL
       run: |
