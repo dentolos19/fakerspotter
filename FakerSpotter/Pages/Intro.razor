@@ -22,7 +22,7 @@
         MarkdownContent = await HttpClient.GetStringAsync("data/intro.md");
     }
 
-    private async void OnContinue()
+    private void OnContinue()
     {
         if (UserSettings.IsRoomOneCompleted != true)
         {

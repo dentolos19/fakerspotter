@@ -2,7 +2,42 @@
   {
     "imageName": "news0.jpg",
     "headline": "Fully vaccinated travellers can travel to Germany and back without serving SHN from Sept 8.",
-    "background": "", 
+    "background": "Source: The Straits Times",
     "isFake": false
+  },
+  {
+    "imageName": "news1.webp",
+    "headline": "Why programming is very bad for your health.",
+    "background": "Source: Dennise's Awesome Facts",
+    "isFake": true
+  },
+  {
+    "imageName": "news2.jpg",
+    "headline": "Coronavirus Bioweapon – How China Stole Coronavirus From Canada And Weaponized It.",
+    "background": "Source: GreatGameIndia",
+    "isFake": true
+  },
+  {
+    "imageName": "news3.jpg",
+    "headline": "Singapore YouTuber Dee Kosh charged with offering cash to boys below 18 for sexual services",
+    "background": "Source: TheStar",
+    "isFake": false
+  },
+  {
+    "imageName": "news4.jpg",
+    "headline": "3 Reasons Why You Should Stop Eating Peanut Butter Cups!",
+    "background": "Source: David Wolfe",
+    "isFake": true
+  },
+  {
+    "imageName": "news5.webp",
+    "headline": "Donald Trump sent his own plane to transport 200 stranded marines.",
+    "background": "The Trump campaign has confirmed to Hannity.com that Mr. Trump did indeed send his plane to make two trips from North Carolina to Miami, Florida to transport over 200 Gulf War Marines back home.\n\nSource: Sean Hannity Show",
+    "isFake": true
+  },
+  {
+    "imageName": "news6.jpg",
+    "headline": "Chinese astronauts conduct second spacewalk outside planned space station.",
+    "background": "Source: Cable News Network (CNN)"
   }
 ]

@@ -1,15 +1,19 @@
-﻿<Figure Size="FigureSize.Is256x256">
-    <FigureImage Source="@Question.ImageUrl"/>
-</Figure>
-<Title Size="5">@Question.Headline</Title>
-<Paragraph>@Question.Background</Paragraph>
+﻿<div style="text-align: center;">
+    <img src="@Question.ImageUrl" width="300"/>
+</div>
+<br/>
+<div style="text-align: center;">
+    <Title Size="5">@Question.Headline</Title>
+    <Paragraph>@Question.Background</Paragraph>
+</div>
 <br/>
 <ListGroup Mode="ListGroupMode.Selectable">
     <ListGroupItem Color="Color.Light" Clicked="OnRealPicked">Real News</ListGroupItem>
     <ListGroupItem Color="Color.Light" Clicked="OnFakePicked">Fake News</ListGroupItem>
 </ListGroup>
 
-@code {
+@code
+{
 
     [Parameter] public NewsQuestion Question { get; set; }
     [Parameter] public EventCallback<bool> OnComplete { get; set; }

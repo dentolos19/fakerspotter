@@ -3,9 +3,6 @@
 <RoomPanel RoomName="@string.Format("Room 1: Is it a fact or a opinion? ({0}/8)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room2">
     <RoomContent>
         @QuestionPanel
-        <Divider/>
-        <Paragraph>In order to pass this room, you must correctly answer 8 questions in a row!</Paragraph>
-        <Button Color="Color.Primary" Clicked="NextRoom">Skip</Button>
     </RoomContent>
 </RoomPanel>
 
