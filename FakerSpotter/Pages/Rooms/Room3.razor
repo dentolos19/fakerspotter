@@ -2,6 +2,10 @@
 
 <RoomPanel RoomName="@string.Format("Room 3: Spot the fake news! ({0}/3)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
     <RoomContent>
+        <Alert Color="Color.Info" Visible="true">
+            <AlertMessage>Info</AlertMessage>
+            <AlertDescription>The news shown are extracted from real-world articles, so you are able to research whether if its real or fake!</AlertDescription>
+        </Alert>
         @QuestionPanel
     </RoomContent>
 </RoomPanel>

@@ -1,20 +1,34 @@
 ﻿<ListGroup Mode="ListGroupMode.Selectable">
     @foreach (var (headline, isFake) in Question)
     {
-        <ListGroupItem Color="Color.Light" Clicked="() => OnChoicePicked(isFake)">@headline</ListGroupItem>
+        <ListGroupItem Color="@OptionsColor" Clicked="() => OnChoicePicked(isFake)">@headline</ListGroupItem>
     }
 </ListGroup>
 
 @code
 {
 
-    [Parameter] public IDictionary<string, bool> Question { get; set; }
+    private IDictionary<string, bool> _question;
+
+    [Parameter]
+    public IDictionary<string, bool> Question
+    {
+        get => _question;
+        set
+        {
+            OptionsColor = Color.Light;
+            _question = value;
+        }
+    }
+
     [Parameter] public EventCallback<bool> OnComplete { get; set; }
 
-    private int Points { get; set; }
+    private Color OptionsColor { get; set; }
 
     private async void OnChoicePicked(bool isFake)
     {
+        OptionsColor = isFake ? Color.Success : Color.Danger;
+        await Task.Delay(1000);
         await OnComplete.InvokeAsync(isFake);
     }
 

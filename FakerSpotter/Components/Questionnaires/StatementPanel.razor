@@ -1,23 +1,43 @@
 ﻿<Title Size="5">@Question.Statement</Title>
 <br/>
 <ListGroup Mode="ListGroupMode.Selectable">
-    <ListGroupItem Color="Color.Light" Clicked="OnFactPicked">Fact</ListGroupItem>
-    <ListGroupItem Color="Color.Light" Clicked="OnOpinionPicked">Opinion</ListGroupItem>
+    <ListGroupItem Color="@FactOptionColor" Clicked="OnFactPicked">Fact</ListGroupItem>
+    <ListGroupItem Color="@OpinionOptionColor" Clicked="OnOpinionPicked">Opinion</ListGroupItem>
 </ListGroup>
 
 @code
 {
 
-    [Parameter] public StatementQuestion Question { get; set; }
+    private StatementQuestion _question;
+
+    [Parameter]
+    public StatementQuestion Question
+    {
+        get => _question;
+        set
+        {
+            FactOptionColor = Color.Light;
+            OpinionOptionColor = Color.Light;
+            _question = value;
+        }
+    }
+
     [Parameter] public EventCallback<bool> OnComplete { get; set; }
+
+    private Color FactOptionColor { get; set; }
+    private Color OpinionOptionColor { get; set; }
 
     private async void OnFactPicked()
     {
+        FactOptionColor = Question.IsFact ? Color.Success : Color.Danger;
+        await Task.Delay(1000);
         await OnComplete.InvokeAsync(Question.IsFact);
     }
 
     private async void OnOpinionPicked()
     {
+        OpinionOptionColor = !Question.IsFact ? Color.Success : Color.Danger;
+        await Task.Delay(1000);
         await OnComplete.InvokeAsync(!Question.IsFact);
     }
 

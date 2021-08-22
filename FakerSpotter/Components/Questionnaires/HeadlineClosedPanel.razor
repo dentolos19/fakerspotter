@@ -1,23 +1,43 @@
 ﻿<Title Size="5">@Question.Headline</Title>
 <br/>
 <ListGroup Mode="ListGroupMode.Selectable">
-    <ListGroupItem Color="Color.Light" Clicked="OnRealPicked">Real News</ListGroupItem>
-    <ListGroupItem Color="Color.Light" Clicked="OnFakePicked">Fake News</ListGroupItem>
+    <ListGroupItem Color="@RealOptionColor" Clicked="OnRealPicked">Real News</ListGroupItem>
+    <ListGroupItem Color="@FakeOptionColor" Clicked="OnFakePicked">Fake News</ListGroupItem>
 </ListGroup>
 
 @code
 {
 
-    [Parameter] public HeadlineClosedQuestion Question { get; set; }
+    private HeadlineClosedQuestion _question;
+
+    [Parameter]
+    public HeadlineClosedQuestion Question
+    {
+        get => _question;
+        set
+        {
+            RealOptionColor = Color.Light;
+            FakeOptionColor = Color.Light;
+            _question = value;
+        }
+    }
+
     [Parameter] public EventCallback<bool> OnComplete { get; set; }
+
+    private Color RealOptionColor { get; set; }
+    private Color FakeOptionColor { get; set; }
 
     private async void OnRealPicked()
     {
+        RealOptionColor = !Question.IsFake ? Color.Success : Color.Danger;
+        await Task.Delay(1000);
         await OnComplete.InvokeAsync(!Question.IsFake);
     }
 
     private async void OnFakePicked()
     {
+        FakeOptionColor = Question.IsFake ? Color.Success : Color.Danger;
+        await Task.Delay(1000);
         await OnComplete.InvokeAsync(Question.IsFake);
     }
 
