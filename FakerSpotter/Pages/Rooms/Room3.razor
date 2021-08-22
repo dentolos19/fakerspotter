@@ -1,6 +1,6 @@
 ﻿@page "/room3"
 
-<RoomPanel RoomName="@string.Format("Room 3: Spot the fake news! ({0}/3)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
+<RoomPanel RoomName="@string.Format("Room 3: Spot the fake news! ({0}/5)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
     <RoomContent>
         <Alert Color="Color.Info" Visible="true">
             <AlertMessage>Info</AlertMessage>
@@ -41,7 +41,7 @@
             if (PointsScored < 100)
                 NextRoom();
         }
-        if (QuestionsAnswered < 3)
+        if (QuestionsAnswered < 5)
         {
             NextQuestion();
         }

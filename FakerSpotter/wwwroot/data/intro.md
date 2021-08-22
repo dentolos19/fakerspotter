@@ -2,15 +2,13 @@
 
 <details>
 
-<summary>
-During this cyberwellness week, you might have learnt many ways to protect yourself with fake news. But just in case you didn't, expand this to get some few pointers.
-</summary>
+<summary>During this cyberwellness week, you might have learnt many ways to protect yourself with fake news. But just in case you didn't, expand this to get some few pointers.</summary>
 
 <br/>
 
 ##### Identifying a factual statement
 
-Ask yourself this questions to identify if it is a factual statement.
+You need to ask following three questions to identify if it is a factual statement.
 
 * Can the statement be proved or demonstrated to be true?
 * Can the statement be observed in practice or operation?
@@ -27,6 +25,8 @@ We use two types of words to identify opinions.
 You can read more about this by clicking [here](https://dentolos19.github.io/go/fakenews).
 
 </details>
+
+<br/>
 
 In order to pass through one room, you must correctly answer a certain amount of questions correctly with retries. However, there is a limit on how many times you can retry and the minimum that you can get on one room is 100 points.
 
