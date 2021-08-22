@@ -1,8 +1,5 @@
 name: Automatic Web Deploy
-on:
-  push:
-    branches:
-    - main
+on: push
 jobs:
   task:
     runs-on: ubuntu-latest
@@ -17,13 +14,14 @@ jobs:
         dotnet-version: 5.0.x
     -
       name: Publish Website
-      run: dotnet publish ./FakerSpotter/FakerSpotter.csproj --configuration Release --output ./output
+      run: |
+        cp ./FakerSpotter/wwwroot/index.html ./FakerSpotter/wwwroot/404.html
+        dotnet publish ./FakerSpotter/FakerSpotter.csproj --configuration Release --output ./output
     - 
-      name: Website Patches
+      name: Fix Base URL
       run: |
         sed --in-place 's/<base href="\/"\/>/<base href="\/FakerSpotter\/"\/>/g' ./output/wwwroot/index.html
         sed --in-place 's/<base href="\/" \/>/<base href="\/FakerSpotter\/" \/>/g' ./output/wwwroot/index.html
-        cp ./output/wwwroot/index.html ./output/wwwroot/404.html
     - 
       name: Disable Jekyll
       run: touch ./output/wwwroot/.nojekyll

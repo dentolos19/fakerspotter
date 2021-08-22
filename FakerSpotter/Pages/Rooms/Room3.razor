@@ -2,10 +2,6 @@
 
 <RoomPanel RoomName="@string.Format("Room 3: Spot the fake news! ({0}/5)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
     <RoomContent>
-        <Alert Color="Color.Info" Visible="true">
-            <AlertMessage>Info</AlertMessage>
-            <AlertDescription>The news shown are extracted from real-world articles, so you are able to research whether if its real or fake!</AlertDescription>
-        </Alert>
         @QuestionPanel
     </RoomContent>
 </RoomPanel>
@@ -22,9 +18,9 @@
     private NewsQuestion[] Questions { get; set; }
     private RenderFragment QuestionPanel { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        Questions = JsonSerializer.Deserialize<NewsQuestion[]>(await HttpClient.GetStringAsync("data/news.json"));
+        Questions = GlobalVariables.NewsQuestions;
         NextQuestion();
     }
 

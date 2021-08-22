@@ -18,9 +18,9 @@
     private HeadlineQuestions Questions { get; set; }
     private RenderFragment QuestionPanel { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        Questions = JsonSerializer.Deserialize<HeadlineQuestions>(await HttpClient.GetStringAsync("data/headlines.json"));
+        Questions = GlobalVariables.HeadlineQuestions;
         NextQuestion();
     }
 

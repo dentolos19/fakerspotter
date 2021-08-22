@@ -18,9 +18,9 @@
     private StatementQuestion[] Questions { get; set; }
     private RenderFragment QuestionPanel { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        Questions = JsonSerializer.Deserialize<StatementQuestion[]>(await HttpClient.GetStringAsync("data/statements.json"));
+        Questions = GlobalVariables.StatementQuestions;
         NextQuestion();
     }
 

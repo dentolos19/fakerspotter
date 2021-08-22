@@ -1,28 +1,36 @@
-﻿<Card>
-    <CardHeader>@RoomName | @UserSettings.PointsAccumulated points</CardHeader>
-    <CardBody>
-        @if (IsCompleted)
-        {
-            <Alert Color="Color.Success" Visible="true">
-                <AlertMessage>Completed</AlertMessage>
-                <AlertDescription>This room is already completed, proceed to the <Blazorise.Link To="@NextRoomEndpoint">next room</Blazorise.Link>.</AlertDescription>
-            </Alert>
-            return;
-        }
-        @if (IsLocked)
-        {
-            <Alert Color="Color.Danger" Visible="true">
-                <AlertMessage>Locked</AlertMessage>
-                <AlertDescription>This room is locked until the <Blazorise.Link To="@PreviousRoomEndpoint">previous room</Blazorise.Link> is completed.</AlertDescription>
-            </Alert>
-            return;
-        }
-        @RoomContent
-    </CardBody>
-</Card>
+﻿<Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
+    <Alert Color="Color.Info" Visible="true">
+        <AlertMessage>Tip</AlertMessage>
+        <AlertDescription>@GlobalVariables.Tips[Random.Next(GlobalVariables.Tips.Length)]</AlertDescription>
+    </Alert>
+    <Card>
+        <CardHeader>@RoomName | @UserSettings.PointsAccumulated points</CardHeader>
+        <CardBody>
+            @if (IsCompleted)
+            {
+                <Alert Color="Color.Success" Visible="true">
+                    <AlertMessage>Completed</AlertMessage>
+                    <AlertDescription>This room is already completed, proceed to the <Blazorise.Link To="@NextRoomEndpoint">next room</Blazorise.Link>.</AlertDescription>
+                </Alert>
+                return;
+            }
+            @if (IsLocked)
+            {
+                <Alert Color="Color.Danger" Visible="true">
+                    <AlertMessage>Locked</AlertMessage>
+                    <AlertDescription>This room is locked until the <Blazorise.Link To="@PreviousRoomEndpoint">previous room</Blazorise.Link> is completed.</AlertDescription>
+                </Alert>
+                return;
+            }
+            @RoomContent
+        </CardBody>
+    </Card>
+</Animate>
 
 @code
 {
+
+    [Inject] private Random Random { get; set; }
 
     [Parameter] public string RoomName { get; set; }
     [Parameter] public RenderFragment RoomContent { get; set; }

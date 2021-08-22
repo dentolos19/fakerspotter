@@ -1,5 +1,7 @@
 ﻿FakerSpotter is a escape room questionnaire where it tests you as well as teach you how to protect yourself from fake news.
 
+This toolkit is currently hosted at <a href="https://github.com/dentolos19/FakerSpotter" target="_blank">GitHub</a> powered by <a href="https://dotnet.microsoft.com" target="_blank_">.NET</a>.
+
 ##### Research Materials
 
 * [Google News](https://news.google.com)
@@ -12,6 +14,6 @@
 * **3G** Amanda _(Brooksian News Champion)_
 * **3I** Syabil
 * **3F** Harith _(Brooksian News Champion)_
-* **3T** Dennise _(Main Programmer)_
+* **3T** Dennise _(Main Programmer)_ <--- did almost all of the work :(
 * **3E** Aqilah
 * **3D** Mirza

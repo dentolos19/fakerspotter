@@ -51,11 +51,16 @@
 @code
 {
 
+    [Inject] private HttpClient HttpClient { get; set; }
     [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         UserSettings.LocalStorage ??= LocalStorage;
+        GlobalVariables.Tips ??= JsonSerializer.Deserialize<string[]>(await HttpClient.GetStringAsync("data/tips.json"));
+        GlobalVariables.StatementQuestions ??= JsonSerializer.Deserialize<StatementQuestion[]>(await HttpClient.GetStringAsync("data/statements.json"));
+        GlobalVariables.HeadlineQuestions ??= JsonSerializer.Deserialize<HeadlineQuestions>(await HttpClient.GetStringAsync("data/headlines.json"));
+        GlobalVariables.NewsQuestions ??= JsonSerializer.Deserialize<NewsQuestion[]>(await HttpClient.GetStringAsync("data/news.json"));
     }
 
 }

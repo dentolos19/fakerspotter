@@ -22,7 +22,7 @@ We use two types of words to identify opinions.
 * Biased Words (e.g. bad, worse, worst, good, better, best, worthwhile, worthless)
 * Qualifiers (e.g. all, always, likely, never, might seem, possibly, probably, should)
 
-You can read more about this by clicking [here](https://dentolos19.github.io/go/fakenews).
+You can read more about this by clicking <a href="https://dentolos19.github.io/go/fakenews" target="_blank_">here</a>.
 
 </details>
 
