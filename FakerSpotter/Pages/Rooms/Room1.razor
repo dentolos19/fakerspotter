@@ -15,12 +15,10 @@
 
     private int PointsScored { get; set; } = 300;
     private int QuestionsAnswered { get; set; }
-    private StatementQuestion[] Questions { get; set; }
     private RenderFragment QuestionPanel { get; set; }
 
     protected override void OnInitialized()
     {
-        Questions = GlobalVariables.StatementQuestions;
         NextQuestion();
     }
 
@@ -57,7 +55,7 @@
 
     private void NextQuestion()
     {
-        var question = Questions[Random.Next(Questions.Length)];
+        var question = GlobalVariables.StatementQuestions[Random.Next(GlobalVariables.StatementQuestions.Length)];
         QuestionPanel = BuildQuestion(question);
     }
 
