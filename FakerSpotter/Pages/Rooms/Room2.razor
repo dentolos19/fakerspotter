@@ -13,7 +13,7 @@
     [Inject] private HttpClient HttpClient { get; set; }
     [Inject] private Random Random { get; set; }
 
-    private int PointsScored { get; set; } = 200;
+    private int Points { get; set; } = 200;
     private int QuestionsAnswered { get; set; }
     private RenderFragment QuestionPanel { get; set; }
 
@@ -31,8 +31,8 @@
         else
         {
             QuestionsAnswered = 0;
-            PointsScored -= Random.Next(0, 30);
-            if (PointsScored < 100)
+            Points -= Random.Next(0, 30);
+            if (Points < 100)
                 NextRoom();
         }
         if (QuestionsAnswered < 5)
@@ -77,7 +77,7 @@
 
     private void NextRoom()
     {
-        UserSettings.PointsAccumulated += PointsScored;
+        UserSettings.PointsAccumulated += Points;
         UserSettings.IsRoomTwoCompleted = true;
         NavigationManager.NavigateTo("room3");
     }

@@ -51,8 +51,8 @@
 @code
 {
 
-    [Inject] private HttpClient HttpClient { get; set; }
     [Inject] private ISyncLocalStorageService LocalStorage { get; set; }
+    [Inject] private HttpClient HttpClient { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

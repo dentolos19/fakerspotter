@@ -2,7 +2,7 @@
 
 <details>
 
-<summary>During this cyberwellness week, you might have learnt many ways to protect yourself with fake news. But just in case you didn't, expand this to get some few pointers.</summary>
+<summary>During thr cyberwellness week, you might have learnt many ways to protect yourself, but how about fake news? Learn ways to protect yourself by playing this game!</summary>
 
 <br/>
 
@@ -28,13 +28,13 @@ You can read more about this by clicking <a href="https://dentolos19.github.io/g
 
 <br/>
 
-In order to pass through one room, you must correctly answer a certain amount of questions correctly with retries. However, there is a limit on how many times you can retry and the minimum that you can get on one room is 100 points.
+You need to correctly answer the given questions consecutively in order to proceed into the next room. Each time you fail to answer, we will deduct points depending on the difficulty of the room. The minimum points you can get in each room is 100.
 
 ##### Game Plan
 
-* **Room 1**: Is it a fact or a opinion?
-* **Room 2**: Spot the fake headline!
-* **Room 3**: Spot the fake news!
+* **Room 1**: Is it a fact or a opinion? (max 300 points)
+* **Room 2**: Spot the fake headline! (max 200 points)
+* **Room 3**: Spot the fake news! (max 500 points)
 
 ##### End Awards
 

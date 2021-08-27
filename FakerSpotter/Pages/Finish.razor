@@ -13,13 +13,15 @@
     <Container TextAlignment="TextAlignment.Center">
         <Title Size="3" TextAlignment="TextAlignment.Center">Congratulations!</Title>
         <Figure Size="FigureSize.Is256x256">
-            <FigureImage Source="@RewardImageUrl" />
+            <FigureImage Source="@RewardImageUrl"/>
             <FigureCaption>
                 <Paragraph>You've accumulated <b>@UserSettings.PointsAccumulated</b> points!</Paragraph>
                 <Paragraph>You have been awarded with <b>@RewardText</b>!</Paragraph>
             </FigureCaption>
         </Figure>
-        <Paragraph Margin="Margin.Is4.FromTop">@BottomLineText</Paragraph>
+        <Paragraph Margin="Margin.Is4.FromTop">
+            Please give a feedback of your experience by clicking <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFt_EQeDqJ2KfOlvpIujcnee6aGIzaIRujXpkY7Z3ZOGE5Yw/viewform?usp=sf_link" target="_blank">here</a>
+        </Paragraph>
         <Button Color="Color.Primary" Clicked="OnRestart">Restart</Button>
     </Container>
 </Animate>
@@ -32,7 +34,6 @@
 
     private string RewardImageUrl { get; set; }
     private string RewardText { get; set; }
-    private string BottomLineText { get; set; }
 
     protected override void OnInitialized()
     {
@@ -42,22 +43,18 @@
             case >= 800:
                 RewardImageUrl = "assets/images/awards/champion.svg";
                 RewardText = "Cyberwellness Champion";
-                BottomLineText = "You are a pro in identifying fake news!";
                 break;
             case >= 600:
                 RewardImageUrl = "assets/images/awards/master.svg";
                 RewardText = "Cyberwellness Master";
-                BottomLineText = "You are almost there to becoming a pro!";
                 break;
             case >= 400:
                 RewardImageUrl = "assets/images/awards/apprentice.svg";
                 RewardText = "Cyberwellness Apprentice";
-                BottomLineText = "You need to train yourself harder!";
                 break;
             default:
                 RewardImageUrl = "assets/images/awards/novice.svg";
                 RewardText = "Cyberwellness Novice";
-                BottomLineText = "You really need to train yourself much harder!";
                 break;
         }
     }

@@ -16,6 +16,7 @@
         get => _question;
         set
         {
+            IsCompleted = false;
             OptionsColor = Color.Light;
             _question = value;
         }
@@ -23,11 +24,15 @@
 
     [Parameter] public EventCallback<bool> OnComplete { get; set; }
 
+    private bool IsCompleted { get; set; }
     private Color OptionsColor { get; set; }
 
     private async void OnChoicePicked(bool isFake)
     {
+        if (IsCompleted)
+            return;
         OptionsColor = isFake ? Color.Success : Color.Danger;
+        IsCompleted = true;
         await Task.Delay(1000);
         await OnComplete.InvokeAsync(isFake);
     }
