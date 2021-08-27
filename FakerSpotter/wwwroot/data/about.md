@@ -1,6 +1,7 @@
 ﻿FakerSpotter is a escape room questionnaire where it tests you as well as teach you how to protect yourself from fake news.
 
 This digital toolkit is targetted at young people (particularly students) and designed to teach them by giving them a series of questions where they need to correctly answer them consecutively in order to proceed into the next room. We teach them by learning from their mistakes, basically a trial-and-error type of escape room game.
+
 Hosted at <a href="https://github.com/dentolos19/FakerSpotter" target="_blank">GitHub</a>, powered by <a href="https://dotnet.microsoft.com" target="_blank_">.NET</a>.
 
 ##### Research Materials

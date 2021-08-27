@@ -2,7 +2,7 @@
 
 <details>
 
-<summary>During thr cyberwellness week, you might have learnt many ways to protect yourself, but how about fake news? Learn ways to protect yourself by playing this game!</summary>
+<summary>During the cyberwellness week, you might have learnt many ways to protect yourself, but how about fake news? Learn ways to protect yourself by playing this game!</summary>
 
 <br/>
 
