@@ -52,6 +52,18 @@
     "isFact": true
   },
   {
+    "statement": "Singapore is located in Southeast Asia.",
+    "isFact": true
+  },
+  {
+    "statement": "Mr Nick Chan is the principal of Northbrooks Secondary School.",
+    "isFact": true
+  },
+  {
+    "statement": "Lee Hsien Loong is the Prime Minister of Singapore.",
+    "isFact": true
+  },
+  {
     "statement": "The cake tastes delicious.",
     "isFact": false
   },
@@ -89,6 +101,10 @@
   },
   {
     "statement": "The internet is being used by teenagers to waste their time in social media.",
+    "isFact": false
+  },
+  {
+    "statement": "Dennise is the best programmer in the world.",
     "isFact": false
   }
 ]

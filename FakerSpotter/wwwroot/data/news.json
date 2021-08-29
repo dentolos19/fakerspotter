@@ -38,6 +38,25 @@
   {
     "imageName": "news6.jpg",
     "headline": "Chinese astronauts conduct second spacewalk outside planned space station.",
-    "background": "Source: Cable News Network (CNN)"
+    "background": "Source: Cable News Network (CNN)",
+    "isFake": false
+  },
+  {
+    "imageName": "news7.jpg",
+    "headline": "Biden says second Kabul airport attack likely in 24-36 hours.",
+    "background": "Source: Unknown",
+    "isFake": false
+  },
+  {
+    "imageName": "news8.jpg",
+    "headline": "Clinton calls Donald Trump an idiot during live television.",
+    "background": "Source: Unknown",
+    "isFake": true
+  },
+  {
+    "imageName": "news9.jpg",
+    "headline": "Yoko Ono: \"I had an affair with Hillary Clinton\".",
+    "background": "Yoko Ono shocked reporters yesterday when she responded to a question concerning the presidential run of Hillary Clinton and the possibility that she could become the first woman President of the United States in American history.\n\nSource: World News Daily Report",
+    "isFake": true
   }
 ]

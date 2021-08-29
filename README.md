@@ -1,13 +1,21 @@
-﻿# <img src="./.github/icon.png" width="32"/> FakerSpotter
+﻿<div align="center">
+
+<img src="./.github/icon.png" width="100"/>
+
+</div>
+
+<h1 align="center">FakerSpotter</h1>
+
+<div align="center">
 
 [![](https://img.shields.io/badge/Powered%20By-.NET-blue?logo=microsoft&style=flat-square)](https://dotnet.microsoft.com)
 [![](https://img.shields.io/badge/Made%20With-Visual%20Studio-blue?logo=visual-studio&style=flat-square)](https://visualstudio.microsoft.com)
 
-This project is built for my school!
+</div>
 
-## About This App
+## About This Project
 
-This project was built to test people (particularily students) on their cyberwellness skills and how to protect them from fake news.
+This project is built for my school. It was built to test people on their cyberwellness skills and how to protect them from fake news.
 
 ### Game Plan
 
@@ -21,3 +29,5 @@ This project was built to test people (particularily students) on their cyberwel
 * **Cyberwellness Master**: 60-80 points ⚔
 * **Cyberwellness Apprentice**: 40-60 points 💁‍♂️
 * **Cyberwellness Novice**: 0-40 points 🤔
+
+Learn more about this project by using it directly by clicking [here](https://dentolos19.github.io/go/ncac).
