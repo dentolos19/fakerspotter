@@ -1,6 +1,6 @@
 ﻿@page "/room1"
 
-<RoomPanel RoomName="@string.Format("Room 1: Is it a fact or a opinion? ({0}/15)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room2">
+<RoomPanel RoomName="@string.Format("Room 1: Is it a fact or a opinion? ({0}/10)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room2">
     <RoomContent>
         @QuestionPanel
     </RoomContent>
@@ -9,6 +9,7 @@
 @code
 {
 
+    [Inject] private IAnalytics Analytics { get; set; }
     [Inject] private NavigationManager NavigationManager { get; set; }
     [Inject] private HttpClient HttpClient { get; set; }
     [Inject] private Random Random { get; set; }
@@ -35,7 +36,7 @@
             if (Points < 100)
                 NextRoom();
         }
-        if (QuestionsAnswered < 15)
+        if (QuestionsAnswered < 10)
         {
             NextQuestion();
         }
@@ -61,6 +62,7 @@
 
     private void NextRoom()
     {
+        Analytics.TrackEvent("room1_completed", Points);
         UserSettings.PointsAccumulated += Points;
         UserSettings.IsRoomOneCompleted = true;
         NavigationManager.NavigateTo("room2");

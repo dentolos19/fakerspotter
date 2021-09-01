@@ -1,4 +1,4 @@
-﻿Welcome to FakerSpotter! This is a digital toolkit prepared by the Sec 3s Cyberwellness Team! Learn more about this toolkit by visiting the [about page](./about).
+﻿Welcome to FakerSpotter! This is a digital toolkit prepared by the Sec 3 Cyberwellness Team! Learn more about this toolkit by visiting the [about page](./about).
 
 <details>
 

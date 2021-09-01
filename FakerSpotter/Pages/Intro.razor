@@ -12,6 +12,7 @@
 @code
 {
 
+    [Inject] private IAnalytics Analytics { get; set; }
     [Inject] private NavigationManager NavigationManager { get; set; }
     [Inject] private HttpClient HttpClient { get; set; }
 
@@ -24,6 +25,7 @@
 
     private void OnContinue()
     {
+        Analytics.TrackEvent("game_played");
         if (UserSettings.IsRoomOneCompleted != true)
         {
             NavigationManager.NavigateTo("room1");
