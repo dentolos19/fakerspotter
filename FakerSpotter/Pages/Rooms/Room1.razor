@@ -46,13 +46,16 @@
         }
     }
 
-    private RenderFragment BuildQuestion(StatementQuestion question) => builder =>
+    private RenderFragment BuildQuestion(StatementQuestion question)
     {
-        builder.OpenComponent(0, typeof(StatementPanel));
-        builder.AddAttribute(1, "Question", question);
-        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
-        builder.CloseComponent();
-    };
+        return builder =>
+        {
+            builder.OpenComponent(0, typeof(StatementPanel));
+            builder.AddAttribute(1, "Question", question);
+            builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
+            builder.CloseComponent();
+        };
+    }
 
     private void NextQuestion()
     {
@@ -62,7 +65,7 @@
 
     private void NextRoom()
     {
-        Analytics.TrackEvent("room1_completed", Points);
+        Analytics.TrackEvent("completed_room1", Points);
         UserSettings.PointsAccumulated += Points;
         UserSettings.IsRoomOneCompleted = true;
         NavigationManager.NavigateTo("room2");

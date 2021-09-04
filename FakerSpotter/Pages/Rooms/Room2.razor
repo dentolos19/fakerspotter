@@ -46,21 +46,27 @@
         }
     }
 
-    private RenderFragment BuildClosedQuestion(HeadlineClosedQuestion question) => builder =>
+    private RenderFragment BuildClosedQuestion(HeadlineClosedQuestion question)
     {
-        builder.OpenComponent(0, typeof(HeadlineClosedPanel));
-        builder.AddAttribute(1, "Question", question);
-        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
-        builder.CloseComponent();
-    };
+        return builder =>
+        {
+            builder.OpenComponent(0, typeof(HeadlineClosedPanel));
+            builder.AddAttribute(1, "Question", question);
+            builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
+            builder.CloseComponent();
+        };
+    }
 
-    private RenderFragment BuildMultipleChoiceQuestion(IDictionary<string, bool> question) => builder =>
+    private RenderFragment BuildMultipleChoiceQuestion(IDictionary<string, bool> question)
     {
-        builder.OpenComponent(0, typeof(HeadlineMultipleChoicePanel));
-        builder.AddAttribute(1, "Question", question);
-        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
-        builder.CloseComponent();
-    };
+        return builder =>
+        {
+            builder.OpenComponent(0, typeof(HeadlineMultipleChoicePanel));
+            builder.AddAttribute(1, "Question", question);
+            builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
+            builder.CloseComponent();
+        };
+    }
 
     private void NextQuestion()
     {
@@ -78,7 +84,7 @@
 
     private void NextRoom()
     {
-        Analytics.TrackEvent("room2_completed", Points);
+        Analytics.TrackEvent("completed_room2", Points);
         UserSettings.PointsAccumulated += Points;
         UserSettings.IsRoomTwoCompleted = true;
         NavigationManager.NavigateTo("room3");

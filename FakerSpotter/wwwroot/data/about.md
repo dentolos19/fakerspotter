@@ -1,8 +1,8 @@
-﻿FakerSpotter is a escape room questionnaire where it tests you as well as teach you how to protect yourself from fake news.
+﻿FakerSpotter is a digital toolkit for learning on how to protect yourself from fake news.
 
-This digital toolkit is targetted at young people (particularly students) and designed to teach them by giving them a series of questions where they need to correctly answer them consecutively in order to proceed into the next room. We teach them by learning from their mistakes, basically a trial-and-error type of escape room game.
+We teach players by making them learn from their mistakes and through trial-and-error. The leaderboards was added in order to incite the players with the feeling of competivitiveness and motivation.
 
-Hosted at <a href="https://github.com/dentolos19/FakerSpotter" target="_blank">GitHub</a>, powered by <a href="https://dotnet.microsoft.com" target="_blank_">.NET</a>.
+Hosted at [GitHub](https://github.com/dentolos19/FakerSpotter), powered by [.NET](https://dotnet.microsoft.com).
 
 ##### Research Materials
 
@@ -11,13 +11,13 @@ Hosted at <a href="https://github.com/dentolos19/FakerSpotter" target="_blank">G
 * [50 Examples of Fact and Opinion statements](https://www.englishbix.com/examples-of-fact-and-opinion-statement)
 * [Quiz: Can you spot the fake news headline?](https://this.deakin.edu.au/society/quiz-can-you-spot-the-fake-news-headline)
 
-##### Cyberwellness Ambassadors (Sec 3s)
+##### Cyberwellness Team Members
 
-* **3G** Amanda _(Brooksian News Champion)_
+* **3G** Amanda (Brooksian News Champion)
 * **3I** Syabil
-* **3F** Harith _(Brooksian News Champion)_
-* **3T** Dennise _(Main Programmer)_
+* **3F** Harith (Brooksian News Champion)
+* **3T** Dennise (Main Programmer)
 * **3E** Aqilah
 * **3D** Mirza
 
-Give your feedback about this digital toolkit by clicking <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFt_EQeDqJ2KfOlvpIujcnee6aGIzaIRujXpkY7Z3ZOGE5Yw/viewform?usp=sf_link" target="_blank">here</a>.
+Give your feedback about this digital toolkit by clicking [here](https://docs.google.com/forms/d/e/1FAIpQLSfFt_EQeDqJ2KfOlvpIujcnee6aGIzaIRujXpkY7Z3ZOGE5Yw/viewform?usp=sf_link).

@@ -1,6 +1,6 @@
 ﻿@page "/room3"
 
-<RoomPanel RoomName="@string.Format("Room 3: Spot the fake news! ({0}/10)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
+<RoomPanel RoomName="@string.Format("Room 3: Spot the fake news! ({0}/5)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
     <RoomContent>
         @QuestionPanel
     </RoomContent>
@@ -36,7 +36,7 @@
             if (Points < 100)
                 NextRoom();
         }
-        if (QuestionsAnswered < 10)
+        if (QuestionsAnswered < 5)
         {
             NextQuestion();
         }
@@ -46,13 +46,16 @@
         }
     }
 
-    private RenderFragment BuildQuestion(NewsQuestion question) => builder =>
+    private RenderFragment BuildQuestion(NewsQuestion question)
     {
-        builder.OpenComponent(0, typeof(NewsPanel));
-        builder.AddAttribute(1, "Question", question);
-        builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
-        builder.CloseComponent();
-    };
+        return builder =>
+        {
+            builder.OpenComponent(0, typeof(NewsPanel));
+            builder.AddAttribute(1, "Question", question);
+            builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
+            builder.CloseComponent();
+        };
+    }
 
     private void NextQuestion()
     {
@@ -62,7 +65,7 @@
 
     private void NextRoom()
     {
-        Analytics.TrackEvent("room3_completed", Points);
+        Analytics.TrackEvent("completed_room3", Points);
         UserSettings.PointsAccumulated += Points;
         UserSettings.IsRoomThreeCompleted = true;
         NavigationManager.NavigateTo("finish");

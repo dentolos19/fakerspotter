@@ -8,7 +8,8 @@ namespace FakerSpotter.Core.Data
 
         private string _imageUrl;
 
-        [JsonPropertyName("imageName")] public string ImageUrl
+        [JsonPropertyName("imageName")]
+        public string ImageUrl
         {
             get => _imageUrl;
             set => _imageUrl = "assets/images/news/" + value;

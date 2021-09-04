@@ -1,11 +1,12 @@
 ﻿@using Markdig
 
-@((MarkupString)HtmlContent)
+@((MarkupString) HtmlContent)
 
 @code
 {
 
-    [Parameter] public string Content { get; set; }
+    [Parameter]
+    public string Content { get; set; }
 
     private string HtmlContent
     {
