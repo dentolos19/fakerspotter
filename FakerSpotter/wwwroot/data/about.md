@@ -1,6 +1,4 @@
-﻿FakerSpotter is a digital toolkit for learning on how to protect yourself from fake news.
-
-We teach players by making them learn from their mistakes and through trial-and-error. The leaderboards was added in order to incite the players with the feeling of competivitiveness and motivation.
+﻿FakerSpotter is a digital toolkit for learning on how to protect yourself from fake news. We teach players by making them learn from their mistakes and through trial-and-error. The leaderboards was added in order to incite the players with the feeling of competivitiveness and motivation.
 
 Hosted at [GitHub](https://github.com/dentolos19/FakerSpotter), powered by [.NET](https://dotnet.microsoft.com).
 
@@ -11,7 +9,7 @@ Hosted at [GitHub](https://github.com/dentolos19/FakerSpotter), powered by [.NET
 * [50 Examples of Fact and Opinion statements](https://www.englishbix.com/examples-of-fact-and-opinion-statement)
 * [Quiz: Can you spot the fake news headline?](https://this.deakin.edu.au/society/quiz-can-you-spot-the-fake-news-headline)
 
-##### Cyberwellness Team Members
+##### Cyberwellness Team
 
 * **3G** Amanda (Brooksian News Champion)
 * **3I** Syabil
