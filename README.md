@@ -7,26 +7,26 @@ FakerSpotter is a digital toolkit for learning on how to protect yourself from f
 
 This project is participating in the National Cyberwellness Advocacy Challenge (NCAC).
 
-### Screenshots
+## Screenshots
 
 ![](./.github/screenshots/0.png)
 ![](./.github/screenshots/1.png)
 ![](./.github/screenshots/2.png)
 ![](./.github/screenshots/3.png)
 
-### Usage
+## Usage
 
 The player needs to answer all questions correctly in order to proceed to the next room. If one answered a question incorrectly, the game will deduct a small amount of points depending on the difficulty of the room and the player will need to retry again until the amount of the room points left is under 100.
 
 Once you're ready to play this game, [click here](https://dentolos19.github.io/go/ncac).
 
-#### Escape Rooms
+### Escape Rooms
 
 * **Room 1**: Is it a fact or a opinion? (max 300 points/10 questions)
 * **Room 2**: Spot the fake headline! (max 200 points/5 questions)
 * **Room 3**: Spot the fake news! (max 500 points/5 questions)
 
-#### End Awards
+### End Awards
 
 * **Cyberwellness Champion**: 800-1000 points 👑
 * **Cyberwellness Master**: 600-800 points ⚔
