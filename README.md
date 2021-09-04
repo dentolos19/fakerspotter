@@ -19,6 +19,13 @@ FakerSpotter is a digital toolkit for learning on how to protect yourself from f
 
 This project is participating in the **National Cyberwellness Advocacy Challenge (NCAC)**.
 
+### Screenshots
+
+![](./.github/screenshots/0.png)
+![](./.github/screenshots/1.png)
+![](./.github/screenshots/2.png)
+![](./.github/screenshots/3.png)
+
 ### How To Play
 
 The player needs to answer all questions correctly in order to proceed to the next room. If one answered a question incorrectly, the game will deduct a small amount of points depending on the difficulty of the room and the player will need to retry again until the amount of the room points left is under 100.
