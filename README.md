@@ -1,23 +1,11 @@
-﻿<div align="center">
-
-<img src="./.github/icon.png" width="128"/>
-
-</div>
-
-<h1 align="center">FakerSpotter</h1>
-
-<div align="center">
+﻿# <img src="./.github/icon.png" width="24"/> FakerSpotter
 
 [![](https://img.shields.io/badge/Powered%20By-.NET-blue?logo=microsoft&style=flat-square)](https://dotnet.microsoft.com)
 [![](https://img.shields.io/badge/Made%20With-Visual%20Studio-blue?logo=visual-studio&style=flat-square)](https://visualstudio.microsoft.com)
 
-</div>
-
-## About This Project
-
 FakerSpotter is a digital toolkit for learning on how to protect yourself from fake news. We teach players by making them learn from their mistakes and through trial-and-error. The leaderboards was added in order to incite the players with the feeling of competivitiveness and motivation.
 
-This project is participating in the **National Cyberwellness Advocacy Challenge (NCAC)**.
+This project is participating in the National Cyberwellness Advocacy Challenge (NCAC).
 
 ### Screenshots
 
@@ -26,9 +14,11 @@ This project is participating in the **National Cyberwellness Advocacy Challenge
 ![](./.github/screenshots/2.png)
 ![](./.github/screenshots/3.png)
 
-### How To Play
+### Usage
 
 The player needs to answer all questions correctly in order to proceed to the next room. If one answered a question incorrectly, the game will deduct a small amount of points depending on the difficulty of the room and the player will need to retry again until the amount of the room points left is under 100.
+
+Once you're ready to play this game, [click here](https://dentolos19.github.io/go/ncac).
 
 #### Escape Rooms
 
