@@ -49,15 +49,15 @@
   },
   {
     "imageName": "news8.jpg",
-    "headline": "Clinton calls Donald Trump an idiot during live television.",
-    "background": "Source: Unknown",
-    "isFake": true
+    "headline": "First Image of a Black Hole.",
+    "background": "Using the Event Horizon Telescope, scientists obtained an image of the black hole at the center of the galaxy M87.\n\nSource: NASA",
+    "isFake": false
   },
   {
     "imageName": "news9.jpg",
-    "headline": "Yoko Ono: \"I had an affair with Hillary Clinton\".",
-    "background": "Yoko Ono shocked reporters yesterday when she responded to a question concerning the presidential run of Hillary Clinton and the possibility that she could become the first woman President of the United States in American history.\n\nSource: World News Daily Report",
-    "isFake": true
+    "headline": "Lionel Messi to leave Barcelona soccer team.",
+    "background": "Source: Mundo Hispanico",
+    "isFake": false 
   },
   {
     "imageName": "news10.webp",

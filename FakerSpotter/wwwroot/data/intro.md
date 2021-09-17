@@ -2,7 +2,7 @@
 
 During the cyberwellness week, you might have learnt many ways to protect yourself, but how about fake news? Learn ways to protect yourself by playing this game! Or you can also read this [blog post](https://dentolos19.github.io/go/fakenews) written by Dennise.
 
-You need to answer all questions correctly in order to proceed to the next room. If you answered a question incorrectly, the game will deduct a small amount of points depending on the difficulty of the room and you need to retry again until the amount of the room points left is under 100.
+You need to answer all questions correctly in order to proceed to the next room. If you answered a question incorrectly, the game will deduct a small amount of points depending on the difficulty of the room and you will need to retry again until the amount of the room points left is under 100.
 
 ##### Escape Rooms
 
