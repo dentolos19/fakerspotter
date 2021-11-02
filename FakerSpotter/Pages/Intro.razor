@@ -28,15 +28,15 @@
         Analytics.TrackEvent("game_played");
         if (UserSettings.IsRoomOneCompleted != true)
         {
-            NavigationManager.NavigateTo("room1");
+            NavigationManager.NavigateTo("room/1");
         }
         else if (UserSettings.IsRoomTwoCompleted != true)
         {
-            NavigationManager.NavigateTo("room2");
+            NavigationManager.NavigateTo("room/2");
         }
         else if (UserSettings.IsRoomThreeCompleted != true)
         {
-            NavigationManager.NavigateTo("room3");
+            NavigationManager.NavigateTo("room/3");
         }
         else
         {

@@ -1,4 +1,4 @@
-﻿FakerSpotter is a digital toolkit for learning on how to protect yourself from fake news. We teach players by making them learn from their mistakes and through trial-and-error. The leaderboards was added in order to incite the players with the feeling of competivitiveness and motivation.
+﻿We teach players by making them learn from their mistakes and through trial-and-error. The leaderboards was added in order to incite the players with the feeling of competivitiveness and motivation. This project is also participating in the National Cyberwellness Advocacy Challenge (NCAC).
 
 Hosted at [GitHub](https://github.com/dentolos19/FakerSpotter), powered by [.NET](https://dotnet.microsoft.com).
 

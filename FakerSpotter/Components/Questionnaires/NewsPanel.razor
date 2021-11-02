@@ -1,9 +1,9 @@
-﻿<img src="@Question.ImageUrl" style="display: block; margin-left: auto; margin-right: auto; width: 50%;"/>
+﻿<Image Source="@Question.ImageUrl" Style="display: block; margin-left: auto; margin-right: auto; width: 50%;"/>
 <br/>
-<div style="text-align: center;">
+<Container TextAlignment="TextAlignment.Center">
     <Title Size="5">@Question.Headline</Title>
     <Paragraph>@Question.Background</Paragraph>
-</div>
+</Container>
 <br/>
 <ListGroup Mode="ListGroupMode.Selectable">
     <ListGroupItem Color="@RealOptionColor" Clicked="OnRealPicked">Real News</ListGroupItem>

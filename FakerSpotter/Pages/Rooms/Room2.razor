@@ -1,4 +1,4 @@
-﻿@page "/room2"
+﻿@page "/room/2"
 
 <RoomPanel RoomName="@string.Format("Room 2: Spot the fake headline! ({0}/5)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomTwoCompleted" IsLocked="!UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room3" PreviousRoomEndpoint="room1">
     <RoomContent>
@@ -87,7 +87,7 @@
         Analytics.TrackEvent("completed_room2", Points);
         UserSettings.PointsAccumulated += Points;
         UserSettings.IsRoomTwoCompleted = true;
-        NavigationManager.NavigateTo("room3");
+        NavigationManager.NavigateTo("room/3");
     }
 
 }

@@ -1,4 +1,4 @@
-name: Automatic Web Deploy
+name: Deploy Website for FakerSpotter
 on:
   push:
     branches:

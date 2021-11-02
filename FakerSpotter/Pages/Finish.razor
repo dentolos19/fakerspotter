@@ -32,7 +32,9 @@
     [Inject] private IAnalytics Analytics { get; set; }
     [Inject] private NavigationManager NavigationManager { get; set; }
 
-    private bool IsLocked => !(UserSettings.IsRoomOneCompleted && UserSettings.IsRoomTwoCompleted && UserSettings.IsRoomThreeCompleted);
+    private bool IsLocked => !(UserSettings.IsRoomOneCompleted
+                               && UserSettings.IsRoomTwoCompleted
+                               && UserSettings.IsRoomThreeCompleted);
 
     private string RewardImageUrl { get; set; }
     private string RewardText { get; set; }
