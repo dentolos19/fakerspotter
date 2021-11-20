@@ -33,7 +33,6 @@
 @code
 {
 
-    [Inject] private IAnalytics Analytics { get; set; }
     [Inject] private NavigationManager NavigationManager { get; set; }
 
     private bool IsLocked => !(UserSettings.IsRoomOneCompleted
@@ -51,22 +50,18 @@
         switch (points)
         {
             case >= 800:
-                Analytics.TrackEvent("obtained_champion", points);
                 RewardImageUrl = "assets/images/awards/champion.svg";
                 RewardText = "Cyberwellness Champion";
                 break;
             case >= 600:
-                Analytics.TrackEvent("obtained_master", points);
                 RewardImageUrl = "assets/images/awards/master.svg";
                 RewardText = "Cyberwellness Master";
                 break;
             case >= 400:
-                Analytics.TrackEvent("obtained_apprentice", points);
                 RewardImageUrl = "assets/images/awards/apprentice.svg";
                 RewardText = "Cyberwellness Apprentice";
                 break;
             default:
-                Analytics.TrackEvent("obtained_novice", points);
                 RewardImageUrl = "assets/images/awards/novice.svg";
                 RewardText = "Cyberwellness Novice";
                 break;

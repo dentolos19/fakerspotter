@@ -1,7 +1,5 @@
 ﻿We teach players by making them learn from their mistakes and through trial-and-error. The leaderboards was added in order to incite the players with the feeling of competivitiveness and motivation. This project is also participating in the National Cyberwellness Advocacy Challenge (NCAC).
 
-Hosted at [GitHub](https://github.com/dentolos19/FakerSpotter), powered by [.NET](https://dotnet.microsoft.com).
-
 ##### Research Materials
 
 * [Google News](https://news.google.com)
@@ -18,3 +16,5 @@ Hosted at [GitHub](https://github.com/dentolos19/FakerSpotter), powered by [.NET
 * **3T** Dennise (Main Programmer)
 * **3E** Aqilah
 * **3D** Mirza
+
+Hosted at [GitHub](https://github.com/dentolos19/FakerSpotter), powered by [.NET](https://dotnet.microsoft.com).

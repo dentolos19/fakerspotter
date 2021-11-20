@@ -9,7 +9,6 @@
 @code
 {
 
-    [Inject] private IAnalytics Analytics { get; set; }
     [Inject] private NavigationManager NavigationManager { get; set; }
     [Inject] private HttpClient HttpClient { get; set; }
     [Inject] private Random Random { get; set; }
@@ -65,7 +64,6 @@
 
     private void NextRoom()
     {
-        Analytics.TrackEvent("completed_room3", Points);
         UserSettings.PointsAccumulated += Points;
         UserSettings.IsRoomThreeCompleted = true;
         NavigationManager.NavigateTo("finish");

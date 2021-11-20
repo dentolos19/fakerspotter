@@ -1,4 +1,3 @@
-using Blazor.Analytics;
 using Blazored.LocalStorage;
 using Blazorise;
 using Blazorise.Bootstrap;
@@ -18,7 +17,6 @@ public class Program
     {
         var builder = WebAssemblyHostBuilder.CreateDefault(args);
         builder.RootComponents.Add<App>("#app");
-        builder.Services.AddGoogleAnalytics("G-K03HZQH5H6");
         builder.Services.AddBlazoredLocalStorage();
         builder.Services.AddBlazorise(options => { options.ChangeTextOnKeyPress = true; }).AddBootstrapProviders().AddFontAwesomeIcons();
         builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
