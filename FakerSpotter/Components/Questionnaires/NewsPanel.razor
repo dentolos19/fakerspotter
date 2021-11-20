@@ -1,10 +1,14 @@
 ﻿<Image Source="@Question.ImageUrl" Style="display: block; margin-left: auto; margin-right: auto; width: 50%;"/>
+
 <br/>
+
 <Container TextAlignment="TextAlignment.Center">
-    <Title Size="5">@Question.Headline</Title>
+    <Heading Size="HeadingSize.Is5">@Question.Headline</Heading>
     <Paragraph>@Question.Background</Paragraph>
 </Container>
+
 <br/>
+
 <ListGroup Mode="ListGroupMode.Selectable">
     <ListGroupItem Color="@RealOptionColor" Clicked="OnRealPicked">Real News</ListGroupItem>
     <ListGroupItem Color="@FakeOptionColor" Clicked="OnFakePicked">Fake News</ListGroupItem>

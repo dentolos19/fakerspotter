@@ -11,7 +11,7 @@
 
 <Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
     <Container TextAlignment="TextAlignment.Center">
-        <Title Size="3" TextAlignment="TextAlignment.Center">Congratulations!</Title>
+        <Heading Size="HeadingSize.Is3">Congratulations!</Heading>
         <Figure Size="FigureSize.Is256x256">
             <FigureImage Source="@RewardImageUrl"/>
             <FigureCaption>
@@ -19,10 +19,14 @@
                 <Paragraph>You have been awarded with <b>@RewardText</b>!</Paragraph>
             </FigureCaption>
         </Figure>
-        <Paragraph Margin="Margin.Is4.FromTop">
-            Please give a feedback of your experience by clicking <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFt_EQeDqJ2KfOlvpIujcnee6aGIzaIRujXpkY7Z3ZOGE5Yw/viewform?usp=sf_link">here</a>
+        <br/>
+        <br/>
+        <Paragraph>
+            <Buttons>
+                <Button Color="Color.Primary" Clicked="OnRestart">Restart</Button>
+                <Button Color="Color.Secondary" Type="ButtonType.Link" To="">Back</Button>
+            </Buttons>
         </Paragraph>
-        <Button Color="Color.Primary" Clicked="OnRestart">Restart</Button>
     </Container>
 </Animate>
 

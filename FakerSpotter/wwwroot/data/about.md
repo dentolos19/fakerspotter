@@ -18,5 +18,3 @@ Hosted at [GitHub](https://github.com/dentolos19/FakerSpotter), powered by [.NET
 * **3T** Dennise (Main Programmer)
 * **3E** Aqilah
 * **3D** Mirza
-
-Give your feedback about this digital toolkit by clicking [here](https://docs.google.com/forms/d/e/1FAIpQLSfFt_EQeDqJ2KfOlvpIujcnee6aGIzaIRujXpkY7Z3ZOGE5Yw/viewform?usp=sf_link).
