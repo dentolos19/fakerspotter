@@ -18,8 +18,6 @@ We teach players by making them learn from their mistakes and through trial-and-
 
 The player needs to answer all questions correctly in order to proceed to the next room. If one answered a question incorrectly, the game will deduct a small amount of points depending on the difficulty of the room and the player will need to retry again until the amount of the room points left is under 100.
 
-Once you're ready to play this game, [click here](https://dentolos19.github.io/go/ncac).
-
 ### Escape Rooms
 
 * **Room 1**: Is it a fact or a opinion? (max 300 points/10 questions)
