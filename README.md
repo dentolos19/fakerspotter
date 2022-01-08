@@ -1,4 +1,4 @@
-# <img src="./.github/icon.png" width="24"/> FakerSpotter
+# <img src=".github/icon.png" width="32"/> FakerSpotter
 
 [![](https://img.shields.io/badge/Powered%20By-.NET-blue?logo=microsoft&style=flat-square)](https://dotnet.microsoft.com)
 [![](https://img.shields.io/badge/Made%20With-Visual%20Studio-blue?logo=visual-studio&style=flat-square)](https://visualstudio.microsoft.com)
@@ -26,7 +26,7 @@ The player needs to answer all questions correctly in order to proceed to the ne
 
 ## Screenshots
 
-![](./.github/screenshots/0.png)
-![](./.github/screenshots/1.png)
-![](./.github/screenshots/2.png)
-![](./.github/screenshots/3.png)
+![](.github/images/0.png)
+![](.github/images/1.png)
+![](.github/images/2.png)
+![](.github/images/3.png)
