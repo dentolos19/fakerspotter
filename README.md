@@ -7,13 +7,6 @@ A cyberwellness digital toolkit for learning on how to protect yourself from fak
 
 We teach players by making them learn from their mistakes and through trial-and-error. The leaderboards was added in order to incite the players with the feeling of competivitiveness and motivation. This project is also participating in the National Cyberwellness Advocacy Challenge (NCAC).
 
-## Screenshots
-
-![](./.github/screenshots/0.png)
-![](./.github/screenshots/1.png)
-![](./.github/screenshots/2.png)
-![](./.github/screenshots/3.png)
-
 ## Usage
 
 The player needs to answer all questions correctly in order to proceed to the next room. If one answered a question incorrectly, the game will deduct a small amount of points depending on the difficulty of the room and the player will need to retry again until the amount of the room points left is under 100.
@@ -30,3 +23,10 @@ The player needs to answer all questions correctly in order to proceed to the ne
 * **Cyberwellness Master**: 600-800 points ⚔
 * **Cyberwellness Apprentice**: 400-600 points 💁‍♂️
 * **Cyberwellness Novice**: 0-400 points 🤔
+
+## Screenshots
+
+![](./.github/screenshots/0.png)
+![](./.github/screenshots/1.png)
+![](./.github/screenshots/2.png)
+![](./.github/screenshots/3.png)
