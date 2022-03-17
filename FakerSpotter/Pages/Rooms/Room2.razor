@@ -1,6 +1,6 @@
 ﻿@page "/room/2"
 
-<RoomPanel RoomName="@string.Format("Room 2: Spot the fake headline! ({0}/5)", QuestionsAnswered)" IsCompleted="UserSettings.IsRoomTwoCompleted" IsLocked="!UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room3" PreviousRoomEndpoint="room1">
+<RoomPanel RoomName="@string.Format("Room 2: Spot the fake headline! ({0}/5)", QuestionsAnswered)" RoomPoints="Points" IsCompleted="UserSettings.IsRoomTwoCompleted" IsLocked="!UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room3" PreviousRoomEndpoint="room1">
     <RoomContent>
         @QuestionPanel
     </RoomContent>

@@ -14,8 +14,8 @@ public class NewsQuestion
         set => _imageUrl = "assets/images/news/" + value;
     }
 
-    [JsonPropertyName("headline")] public string Headline { get; set; }
-    [JsonPropertyName("background")] public string Background { get; set; }
-    [JsonPropertyName("isFake")] public bool IsFake { get; set; }
+    [JsonPropertyName("headline")] public string Headline { get; init; }
+    [JsonPropertyName("background")] public string Background { get; init; }
+    [JsonPropertyName("isFake")] public bool IsFake { get; init; }
 
 }

@@ -1,13 +1,11 @@
 ﻿@page "/intro"
 
-<Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
-    <Heading Size="HeadingSize.Is3" TextAlignment="TextAlignment.Center">Intro</Heading>
-    <Divider/>
-    <MarkdownPanel Content="@MarkdownContent"/>
-    <Paragraph TextAlignment="TextAlignment.Center">
-        <Button Color="Color.Primary" Clicked="OnContinue">Play</Button>
-    </Paragraph>
-</Animate>
+<Heading Size="HeadingSize.Is3" TextAlignment="TextAlignment.Center">Intro</Heading>
+<Divider/>
+<MarkdownPanel Content="@MarkdownContent"/>
+<Paragraph TextAlignment="TextAlignment.Center">
+    <Button Color="Color.Primary" Clicked="OnContinue">Play</Button>
+</Paragraph>
 
 @code
 {

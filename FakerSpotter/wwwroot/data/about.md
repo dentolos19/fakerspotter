@@ -1,4 +1,6 @@
-﻿We teach players by making them learn from their mistakes and through trial-and-error. The leaderboards was added in order to incite the players with the feeling of competivitiveness and motivation. This project is also participating in the National Cyberwellness Advocacy Challenge (NCAC).
+﻿A cyberwellness digital toolkit for learning on how to protect yourself from fake news!
+
+We teach players by making them learn from their mistakes and through trial-and-error. This project is made to participate in the National Cyberwellness Advocacy Challenge (NCAC) 2021 in Singapore.
 
 ##### Research Materials
 
@@ -8,7 +10,7 @@
 * [Quiz: Can you spot the fake news headline?](https://this.deakin.edu.au/society/quiz-can-you-spot-the-fake-news-headline)
 * [30 Fake Viral Photos People Believed Were Real](https://www.boredpanda.com/fake-news-photos-viral-photoshop)
 
-##### Cyberwellness Team
+##### Cyberwellness Team (2021)
 
 * **3G** Amanda (Brooksian News Champion)
 * **3I** Syabil

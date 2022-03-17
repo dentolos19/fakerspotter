@@ -32,7 +32,8 @@
   {
     "imageName": "news5.webp",
     "headline": "Donald Trump sent his own plane to transport 200 stranded marines.",
-    "background": "The Trump campaign has confirmed to Hannity.com that Mr. Trump did indeed send his plane to make two trips from North Carolina to Miami, Florida to transport over 200 Gulf War Marines back home.\n\nSource: Sean Hannity Show",
+    "background":
+      "The Trump campaign has confirmed to Hannity.com that Mr. Trump did indeed send his plane to make two trips from North Carolina to Miami, Florida to transport over 200 Gulf War Marines back home.\n\nSource: Sean Hannity Show",
     "isFake": true
   },
   {
@@ -50,7 +51,8 @@
   {
     "imageName": "news8.jpg",
     "headline": "First Image of a Black Hole.",
-    "background": "Using the Event Horizon Telescope, scientists obtained an image of the black hole at the center of the galaxy M87.\n\nSource: NASA",
+    "background":
+      "Using the Event Horizon Telescope, scientists obtained an image of the black hole at the center of the galaxy M87.\n\nSource: NASA",
     "isFake": false
   },
   {
@@ -61,8 +63,10 @@
   },
   {
     "imageName": "news10.webp",
-    "headline": "Why a big solar storm today can stop your Internet; Indian scientist says prepare for superstorm event.",
-    "background": "A massive Internet outage can be caused by a massive solar storm today, especially if it is a solar superstorm. The Indian scientist says global infra is very vulnerable to solar storms. Preparing for a solar storm-Internet apocalypse is important as it will have a grave impact across the world.\n\nSource: Hindustan Times",
+    "headline":
+      "Why a big solar storm today can stop your Internet; Indian scientist says prepare for superstorm event.",
+    "background":
+      "A massive Internet outage can be caused by a massive solar storm today, especially if it is a solar superstorm. The Indian scientist says global infra is very vulnerable to solar storms. Preparing for a solar storm-Internet apocalypse is important as it will have a grave impact across the world.\n\nSource: Hindustan Times",
     "isFake": false
   },
   {

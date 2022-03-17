@@ -1,31 +1,29 @@
-﻿<Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
-    <Alert Color="Color.Info" Visible="true">
-        <AlertMessage>Tip</AlertMessage>
-        <AlertDescription>@GlobalVariables.Tips[Random.Next(GlobalVariables.Tips.Length)]</AlertDescription>
-    </Alert>
-    <Card>
-        <CardHeader>@RoomName | @UserSettings.PointsAccumulated points</CardHeader>
-        <CardBody>
-            @if (IsCompleted)
-            {
-                <Alert Color="Color.Success" Visible="true">
-                    <AlertMessage>Completed</AlertMessage>
-                    <AlertDescription>This room is already completed, proceed to the <a href="@NextRoomEndpoint">next room</a>.</AlertDescription>
-                </Alert>
-                return;
-            }
-            @if (IsLocked)
-            {
-                <Alert Color="Color.Danger" Visible="true">
-                    <AlertMessage>Locked</AlertMessage>
-                    <AlertDescription>This room is locked until the <a href="@PreviousRoomEndpoint">previous room</a> is completed.</AlertDescription>
-                </Alert>
-                return;
-            }
-            @RoomContent
-        </CardBody>
-    </Card>
-</Animate>
+﻿<Alert Color="Color.Info" Visible="true">
+    <AlertMessage>Tip</AlertMessage>
+    <AlertDescription>@GlobalVariables.Tips[Random.Next(GlobalVariables.Tips.Length)]</AlertDescription>
+</Alert>
+<Card>
+    <CardHeader>@RoomName | @RoomPoints room points → @UserSettings.PointsAccumulated points</CardHeader>
+    <CardBody>
+        @if (IsCompleted)
+        {
+            <Alert Color="Color.Success" Visible="true">
+                <AlertMessage>Completed</AlertMessage>
+                <AlertDescription>This room is already completed, proceed to the <a href="@NextRoomEndpoint">next room</a>.</AlertDescription>
+            </Alert>
+            return;
+        }
+        @if (IsLocked)
+        {
+            <Alert Color="Color.Danger" Visible="true">
+                <AlertMessage>Locked</AlertMessage>
+                <AlertDescription>This room is locked until the <a href="@PreviousRoomEndpoint">previous room</a> is completed.</AlertDescription>
+            </Alert>
+            return;
+        }
+        @RoomContent
+    </CardBody>
+</Card>
 
 @code
 {
@@ -33,6 +31,7 @@
     [Inject] private Random Random { get; set; }
 
     [Parameter] public string RoomName { get; set; }
+    [Parameter] public int RoomPoints { get; set; }
     [Parameter] public RenderFragment RoomContent { get; set; }
     [Parameter] public bool IsCompleted { get; set; }
     [Parameter] public bool IsLocked { get; set; }

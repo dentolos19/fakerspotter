@@ -9,35 +9,34 @@
     return;
 }
 
-<Animate Animation="Animations.Fade" Duration="TimeSpan.FromSeconds(2)">
-    <Container TextAlignment="TextAlignment.Center">
-        <Heading Size="HeadingSize.Is3">Congratulations!</Heading>
-        <Figure Size="FigureSize.Is256x256">
-            <FigureImage Source="@RewardImageUrl"/>
-            <FigureCaption>
-                <Paragraph>You've accumulated <b>@UserSettings.PointsAccumulated</b> points!</Paragraph>
-                <Paragraph>You have been awarded with <b>@RewardText</b>!</Paragraph>
-            </FigureCaption>
-        </Figure>
-        <br/>
-        <br/>
-        <Paragraph>
-            <Buttons>
-                <Button Color="Color.Primary" Clicked="OnRestart">Restart</Button>
-                <Button Color="Color.Secondary" Type="ButtonType.Link" To="">Back</Button>
-            </Buttons>
-        </Paragraph>
-    </Container>
-</Animate>
+<Container TextAlignment="TextAlignment.Center">
+    <Heading Size="HeadingSize.Is3">Congratulations!</Heading>
+    <Figure Size="FigureSize.Is256x256">
+        <FigureImage Source="@RewardImageUrl"/>
+        <FigureCaption>
+            <Paragraph>You've accumulated <b>@UserSettings.PointsAccumulated</b> points!</Paragraph>
+            <Paragraph>You have been awarded with <b>@RewardText</b>!</Paragraph>
+        </FigureCaption>
+    </Figure>
+    <br/>
+    <br/>
+    <Paragraph>
+        <Buttons>
+            <Button Color="Color.Primary" Clicked="OnRestart">Restart</Button>
+            <Button Color="Color.Secondary" Type="ButtonType.Link" To="">Back</Button>
+        </Buttons>
+    </Paragraph>
+</Container>
 
 @code
 {
 
-    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
 
     private bool IsLocked => !(UserSettings.IsRoomOneCompleted
-                               && UserSettings.IsRoomTwoCompleted
-                               && UserSettings.IsRoomThreeCompleted);
+        && UserSettings.IsRoomTwoCompleted
+        && UserSettings.IsRoomThreeCompleted);
 
     private string RewardImageUrl { get; set; }
     private string RewardText { get; set; }
