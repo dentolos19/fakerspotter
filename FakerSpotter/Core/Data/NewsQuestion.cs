@@ -11,7 +11,7 @@ public class NewsQuestion
     public string ImageUrl
     {
         get => _imageUrl;
-        set => _imageUrl = "assets/images/news/" + value;
+        init => _imageUrl = "assets/images/news/" + value;
     }
 
     [JsonPropertyName("headline")] public string Headline { get; init; }

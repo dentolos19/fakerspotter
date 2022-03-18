@@ -1,7 +1,10 @@
-﻿<Alert Color="Color.Info" Visible="true">
-    <AlertMessage>Tip</AlertMessage>
-    <AlertDescription>@GlobalVariables.Tips[Random.Next(GlobalVariables.Tips.Length)]</AlertDescription>
-</Alert>
+﻿@if (GlobalVariables.Tips is { Length: > 0 })
+{
+    <Alert Color="Color.Info" Visible="true">
+        <AlertMessage>Tip</AlertMessage>
+        <AlertDescription>@GlobalVariables.Tips[Random.Next(GlobalVariables.Tips.Length)]</AlertDescription>
+    </Alert>
+}
 <Card>
     <CardHeader>@RoomName | @RoomPoints room points → @UserSettings.PointsAccumulated points</CardHeader>
     <CardBody>

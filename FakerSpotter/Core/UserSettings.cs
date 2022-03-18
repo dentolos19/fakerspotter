@@ -6,7 +6,7 @@ namespace FakerSpotter.Core;
 public static class UserSettings
 {
 
-    public static ISyncLocalStorageService LocalStorage { get; set; }
+    public static ISyncLocalStorageService? LocalStorage { get; set; }
 
     public static bool IsRoomOneCompleted
     {
@@ -34,12 +34,14 @@ public static class UserSettings
 
     private static T GetValue<T>(T defaultValue = default!, [CallerMemberName] string? name = null)
     {
+        if (LocalStorage == null)
+            return defaultValue;
         return LocalStorage.ContainKey(name) ? LocalStorage.GetItem<T>(name) : defaultValue;
     }
 
     private static void SetValue<T>(T value, [CallerMemberName] string? name = null)
     {
-        LocalStorage.SetItem(name, value);
+        LocalStorage?.SetItem(name, value);
     }
 
 }

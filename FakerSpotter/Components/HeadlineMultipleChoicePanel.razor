@@ -40,7 +40,7 @@
     {
         if (IsCompleted)
             return;
-        RealOptionColor = Color.Danger;
+        RealOptionColor = !isFake ? Color.Danger : RealOptionColor;
         FakeOptionColor = Color.Success;
         IsCompleted = true;
         await Task.Delay(1000);
