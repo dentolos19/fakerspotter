@@ -1,5 +1,10 @@
-name: build-deployment
-on: [push, pull_request]
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "FakerSpotter/**"
 jobs:
   build:
     runs-on: ubuntu-latest
