@@ -33,7 +33,7 @@
     {
         if (IsCompleted)
             return;
-        FactOptionColor = Question.IsOpinion ? Color.Success : Color.Danger;
+        FactOptionColor = !Question.IsOpinion ? Color.Success : Color.Danger;
         IsCompleted = true;
         await Task.Delay(1000);
         await OnComplete.InvokeAsync(Question.IsOpinion);
@@ -43,7 +43,7 @@
     {
         if (IsCompleted)
             return;
-        OpinionOptionColor = !Question.IsOpinion ? Color.Success : Color.Danger;
+        OpinionOptionColor = Question.IsOpinion ? Color.Success : Color.Danger;
         IsCompleted = true;
         await Task.Delay(1000);
         await OnComplete.InvokeAsync(!Question.IsOpinion);
