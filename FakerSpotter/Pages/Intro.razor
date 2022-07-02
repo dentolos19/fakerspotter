@@ -1,5 +1,9 @@
 ﻿@page "/intro"
 
+@inject NavigationManager NavigationManager
+@inject HttpClient HttpClient
+@inject UserService UserService
+
 <Heading Size="HeadingSize.Is3" TextAlignment="TextAlignment.Center">Intro</Heading>
 <Divider/>
 <MarkdownPanel Content="@MarkdownContent"/>
@@ -10,9 +14,6 @@
 @code
 {
 
-    [Inject] private NavigationManager NavigationManager { get; set; }
-    [Inject] private HttpClient HttpClient { get; set; }
-
     private string MarkdownContent { get; set; }
 
     protected override async Task OnInitializedAsync()
@@ -22,15 +23,15 @@
 
     private void OnContinue()
     {
-        if (UserSettings.IsRoomOneCompleted != true)
+        if (UserService.IsRoomOneCompleted != true)
         {
             NavigationManager.NavigateTo("room/1");
         }
-        else if (UserSettings.IsRoomTwoCompleted != true)
+        else if (UserService.IsRoomTwoCompleted != true)
         {
             NavigationManager.NavigateTo("room/2");
         }
-        else if (UserSettings.IsRoomThreeCompleted != true)
+        else if (UserService.IsRoomThreeCompleted != true)
         {
             NavigationManager.NavigateTo("room/3");
         }

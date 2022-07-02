@@ -1,0 +1,87 @@
+[
+  {
+    "headline": "President Trump Mocked Prime Minister Trudeau for Celebrating Thanksgiving Six Weeks Early",
+    "background": "Satirical news site Burrard Street Journal published this story, even showing a \"real\" tweet from Trump. Thankfully, the story was isFake news, and Canada celebrated Thanksgiving without any insults from America's commander-in-chief.",
+    "isFake": true
+  },
+  {
+    "headline": "The Washington Redskins were stranded in their locker rooms overnight by Philadelphia police angry that players \"took a knee\" during a game against the Eagles on October 23",
+    "background": "Fortunately for all, this story was untrue, as readers may have guessed had they read the fine print on the website that published it, which declares, \"Reality is often in the eye of the beholder. You won’t find any of it here.\"",
+    "isFake": true
+  },
+  {
+    "headline": "Pipe Bomb Handed Back to Passenger by Airport Guard",
+    "background": "This one is real. An 18-year-old tried to board an airplane at Edmonton International Airport with a pipe bomb in his bag. After removing the device, guards let the man on board — with one guard allegedly attempting to return the device.",
+    "isFake": false
+  },
+  {
+    "headline": "Man Walks in to Haunted House with Chainsaw, Murders 7 People",
+    "background": "This isFake news story originated in 2014, and recirculates at Halloween each year.",
+    "isFake": true
+  },
+  {
+    "headline": "Police Believe Venezuela Zoo Animals Stolen For Food Amid Crisis",
+    "background": "This is the real deal, as reported by Reuters in 2017. When two animals went missing from the Zulia Metropolitan Zoological Park, police said they suspected the animals were stolen to be used as food, as many in the country were starving.",
+    "isFake": false
+  },
+  {
+    "headline": "Police Appeal for Information About Chicken Crossing Road",
+    "background": "This is real news reported by the BBC in 2016. Police were called when drivers in a British town spotted a lone chicken wandering the street and grew concerned. Officers caught the hen, then reached out to the community to find its owner.",
+    "isFake": false
+  },
+  {
+    "headline": "Truck Carrying Dough Overflows After Heat Makes It Rise",
+    "background": "Real as real can be. The dump truck that happened to be carrying bread dough down a Washington interstate got a little too hot, causing the dough to rise and overflow from the truck.",
+    "isFake": false
+  },
+  {
+    "headline": "FEMA Says Texans Will Need to Be Vaccinated Before They Can Receive Aid After Hurricane Harvey",
+    "background": "This isFake news story spread on social media after Hurricane Harvey hit Texas. The story so spooked people that FEMA eventually issued a statement denying the charge.",
+    "isFake": true
+  },
+  {
+    "headline": "Arkansas Woman Used Government Funds To Buy Her Dog A Tuxedo",
+    "background": "It's true. The canine couture was purchased by the assistant to an Arkansas judge. She used the office credit card, paid for by the government, to pay for her dog's couture — and other personal expenses — before she was caught.",
+    "isFake": false
+  },
+  {
+    "headline": "United States Treasury Announces Plans to Produce a New $20 Bill Featuring Confederate General Robert E. Lee",
+    "background": "This false story popped up on a site called Real News Right Now. Although the site includes information that would alert readers to the fact that it's satire, many people fell for the story about General Lee appearing on the $20 bill.",
+    "isFake": true
+  },
+  {
+    "headline": "Immigrants Arrested for Starting California Wildfires",
+    "background": "This fabrication was based on a real arrest. However, the man arrested was not in any way connected to the California wildfires. When a satirical site picked up the story, they omitted that fact.",
+    "isFake": true
+  },
+  {
+    "headline": "Charmin Tries To Get \"Mad Pooper\" To Turn Herself In",
+    "background": "This one is the real deal. After a woman in Colorado began defecating on a family's front lawn each week, Charmin offered to give the woman a year's supply of toilet paper if she turned herself in.",
+    "isFake": false
+  },
+  {
+    "headline": "Texas Mosque Refuses to Help Hurricane Harvey Survivors",
+    "background": "This isFake news story comes from satirical site America's Last Line of Defense. The story they published, though, was entirely fabricated — including the name of the mosque and the men quoted in the story.",
+    "isFake": true
+  },
+  {
+    "headline": "Judge Orders Hawaii Man To Write 144 Compliments About His Ex-Girlfriend",
+    "background": "This one is fact. After a man broke an order of protection by contacting his ex-girlfriend 144 times in less than three hours, a judge ordered the man to write 144 nice things about the woman, to make up for all the nasty messages.",
+    "isFake": false
+  },
+  {
+    "headline": "Indonesia Deploys Soldiers To Protect Against Marauding Monkeys",
+    "background": "Monkeys in Indonesia have been \"terrorizing\" citizens, according to Reuters, stealing food and attacking people. To combat the problem, armed soldiers and police have been deployed to fend off the wild monkeys.",
+    "isFake": false
+  },
+  {
+    "headline": "NYC Muslim Terrorist Donated Thousands to Obama Campaigns",
+    "background": "Fake news! Published after the 2017 NYC terror attack, the story plays off of the fears some conservatives have that President Barack Obama is himself a Muslim extremist with ties to terrorist groups like the Islamic State.",
+    "isFake": true
+  },
+  {
+    "headline": "Fox News Quietly Files Injunction Against Facebook Fake News Ban",
+    "background": "The Burrard Street Journal is responsible for this fake news story. The story was likely inspired by an old rumor that Fox News sued the FCC in 2004 for the right to lie on air. Both stories are completely false.",
+    "isFake": true
+  }
+]

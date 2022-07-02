@@ -1,0 +1,110 @@
+[
+  {
+    "statement": "Your heart pumps blood through your body.",
+    "isOpinion": false
+  },
+  {
+    "statement": "The leaves of growing plants are usually green.",
+    "isOpinion": false
+  },
+  {
+    "statement": "People use their legs to walk.",
+    "isOpinion": false
+  },
+  {
+    "statement": "Some people keep dogs as pets.",
+    "isOpinion": false
+  },
+  {
+    "statement": "1 liter of water weighs 1 kilogram.",
+    "isOpinion": false
+  },
+  {
+    "statement": "There are 50 states in the United States.",
+    "isOpinion": false
+  },
+  {
+    "statement": "Water always comes from the sky.",
+    "isOpinion": false
+  },
+  {
+    "statement": "The capital of Singapore is Singapore.",
+    "isOpinion": false
+  },
+  {
+    "statement": "The first president of Singapore was Yusof Ishak.",
+    "isOpinion": false
+  },
+  {
+    "statement": "Bali tigers are extinct.",
+    "isOpinion": false
+  },
+  {
+    "statement": "Sir Ian McKellan played Gandalf in the Lord of the Rings and the Hobbit franchises.",
+    "isOpinion": false
+  },
+  {
+    "statement": "Singapore gained independence on 1965.",
+    "isOpinion": false
+  },
+  {
+    "statement": "Beethoven had a reputation as a virtuoso pianist.",
+    "isOpinion": false
+  },
+  {
+    "statement": "Singapore is located in Southeast Asia.",
+    "isOpinion": false
+  },
+  {
+    "statement": "Mr Nick Chan was the principal of Northbrooks Secondary School.",
+    "isOpinion": false
+  },
+  {
+    "statement": "Mr Lee Hsien Loong is the Prime Minister of Singapore.",
+    "isOpinion": false
+  },
+  {
+    "statement": "The cake tastes delicious.",
+    "isOpinion": true
+  },
+  {
+    "statement": "The movie was boring.",
+    "isOpinion": true
+  },
+  {
+    "statement": "To solve traffic, it is better to invest in subways and trains than in road widening programs.",
+    "isOpinion": true
+  },
+  {
+    "statement": "It is better to live in Singapore than in Japan.",
+    "isOpinion": true
+  },
+  {
+    "statement": "I prefer using Facebook to Twitter because Twitter has limited characters per caption.",
+    "isOpinion": true
+  },
+  {
+    "statement": "Traveling in Asia is more fun than traveling in Europe.",
+    "isOpinion": true
+  },
+  {
+    "statement": "Liza Soberano is more beautiful than Janella Salvador.",
+    "isOpinion": true
+  },
+  {
+    "statement": "Today seems hotter than yesterday.",
+    "isOpinion": true
+  },
+  {
+    "statement": "Beethoven’s reputation as a virtuoso pianist is overrated.",
+    "isOpinion": true
+  },
+  {
+    "statement": "The internet is being used by teenagers to waste their time in social media.",
+    "isOpinion": true
+  },
+  {
+    "statement": "Dennise is the best programmer in the world.",
+    "isOpinion": true
+  }
+]

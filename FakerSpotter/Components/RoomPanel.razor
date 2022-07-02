@@ -1,12 +1,12 @@
-﻿@if (GlobalVariables.Tips is { Length: > 0 })
+﻿@if (VariableService.Tips is { Length: > 0 })
 {
     <Alert Color="Color.Info" Visible="true">
         <AlertMessage>Tip</AlertMessage>
-        <AlertDescription>@GlobalVariables.Tips[Random.Next(GlobalVariables.Tips.Length)]</AlertDescription>
+        <AlertDescription>@VariableService.Tips[Random.Next(VariableService.Tips.Length)]</AlertDescription>
     </Alert>
 }
 <Card>
-    <CardHeader>@RoomName | @RoomPoints room points → @UserSettings.PointsAccumulated points</CardHeader>
+    <CardHeader>@RoomName | @RoomPoints room points → @UserService.PointsAccumulated points</CardHeader>
     <CardBody>
         @if (IsCompleted)
         {
@@ -32,6 +32,8 @@
 {
 
     [Inject] private Random Random { get; set; }
+    [Inject] private UserService UserService { get; set; }
+    [Inject] private VariableService VariableService { get; set; }
 
     [Parameter] public string RoomName { get; set; }
     [Parameter] public int RoomPoints { get; set; }

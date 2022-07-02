@@ -2,22 +2,22 @@ using Blazored.LocalStorage;
 using Blazorise;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
+using FakerSpotter;
+using FakerSpotter.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace FakerSpotter;
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-public class Program
-{
+builder.RootComponents.Add<App>("#app");
 
-    public static async Task Main(string[] args)
-    {
-        var builder = WebAssemblyHostBuilder.CreateDefault(args);
-        builder.RootComponents.Add<App>("#app");
-        builder.Services.AddBlazoredLocalStorage();
-        builder.Services.AddBlazorise(options => { options.Immediate = true; }).AddBootstrapProviders().AddFontAwesomeIcons();
-        builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-        builder.Services.AddScoped(_ => new Random());
-        await builder.Build().RunAsync();
-    }
+builder.Services.AddBlazoredLocalStorage();
+builder.Services.AddBlazorise(options => { options.Immediate = true; }).AddBootstrapProviders().AddFontAwesomeIcons();
 
-}
+builder.Services.AddScoped(_ => new Random());
+builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+builder.Services.AddScoped<UserService>();
+builder.Services.AddSingleton<VariableService>();
+builder.Services.AddSingleton<DatabaseService>();
+
+await builder.Build().RunAsync();

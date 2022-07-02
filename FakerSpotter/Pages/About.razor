@@ -1,5 +1,7 @@
 ﻿@page "/about"
 
+@inject HttpClient HttpClient
+
 <Heading Size="HeadingSize.Is3" TextAlignment="TextAlignment.Center">About</Heading>
 <Divider/>
 <MarkdownPanel Content="@MarkdownContent"/>
@@ -9,8 +11,6 @@
 
 @code
 {
-
-    [Inject] private HttpClient HttpClient { get; set; }
 
     private string MarkdownContent { get; set; }
 

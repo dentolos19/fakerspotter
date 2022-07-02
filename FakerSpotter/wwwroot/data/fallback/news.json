@@ -1,0 +1,74 @@
+[
+  {
+    "imageUrl": "https://static1.straitstimes.com.sg/s3fs-public/articles/2021/08/19/hzgermanysg190821.jpg?VersionId=GRoHbLqq8NGaDwyfb_pb.6_m2..PgErN",
+    "headline": "Fully vaccinated travellers can travel to Germany and back without serving SHN from Sept 8.",
+    "background": "Source: The Straits Times",
+    "isFake": false
+  },
+  {
+    "imageUrl": "https://itcareercentral.com/wp-content/uploads/2021/11/javascript_vs_php.png",
+    "headline": "Why programming is very bad for your health.",
+    "background": "Source: Dennise's Awesome Facts",
+    "isFake": true
+  },
+  {
+    "imageUrl": "https://greatgameindia.com/wp-content/uploads/2020/01/Coronavirus-Bioweapon.jpg",
+    "headline": "Coronavirus Bioweapon – How China Stole Coronavirus From Canada And Weaponized It.",
+    "background": "Source: GreatGameIndia",
+    "isFake": true
+  },
+  {
+    "imageUrl": "https://apicms.thestar.com.my/uploads/images/2021/08/19/1262129.jpg",
+    "headline": "Singapore YouTuber Dee Kosh charged with offering cash to boys below 18 for sexual services",
+    "background": "Source: TheStar",
+    "isFake": false
+  },
+  {
+    "imageUrl": "https://dentolos19.github.io/assets/images/news/news4.jpg",
+    "headline": "3 Reasons Why You Should Stop Eating Peanut Butter Cups!",
+    "background": "Source: David Wolfe",
+    "isFake": true
+  },
+  {
+    "imageUrl": "https://dentolos19.github.io/assets/images/news/news5.webp",
+    "headline": "Donald Trump sent his own plane to transport 200 stranded marines.",
+    "background": "The Trump campaign has confirmed to Hannity.com that Mr. Trump did indeed send his plane to make two trips from North Carolina to Miami, Florida to transport over 200 Gulf War Marines back home.\n\nSource: Sean Hannity Show",
+    "isFake": true
+  },
+  {
+    "imageUrl": "https://dentolos19.github.io/assets/images/news/news6.jpg",
+    "headline": "Chinese astronauts conduct second spacewalk outside planned space station.",
+    "background": "Source: Cable News Network (CNN)",
+    "isFake": false
+  },
+  {
+    "imageUrl": "https://dentolos19.github.io/assets/images/news/news7.jpg",
+    "headline": "Biden says second Kabul airport attack likely in 24-36 hours.",
+    "background": "Source: Unknown",
+    "isFake": false
+  },
+  {
+    "imageUrl": "https://dentolos19.github.io/assets/images/news/news8.jpg",
+    "headline": "First Image of a Black Hole.",
+    "background": "Using the Event Horizon Telescope, scientists obtained an image of the black hole at the center of the galaxy M87.\n\nSource: NASA",
+    "isFake": false
+  },
+  {
+    "imageUrl": "https://dentolos19.github.io/assets/images/news/news9.jpg",
+    "headline": "Lionel Messi to leave Barcelona soccer team.",
+    "background": "Source: Mundo Hispanico",
+    "isFake": false
+  },
+  {
+    "imageUrl": "https://dentolos19.github.io/assets/images/news/news10.webp",
+    "headline": "Why a big solar storm today can stop your Internet; Indian scientist says prepare for superstorm event.",
+    "background": "A massive Internet outage can be caused by a massive solar storm today, especially if it is a solar superstorm. The Indian scientist says global infra is very vulnerable to solar storms. Preparing for a solar storm-Internet apocalypse is important as it will have a grave impact across the world.\n\nSource: Hindustan Times",
+    "isFake": false
+  },
+  {
+    "imageUrl": "https://dentolos19.github.io/assets/images/news/news11.jpg",
+    "headline": "Behind the scenes photo of MGM intro.",
+    "background": "Source: Unknown",
+    "isFake": true
+  }
+]

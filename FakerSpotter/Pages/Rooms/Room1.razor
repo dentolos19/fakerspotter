@@ -1,27 +1,40 @@
 ﻿@page "/room/1"
 
-<RoomPanel RoomName="@string.Format("Room 1: Is it a fact or a opinion? ({0}/10)", QuestionsAnswered)" RoomPoints="Points" IsCompleted="UserSettings.IsRoomOneCompleted" NextRoomEndpoint="room2">
+@inject NavigationManager NavigationManager
+@inject Random Random
+@inject DatabaseService DatabaseService
+@inject UserService UserService
+@inject VariableService VariableService
+
+<RoomPanel
+    RoomName="@string.Format("Room 1: Is it a fact or a opinion? ({0}/10)", QuestionsAnswered)"
+    RoomPoints="Points" IsCompleted="UserService.IsRoomOneCompleted"
+    NextRoomEndpoint="room2">
     <RoomContent>
-        @QuestionPanel
+        @if (VariableService.StatementQuestions is { Length: > 0 })
+        {
+            @QuestionPanel
+        }
+        else
+        {
+            <SpinKit Type="SpinKitType.Pulse" Centered/>
+        }
     </RoomContent>
 </RoomPanel>
 
 @code
 {
 
-    [Inject] private NavigationManager NavigationManager { get; set; }
-    [Inject] private HttpClient HttpClient { get; set; }
-    [Inject] private Random Random { get; set; }
-
     private int Points { get; set; } = 300;
     private int QuestionsAnswered { get; set; }
     private RenderFragment QuestionPanel { get; set; }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
+        VariableService.StatementQuestions ??= await DatabaseService.GetStatementQuestionsAsync();
         NextQuestion();
     }
-
+    
     private void OnQuestionCompleted(bool answeredCorrectly)
     {
         if (answeredCorrectly)
@@ -49,7 +62,7 @@
     {
         return builder =>
         {
-            builder.OpenComponent(0, typeof(StatementPanel));
+            builder.OpenComponent(0, typeof(StatementQuestionPanel));
             builder.AddAttribute(1, "Question", question);
             builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
             builder.CloseComponent();
@@ -58,14 +71,14 @@
 
     private void NextQuestion()
     {
-        var question = GlobalVariables.StatementQuestions[Random.Next(GlobalVariables.StatementQuestions.Length)];
+        var question = VariableService.StatementQuestions[Random.Next(VariableService.StatementQuestions.Length)];
         QuestionPanel = BuildQuestion(question);
     }
 
     private void NextRoom()
     {
-        UserSettings.PointsAccumulated += Points;
-        UserSettings.IsRoomOneCompleted = true;
+        UserService.PointsAccumulated += Points;
+        UserService.IsRoomOneCompleted = true;
         NavigationManager.NavigateTo("room/2");
     }
 

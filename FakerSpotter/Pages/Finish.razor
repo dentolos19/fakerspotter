@@ -1,5 +1,8 @@
 ﻿@page "/finish"
 
+@inject NavigationManager NavigationManager
+@inject UserService UserService
+
 @if (IsLocked)
 {
     <Alert Color="Color.Danger" Visible="true">
@@ -14,7 +17,7 @@
     <Figure Size="FigureSize.Is256x256">
         <FigureImage Source="@RewardImageUrl"/>
         <FigureCaption>
-            <Paragraph>You've accumulated <b>@UserSettings.PointsAccumulated</b> points!</Paragraph>
+            <Paragraph>You've accumulated <b>@UserService.PointsAccumulated</b> points!</Paragraph>
             <Paragraph>You have been awarded with <b>@RewardText</b>!</Paragraph>
         </FigureCaption>
     </Figure>
@@ -22,30 +25,46 @@
     <br/>
     <Paragraph>
         <Buttons>
-            <Button Color="Color.Primary" Clicked="OnRestart">Restart</Button>
+            <Button Color="Color.Primary" Clicked="RestartProgress">Restart</Button>
+            <Button Color="Color.Info" Clicked="ShowShareModal">Share</Button>
             <Button Color="Color.Secondary" Type="ButtonType.Link" To="">Back</Button>
         </Buttons>
     </Paragraph>
 </Container>
 
+<Modal @ref="ShareModalReference">
+    <ModalContent Centered>
+        <ModalHeader>
+            <ModalTitle>Share Your Score</ModalTitle>
+        </ModalHeader>
+        <ModalBody>
+            <Field>
+                <FieldLabel>Name</FieldLabel>
+                <TextEdit Placeholder=""/>
+            </Field>
+        </ModalBody>
+        <ModalFooter>
+            <Buttons>
+                <Button Color="Color.Primary" Clicked="ShareScore">Share</Button>
+                <Button Color="Color.Secondary" Clicked="ShareModalReference.Hide">Cancel</Button>
+            </Buttons>
+        </ModalFooter>
+    </ModalContent>
+</Modal>
+
 @code
 {
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; }
-
-    private bool IsLocked => !(UserSettings.IsRoomOneCompleted
-        && UserSettings.IsRoomTwoCompleted
-        && UserSettings.IsRoomThreeCompleted);
-
+    private bool IsLocked => false; // TODO (before publish): !(UserService.IsRoomOneCompleted && UserService.IsRoomTwoCompleted && UserService.IsRoomThreeCompleted);
     private string RewardImageUrl { get; set; }
     private string RewardText { get; set; }
+    private Modal ShareModalReference { get; set; }
 
     protected override void OnInitialized()
     {
         if (IsLocked)
             return;
-        var points = UserSettings.PointsAccumulated;
+        var points = UserService.PointsAccumulated;
         switch (points)
         {
             case >= 800:
@@ -67,13 +86,24 @@
         }
     }
 
-    private void OnRestart()
+    private void RestartProgress()
     {
-        UserSettings.IsRoomOneCompleted = false;
-        UserSettings.IsRoomTwoCompleted = false;
-        UserSettings.IsRoomThreeCompleted = false;
-        UserSettings.PointsAccumulated = 0;
+        UserService.IsRoomOneCompleted = false;
+        UserService.IsRoomTwoCompleted = false;
+        UserService.IsRoomThreeCompleted = false;
+        UserService.PointsAccumulated = 0;
         NavigationManager.NavigateTo("");
+    }
+
+    private void ShowShareModal()
+    {
+        ShareModalReference.Show();
+    }
+
+    private void ShareScore()
+    {
+        // TODO: share results
+        ShareModalReference.Hide();
     }
 
 }

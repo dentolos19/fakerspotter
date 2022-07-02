@@ -1,0 +1,44 @@
+﻿[
+  {
+    "headlines": {
+      "Slovak pensioner opens stuffed animal zoo": false,
+      "Japanese fans say Godzilla is too fat": false,
+      "World’s first hotdog ATM opens in Malaysia": true
+    }
+  },
+  {
+    "headlines": {
+      "Scientists create a plant that cannot die": true,
+      "Scientist to create stem cell burger": false,
+      "Scientists create water-activated self-folding straws": false
+    }
+  },
+  {
+    "headlines": {
+      "Trump claimed climate change was a hoax created by China": false,
+      "Trump campaign offered actors $50 to cheer for presidential announcement": false,
+      "Trump Twitter fight with former wrestler Hulk Hogan": true
+    }
+  },
+  {
+    "headlines": {
+      "Flood of caramel unleashed by Brazilian sugar fire": false,
+      "Sea monster washes ashore in New Zealand": false,
+      "Weatherman trapped by avalanche mid-report": true
+    }
+  },
+  {
+    "headlines": {
+      "North Korean cats rounded up and sent south": true,
+      "Kim Jong-un throws dance party to celebrate North Korea missile launch": false,
+      "Australian impostors play official golf tournament in North Korea": false
+    }
+  },
+  {
+    "headlines": {
+      "Crocodile breaks loose on Qantas flight": false,
+      "Wombat grounds flight in Sydney": true,
+      "Skippy causes plane crash": false
+    }
+  }
+]

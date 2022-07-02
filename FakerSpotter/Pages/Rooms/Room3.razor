@@ -1,24 +1,40 @@
 ﻿@page "/room/3"
 
-<RoomPanel RoomName="@string.Format("Room 3: Spot the fake news! ({0}/5)", QuestionsAnswered)" RoomPoints="Points" IsCompleted="UserSettings.IsRoomThreeCompleted" IsLocked="!UserSettings.IsRoomTwoCompleted" NextRoomEndpoint="finish" PreviousRoomEndpoint="room2">
+@inject NavigationManager NavigationManager
+@inject Random Random
+@inject DatabaseService DatabaseService
+@inject UserService UserService
+@inject VariableService VariableService
+
+<RoomPanel
+    RoomName="@string.Format("Room 3: Spot the fake news! ({0}/5)", QuestionsAnswered)"
+    RoomPoints="Points"
+    IsCompleted="UserService.IsRoomThreeCompleted"
+    IsLocked="!UserService.IsRoomTwoCompleted"
+    NextRoomEndpoint="finish"
+    PreviousRoomEndpoint="room2">
     <RoomContent>
-        @QuestionPanel
+        @if (VariableService.NewsQuestions is { Length: > 0 })
+        {
+            @QuestionPanel
+        }
+        else
+        {
+            <SpinKit Type="SpinKitType.Pulse" Centered/>
+        }
     </RoomContent>
 </RoomPanel>
 
 @code
 {
 
-    [Inject] private NavigationManager NavigationManager { get; set; }
-    [Inject] private HttpClient HttpClient { get; set; }
-    [Inject] private Random Random { get; set; }
-
     private int Points { get; set; } = 500;
     private int QuestionsAnswered { get; set; }
     private RenderFragment QuestionPanel { get; set; }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
+        VariableService.NewsQuestions ??= await DatabaseService.GetNewsQuestionsAsync();
         NextQuestion();
     }
 
@@ -49,7 +65,7 @@
     {
         return builder =>
         {
-            builder.OpenComponent(0, typeof(NewsPanel));
+            builder.OpenComponent(0, typeof(NewsQuestionPanel));
             builder.AddAttribute(1, "Question", question);
             builder.AddAttribute(2, "OnComplete", EventCallback.Factory.Create<bool>(this, OnQuestionCompleted));
             builder.CloseComponent();
@@ -58,14 +74,14 @@
 
     private void NextQuestion()
     {
-        var question = GlobalVariables.NewsQuestions[Random.Next(GlobalVariables.NewsQuestions.Length)];
+        var question = VariableService.NewsQuestions[Random.Next(VariableService.NewsQuestions.Length)];
         QuestionPanel = BuildQuestion(question);
     }
 
     private void NextRoom()
     {
-        UserSettings.PointsAccumulated += Points;
-        UserSettings.IsRoomThreeCompleted = true;
+        UserService.PointsAccumulated += Points;
+        UserService.IsRoomThreeCompleted = true;
         NavigationManager.NavigateTo("finish");
     }
 
