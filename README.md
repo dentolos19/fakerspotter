@@ -1,6 +1,8 @@
 # <img src=".github/icon.png" width="32"/> FakerSpotter
 
-A cyberwellness digital toolkit for learning on how to protect yourself from fake news! Learn more [here](https://dentolos19.github.io/FakerSpotter/about).
+A cyberwellness digital toolkit for learning on how to protect yourself from fake news!
+
+Learn more about this project by clicking [here](https://dentolos19.github.io/FakerSpotter/about).
 
 ## Screenshots
 
