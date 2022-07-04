@@ -1,9 +1,18 @@
-﻿@if (VariableService.Tips is { Length: > 0 })
+﻿@inject Random Random
+@inject DatabaseService DatabaseService
+@inject UserService UserService
+@inject VariableService VariableService
+
+@if (VariableService.Tips is { Length: > 0 })
 {
     <Alert Color="Color.Info" Visible="true">
         <AlertMessage>Tip</AlertMessage>
         <AlertDescription>@VariableService.Tips[Random.Next(VariableService.Tips.Length)]</AlertDescription>
     </Alert>
+}
+else
+{
+    <SpinKit Type="SpinKitType.Pulse" Centered/>
 }
 <Card>
     <CardHeader>@RoomName | @RoomPoints room points → @UserService.PointsAccumulated points</CardHeader>
@@ -31,10 +40,6 @@
 @code
 {
 
-    [Inject] private Random Random { get; set; }
-    [Inject] private UserService UserService { get; set; }
-    [Inject] private VariableService VariableService { get; set; }
-
     [Parameter] public string RoomName { get; set; }
     [Parameter] public int RoomPoints { get; set; }
     [Parameter] public RenderFragment RoomContent { get; set; }
@@ -42,5 +47,10 @@
     [Parameter] public bool IsLocked { get; set; }
     [Parameter] public string NextRoomEndpoint { get; set; } = string.Empty;
     [Parameter] public string PreviousRoomEndpoint { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        VariableService.Tips ??= await DatabaseService.GetTipsAsync();
+    }
 
 }

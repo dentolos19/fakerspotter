@@ -1,29 +1,29 @@
-name: Deploy
+name: Deploy Live Website
 on:
   push:
     branches:
       - main
     paths:
-      - "FakerSpotter/**"
+      - FakerSpotter/**
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 6.0.x
-    - name: Publish
-      run: |
-        dotnet publish FakerSpotter.sln --configuration Release --output build
-        sed --in-place 's/base href="\/"/base href="\/FakerSpotter\/"/g' build/wwwroot/index.html
-        cp build/wwwroot/index.html build/wwwroot/404.html
-        touch build/wwwroot/.nojekyll
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@4.2.0
-      with:
-        branch: live
-        folder: build/wwwroot
-        single-commit: true
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+      - name: Publish Project
+        run: |
+          dotnet publish FakerSpotter.sln --configuration Release --output build
+          sed --in-place 's/base href="\/"/base href="\/FakerSpotter\/"/g' build/wwwroot/index.html
+          cp build/wwwroot/index.html build/wwwroot/404.html
+          touch build/wwwroot/.nojekyll
+      - name: Deploy Build
+        uses: JamesIves/github-pages-deploy-action@4.2.0
+        with:
+          branch: live
+          folder: build/wwwroot
+          single-commit: true

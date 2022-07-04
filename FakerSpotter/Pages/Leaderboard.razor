@@ -1,86 +1,69 @@
 ﻿@page "/leaderboard"
 
 @inject DatabaseService DatabaseService
+@inject VariableService VariableService
 
 <Heading Size="HeadingSize.Is3" TextAlignment="TextAlignment.Center">Leaderboard</Heading>
 <Divider/>
 
-@if (IsLoading)
+@if (VariableService.Leaderboard is { Length: > 0 })
 {
-    <SpinKit Type="SpinKitType.Pulse" Centered/>
+    <Paragraph TextAlignment="TextAlignment.Center">Try out the game now and share your score with others!</Paragraph>
+    <Table Hoverable="true">
+        <TableHeader>
+            <TableRow>
+                <TableHeaderCell>Points</TableHeaderCell>
+                <TableHeaderCell>Name</TableHeaderCell>
+                <TableHeaderCell>Position</TableHeaderCell>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            @foreach (var item in VariableService.Leaderboard)
+            {
+                <TableRow>
+                    <TableHeaderCell>@item.Score</TableHeaderCell>
+                    <TableRowCell>@item.Name</TableRowCell>
+                    <TableRowCell>
+                        @switch (item.Score)
+                        {
+                            case >= 1000:
+                                <Image Source="images/icon.png" Style="width: 24px;"/>
+                                <Text>Cyberwellness Arcane Champion</Text>
+                                break;
+                            case >= 800:
+                                <Image Source="images/awards/champion.svg" Style="width: 24px;"/>
+                                <Text>Cyberwellness Champion</Text>
+                                break;
+                            case >= 600:
+                                <Image Source="images/awards/master.svg" Style="width: 24px;"/>
+                                <Text>Cyberwellness Master</Text>
+                                break;
+                            case >= 400:
+                                <Image Source="images/awards/apprentice.svg" Style="width: 24px;"/>
+                                <Text>Cyberwellness Apprentice</Text>
+                                break;
+                            default:
+                                <Image Source="images/awards/novice.svg" Style="width: 24px;"/>
+                                <Text>Cyberwellness Novice</Text>
+                                break;
+                        }
+                    </TableRowCell>
+                </TableRow>
+            }
+        </TableBody>
+    </Table>
 }
 else
 {
-    @if (Data is { Length: > 0 })
-    {
-        <Paragraph TextAlignment="TextAlignment.Center">Try out the game now and share your score with others!</Paragraph>
-        <Table Hoverable="true">
-            <TableHeader>
-                <TableRow>
-                    <TableHeaderCell>Points</TableHeaderCell>
-                    <TableHeaderCell>Name</TableHeaderCell>
-                    <TableHeaderCell>Position</TableHeaderCell>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                @foreach (var item in Data)
-                {
-                    <TableRow>
-                        <TableHeaderCell>@item.Score</TableHeaderCell>
-                        <TableRowCell>@item.Name</TableRowCell>
-                        <TableRowCell>
-                            @switch (item.Score)
-                            {
-                                case >= 1000:
-                                    <Image Source="images/icon.png" Style="width: 24px;"/>
-                                    <Text>Cyberwellness Arcane Champion</Text>
-                                    break;
-                                case >= 800:
-                                    <Image Source="images/awards/champion.svg" Style="width: 24px;"/>
-                                    <Text>Cyberwellness Champion</Text>
-                                    break;
-                                case >= 600:
-                                    <Image Source="images/awards/master.svg" Style="width: 24px;"/>
-                                    <Text>Cyberwellness Master</Text>
-                                    break;
-                                case >= 400:
-                                    <Image Source="images/awards/apprentice.svg" Style="width: 24px;"/>
-                                    <Text>Cyberwellness Apprentice</Text>
-                                    break;
-                                default:
-                                    <Image Source="images/awards/novice.svg" Style="width: 24px;"/>
-                                    <Text>Cyberwellness Novice</Text>
-                                    break;
-                            }
-                        </TableRowCell>
-                    </TableRow>
-                }
-            </TableBody>
-        </Table>
-    }
-    else
-    {
-        <Paragraph TextAlignment="TextAlignment.Center">Our database service is currently not available.</Paragraph>
-    }
+    <SpinKit Type="SpinKitType.Pulse" Centered/>
 }
 
 @code
 {
 
-    private LeaderboardItem[]? Data { get; set; }
-    private bool IsLoading { get; set; } = true;
-
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            Data = await DatabaseService.GetLeaderboardAsync();
-        }
-        catch
-        {
-            // do nothing
-        }
-        IsLoading = false;
+        VariableService.Leaderboard ??= await DatabaseService.GetLeaderboardAsync();
     }
 
 }

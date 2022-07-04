@@ -1,4 +1,6 @@
 ﻿using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 using FakerSpotter.Models;
 
@@ -16,7 +18,11 @@ public class DatabaseService
 
     public Task PostLeaderboardAsync(string name, int score)
     {
-        return _client.GetAsync(string.Format("general/leaderboard/post?name={0}&score={1}", Uri.EscapeDataString(name), score));
+        return _client.PostAsync("general/leaderboard", new StringContent(JsonSerializer.Serialize(new LeaderboardItem
+        {
+            Name = name,
+            Score = score
+        }), Encoding.UTF8, "application/json"));
     }
 
     public async Task<string[]> GetTipsAsync()
