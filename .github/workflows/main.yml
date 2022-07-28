@@ -26,13 +26,13 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: 6.0.x
-      - name: Publish Project
-        run: |
-          dotnet publish FakerSpotter.sln --configuration Release --output build
-          sed --in-place 's/base href="\/"/base href="\/FakerSpotter\/"/g' build/wwwroot/index.html
-          cp build/wwwroot/index.html build/wwwroot/404.html
       - name: Setup Pages
         uses: actions/configure-pages@v1
+      - name: Publish Project
+        run: |
+          dotnet publish --configuration Release --output build
+          sed --in-place 's/base href="\/"/base href="\/FakerSpotter\/"/g' build/wwwroot/index.html
+          cp build/wwwroot/index.html build/wwwroot/404.html
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v1
         with:
