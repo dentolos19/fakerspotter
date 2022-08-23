@@ -2,9 +2,9 @@
 
 A cyberwellness digital toolkit for learning on how to protect yourself from fake news!
 
-Learn more about this project by clicking [here](https://dentolos19.github.io/FakerSpotter/about).
+> **Note**: Learn more about this project by clicking [here](https://dentolos19.github.io/FakerSpotter/about).
 
-## Screenshots
+## Images
 
 ![](.github/images/0.png)
 ![](.github/images/1.png)

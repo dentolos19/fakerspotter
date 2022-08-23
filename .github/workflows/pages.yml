@@ -1,8 +1,6 @@
-name: Automatic Deployment Workflow
+name: GitHub Pages
 on:
   push:
-    branches:
-      - main
     paths:
       - FakerSpotter/**
   workflow_dispatch:
@@ -11,14 +9,11 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: workflow
+  group: deployment
   cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -37,6 +32,13 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: build/wwwroot
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy Artifacts
         id: deployment
         uses: actions/deploy-pages@main
