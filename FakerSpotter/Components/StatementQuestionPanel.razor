@@ -36,7 +36,7 @@
         FactOptionColor = !Question.IsOpinion ? Color.Success : Color.Danger;
         IsCompleted = true;
         await Task.Delay(1000);
-        await OnComplete.InvokeAsync(Question.IsOpinion);
+        await OnComplete.InvokeAsync(!Question.IsOpinion);
     }
 
     private async void OnOpinionPicked()
@@ -46,7 +46,7 @@
         OpinionOptionColor = Question.IsOpinion ? Color.Success : Color.Danger;
         IsCompleted = true;
         await Task.Delay(1000);
-        await OnComplete.InvokeAsync(!Question.IsOpinion);
+        await OnComplete.InvokeAsync(Question.IsOpinion);
     }
 
 }
