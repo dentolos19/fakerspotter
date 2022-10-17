@@ -9,7 +9,7 @@ namespace FakerSpotter.Services;
 public class DatabaseService
 {
 
-    private readonly HttpClient _client = new() { BaseAddress = new Uri("https://fakerspotter.vercel.app/api/") };
+    private readonly HttpClient _client = new() { BaseAddress = new Uri("https://dennise.me/api/fakerspotter/") };
 
     public Task<LeaderboardItem[]> GetLeaderboardAsync()
     {
