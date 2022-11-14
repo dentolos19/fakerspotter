@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -9,7 +9,7 @@ namespace FakerSpotter.Services;
 public class DatabaseService
 {
 
-    private readonly HttpClient _client = new() { BaseAddress = new Uri("https://dennise.me/api/fakerspotter/") };
+    private readonly HttpClient _client = new() { BaseAddress = new Uri("https://fakerspotter.vercel.app/api/") };
 
     public Task<LeaderboardItem[]> GetLeaderboardAsync()
     {

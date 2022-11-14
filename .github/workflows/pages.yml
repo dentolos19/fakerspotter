@@ -29,7 +29,7 @@ jobs:
       - name: Publish Project
         run: |
           dotnet publish --configuration Release --output build
-          sed --in-place 's/base href="\/"/base href="\/FakerSpotter\/"/g' /build/wwwroot/index.html
+          sed --in-place 's/base href="\/"/base href="\/FakerSpotter\/"/g' ./build/wwwroot/index.html
           cp ./build/wwwroot/index.html ./build/wwwroot/404.html
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v1
