@@ -1,0 +1,44 @@
+﻿@page "/intro"
+
+@inject NavigationManager NavigationManager
+@inject HttpClient HttpClient
+@inject UserService UserService
+
+<Heading Size="HeadingSize.Is3" TextAlignment="TextAlignment.Center">Intro</Heading>
+<Divider/>
+<MarkdownPanel Content="@MarkdownContent"/>
+<Paragraph TextAlignment="TextAlignment.Center">
+    <Button Color="Color.Primary" Clicked="OnContinue">Play</Button>
+</Paragraph>
+
+@code
+{
+
+    private string MarkdownContent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        MarkdownContent = await HttpClient.GetStringAsync("data/intro.md");
+    }
+
+    private void OnContinue()
+    {
+        if (UserService.IsRoomOneCompleted != true)
+        {
+            NavigationManager.NavigateTo("room/1");
+        }
+        else if (UserService.IsRoomTwoCompleted != true)
+        {
+            NavigationManager.NavigateTo("room/2");
+        }
+        else if (UserService.IsRoomThreeCompleted != true)
+        {
+            NavigationManager.NavigateTo("room/3");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("finish");
+        }
+    }
+
+}

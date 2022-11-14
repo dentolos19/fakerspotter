@@ -1,0 +1,56 @@
+﻿@inject Random Random
+@inject DatabaseService DatabaseService
+@inject UserService UserService
+@inject VariableService VariableService
+
+@if (VariableService.Tips is { Length: > 0 })
+{
+    <Alert Color="Color.Info" Visible="true">
+        <AlertMessage>Tip</AlertMessage>
+        <AlertDescription>@VariableService.Tips[Random.Next(VariableService.Tips.Length)]</AlertDescription>
+    </Alert>
+}
+else
+{
+    <SpinKit Type="SpinKitType.Pulse" Centered/>
+}
+<Card>
+    <CardHeader>@RoomName | @RoomPoints room points → @UserService.PointsAccumulated points</CardHeader>
+    <CardBody>
+        @if (IsCompleted)
+        {
+            <Alert Color="Color.Success" Visible="true">
+                <AlertMessage>Completed</AlertMessage>
+                <AlertDescription>This room is already completed, proceed to the <a href="@NextRoomEndpoint">next room</a>.</AlertDescription>
+            </Alert>
+            return;
+        }
+        @if (IsLocked)
+        {
+            <Alert Color="Color.Danger" Visible="true">
+                <AlertMessage>Locked</AlertMessage>
+                <AlertDescription>This room is locked until the <a href="@PreviousRoomEndpoint">previous room</a> is completed.</AlertDescription>
+            </Alert>
+            return;
+        }
+        @RoomContent
+    </CardBody>
+</Card>
+
+@code
+{
+
+    [Parameter] public string RoomName { get; set; }
+    [Parameter] public int RoomPoints { get; set; }
+    [Parameter] public RenderFragment RoomContent { get; set; }
+    [Parameter] public bool IsCompleted { get; set; }
+    [Parameter] public bool IsLocked { get; set; }
+    [Parameter] public string NextRoomEndpoint { get; set; } = string.Empty;
+    [Parameter] public string PreviousRoomEndpoint { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        VariableService.Tips ??= await DatabaseService.GetTipsAsync();
+    }
+
+}

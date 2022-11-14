@@ -1,0 +1,111 @@
+﻿@page "/finish"
+
+@inject NavigationManager NavigationManager
+@inject DatabaseService DatabaseService
+@inject UserService UserService
+
+@if (IsLocked)
+{
+    <Alert Color="Color.Danger" Visible="true">
+        <AlertMessage>Locked</AlertMessage>
+        <AlertDescription>This page is locked until you've completed all the rooms.</AlertDescription>
+    </Alert>
+    return;
+}
+
+<Container TextAlignment="TextAlignment.Center">
+    <Heading Size="HeadingSize.Is3">Congratulations!</Heading>
+    <Figure Size="FigureSize.Is256x256">
+        <FigureImage Source="@RewardImageUrl"/>
+        <FigureCaption>
+            <Paragraph>You've accumulated <b>@UserService.PointsAccumulated</b> points!</Paragraph>
+            <Paragraph>You have been awarded with <b>@RewardText</b>!</Paragraph>
+        </FigureCaption>
+    </Figure>
+    <br/>
+    <br/>
+    <Paragraph>
+        <Buttons>
+            <Button Color="Color.Primary" Clicked="RestartProgress">Restart</Button>
+            <Button Color="Color.Info" Clicked="ShowShareModal">Share</Button>
+            <Button Color="Color.Secondary" Type="ButtonType.Link" To="">Back</Button>
+        </Buttons>
+    </Paragraph>
+</Container>
+
+<Modal @ref="ShareModalReference">
+    <ModalContent Centered>
+        <ModalHeader>
+            <ModalTitle>Share Your Score</ModalTitle>
+        </ModalHeader>
+        <ModalBody>
+            <Field>
+                <FieldLabel>Name</FieldLabel>
+                <TextEdit @bind-Text="ShareNameText"/>
+            </Field>
+        </ModalBody>
+        <ModalFooter>
+            <Buttons>
+                <Button Color="Color.Primary" Clicked="ShareScore">Share</Button>
+                <Button Color="Color.Secondary" Clicked="ShareModalReference.Hide">Cancel</Button>
+            </Buttons>
+        </ModalFooter>
+    </ModalContent>
+</Modal>
+
+@code
+{
+
+    private bool IsLocked => !(UserService.IsRoomOneCompleted && UserService.IsRoomTwoCompleted && UserService.IsRoomThreeCompleted);
+    private string RewardImageUrl { get; set; }
+    private string RewardText { get; set; }
+    private string ShareNameText { get; set; }
+    private Modal ShareModalReference { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (IsLocked)
+            return;
+        var points = UserService.PointsAccumulated;
+        switch (points)
+        {
+            case >= 800:
+                RewardImageUrl = "images/awards/champion.svg";
+                RewardText = "Cyberwellness Champion";
+                break;
+            case >= 600:
+                RewardImageUrl = "images/awards/master.svg";
+                RewardText = "Cyberwellness Master";
+                break;
+            case >= 400:
+                RewardImageUrl = "images/awards/apprentice.svg";
+                RewardText = "Cyberwellness Apprentice";
+                break;
+            default:
+                RewardImageUrl = "images/awards/novice.svg";
+                RewardText = "Cyberwellness Novice";
+                break;
+        }
+    }
+
+    private void RestartProgress()
+    {
+        UserService.IsRoomOneCompleted = false;
+        UserService.IsRoomTwoCompleted = false;
+        UserService.IsRoomThreeCompleted = false;
+        UserService.PointsAccumulated = 0;
+        NavigationManager.NavigateTo("");
+    }
+
+    private async Task ShowShareModal()
+    {
+        await ShareModalReference.Show();
+    }
+
+    private async Task ShareScore()
+    {
+        await DatabaseService.PostLeaderboardAsync(ShareNameText, UserService.PointsAccumulated);
+        await ShareModalReference.Hide();
+    }
+
+}

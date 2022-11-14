@@ -1,0 +1,22 @@
+﻿@page "/about"
+
+@inject HttpClient HttpClient
+
+<Heading Size="HeadingSize.Is3" TextAlignment="TextAlignment.Center">About</Heading>
+<Divider/>
+<MarkdownPanel Content="@MarkdownContent"/>
+<Paragraph TextAlignment="TextAlignment.Center">
+    <Button Color="Color.Secondary" Type="ButtonType.Link" To="">Back</Button>
+</Paragraph>
+
+@code
+{
+
+    private string MarkdownContent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        MarkdownContent = await HttpClient.GetStringAsync("data/about.md");
+    }
+
+}
