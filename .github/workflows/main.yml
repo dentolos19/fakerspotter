@@ -1,5 +1,5 @@
 name: Live Deployment
-run-name: "${{ github.workflow }} #${{ github.run_id }}"
+run-name: "${{ github.workflow }} #${{ github.run_number }}"
 on:
   push:
     paths:
