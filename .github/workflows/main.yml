@@ -1,47 +1,45 @@
-name: Deploy GitHub Pages
-run-name: "GitHub Pages Deployment #${{ github.run_id }}"
+name: Live Deployment
+run-name: "${{ github.workflow }} #${{ github.run_id }}"
 on:
   push:
     paths:
       - src/app/**
   workflow_dispatch:
 concurrency:
-  group: deployment
+  group: ${{ github.workflow }}
   cancel-in-progress: true
 permissions:
   contents: read
   pages: write
   id-token: write
-env:
-  TARGET_BRANCH: ${{ github.event.repository.default_branch }}
-  DOTNET_VERSION: 6.0.x
-  PROJECT_FILE: src/app/FakerSpotter.csproj
 jobs:
-  main:
+  build:
+    name: Build Website
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout Repository
+      - name: Checkout Branch
         uses: actions/checkout@v3
-        with:
-          ref: ${{ env.TARGET_BRANCH }}
-          submodules: recursive
-          lfs: true
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
+          dotnet-version: 6.0.x
       - name: Publish Project
         run: |
-          dotnet publish ${{ env.PROJECT_FILE }} --configuration Release --output build
+          dotnet publish src/app/FakerSpotter.csproj --configuration Release --output build
           sed --in-place 's/base href="\/"/base href="\/FakerSpotter\/"/g' build/wwwroot/index.html
           cp build/wwwroot/index.html build/wwwroot/404.html
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v1
         with:
           path: build/wwwroot
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy Artifacts
         id: deployment
         uses: actions/deploy-pages@v1
