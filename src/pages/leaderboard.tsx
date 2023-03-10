@@ -1,10 +1,9 @@
-import Link from "next/link";
 import Image from "next/image";
-import { GetLeaderboard } from "@/lib/database";
+import { getLeaderboard } from "@/lib/database";
 import type { LeaderboardDocument } from "@/lib/database";
 
 export async function getServerSideProps() {
-  const leaderboard = await GetLeaderboard();
+  const leaderboard = await getLeaderboard();
   return {
     props: {
       leaderboard,
@@ -34,9 +33,21 @@ export default function Page({
               <th>{index + 1}</th>
               <td>{entry.name}</td>
               <td>{entry.score}</td>
-              <td>
+              <td className={"d-flex gap-2 align-items-center"}>
                 {function () {
-                  if (entry.score > 800) {
+                  if (entry.score > 1000) {
+                    return (
+                      <>
+                        <Image
+                          alt={"Cyberwellness Arance Champion"}
+                          src={"/static/icon.png"}
+                          width={32}
+                          height={32}
+                        />
+                        <span>Cyberwellness Arcane Champion</span>
+                      </>
+                    );
+                  } else if (entry.score > 800) {
                     return (
                       <>
                         <Image
@@ -91,9 +102,6 @@ export default function Page({
           ))}
         </tbody>
       </table>
-      <Link className={"btn btn-secondary"} href={".."}>
-        Back
-      </Link>
     </div>
   );
 }

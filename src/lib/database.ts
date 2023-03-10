@@ -41,7 +41,7 @@ function removeIds(documents: any[]) {
   return documents;
 }
 
-export async function GetLeaderboard() {
+export async function getLeaderboard() {
   const agent = await client.connect();
   const documents = (await agent
     .db("general")
@@ -53,7 +53,7 @@ export async function GetLeaderboard() {
   return removeIds(documents);
 }
 
-export async function GetTips() {
+export async function getTips() {
   const agent = await client.connect();
   const documents = (await agent
     .db("general")
@@ -63,7 +63,7 @@ export async function GetTips() {
   return removeIds(documents);
 }
 
-export async function GetStatementQuestions() {
+export async function getStatementQuestions() {
   const agent = await client.connect();
   const documents = (await agent
     .db("questions")
@@ -73,7 +73,7 @@ export async function GetStatementQuestions() {
   return removeIds(documents);
 }
 
-export async function GetClosedHeadlineQuestions() {
+export async function getClosedHeadlineQuestions() {
   const agent = await client.connect();
   const documents = (await agent
     .db("questions")
@@ -83,7 +83,7 @@ export async function GetClosedHeadlineQuestions() {
   return removeIds(documents);
 }
 
-export async function GetMultipleHeadlineQuestions() {
+export async function getMultipleHeadlineQuestions() {
   const agent = await client.connect();
   const documents = (await agent
     .db("questions")
@@ -93,7 +93,7 @@ export async function GetMultipleHeadlineQuestions() {
   return removeIds(documents);
 }
 
-export async function GetNewsQuestions() {
+export async function getNewsQuestions() {
   const agent = await client.connect();
   const documents = (await agent
     .db("questions")

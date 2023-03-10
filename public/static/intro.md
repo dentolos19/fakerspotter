@@ -1,6 +1,6 @@
 Welcome to FakerSpotter! This is a digital toolkit prepared by the Sec 3 Cyberwellness Team 2021! Learn more about this toolkit by visiting the [about page](./about).
 
-During the cyberwellness week, you might have learnt many ways to protect yourself, but how about fake news? Learn ways to protect yourself by playing this game!
+During the cyberwellness week, you might have learnt many ways to protect yourself online, but how about fake news? Learn ways to protect yourself by playing this game!
 
 You need to answer all questions correctly in order to proceed to the next room. If you answered a question incorrectly, the game will deduct a small amount of points depending on the difficulty of the room and you will need to retry again until the amount of the room points left is under 100.
 

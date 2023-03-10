@@ -1,4 +1,3 @@
-import Spinner from "@/components/spinner";
 import Link from "next/link";
 
 export default function Page() {

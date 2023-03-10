@@ -1,6 +1,7 @@
 import "@/styles/global.scss";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -12,13 +13,22 @@ export default function App({ Component, pageProps }: AppProps) {
       <div className={"container py-2"}>
         <header
           className={
-            "d-flex align-items-center justify-content-between" +
+            "d-flex align-items-center justify-content-between px-2" +
             " " +
             "pb-2 border-bottom" // separator
           }
         >
-          <Link className={"fs-4 text-dark text-decoration-none"} href={"/"}>
-            FakerSpotter
+          <Link
+            className={"d-flex gap-2 align-items-center text-decoration-none"}
+            href={"/"}
+          >
+            <Image
+              alt={"FakerSpotter"}
+              src={"/static/icon.png"}
+              width={32}
+              height={32}
+            />
+            <span className={"fs-5 text-dark"}> FakerSpotter</span>
           </Link>
           <Link
             className={"text-muted text-decoration-none"}
