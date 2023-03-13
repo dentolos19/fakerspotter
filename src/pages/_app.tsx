@@ -2,9 +2,10 @@ import "@/styles/global.scss";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import type { AppProps } from "next/app";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
@@ -37,9 +38,15 @@ export default function App({ Component, pageProps }: AppProps) {
             Leaderboard
           </Link>
         </header>
-        <main className={"pt-4 mx-4"}>
+        <motion.main
+          key={router.route}
+          className={"pt-4 mx-4"}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
           <Component {...pageProps} />
-        </main>
+        </motion.main>
       </div>
     </>
   );

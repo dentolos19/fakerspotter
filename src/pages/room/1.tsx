@@ -24,12 +24,14 @@ export default function Page({
 }) {
   const router = useRouter();
 
-  const [tip, setTip] = useState<TipDocument | null>(null);
-  const [question, setQuestion] = useState<StatementDocument | null>(null);
+  const [tip, setTip] = useState<TipDocument>(pickRandom(tips));
+  const [question, setQuestion] = useState<StatementDocument>(
+    pickRandom(questions)
+  );
   const [count, setCount] = useState(0);
 
   const answerHandler = (answeredOpinion: boolean) => {
-    if (question?.isOpinion === answeredOpinion) {
+    if (question.isOpinion === answeredOpinion) {
       setCount(count + 1);
       if (count >= 10) {
         router.push("/room/2");
@@ -39,11 +41,6 @@ export default function Page({
     setQuestion(pickRandom(questions));
   };
 
-  useEffect(() => {
-    setTip(pickRandom(tips));
-    setQuestion(pickRandom(questions));
-  }, [questions, tips]);
-
   return (
     <div>
       <div className={"alert alert-primary"}>{tip?.tip}</div>
@@ -52,7 +49,7 @@ export default function Page({
           Room 1: Is it a fact or an opinion? ({count}/10)
         </div>
         <div className={"card-body"}>
-          <h5>{question?.statement}</h5>
+          <h5>{question.statement}</h5>
           <div className={"btn-group"}>
             <button
               className={"btn btn-primary"}

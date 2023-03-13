@@ -2,4 +2,4 @@
 
 A cyberwellness digital toolkit for learning on how to protect yourself from fake news!
 
-> **Note**: This project has won the Silver award from the National Cyberwellness Advocacy Challenge (NCAC)! Learn more about this project by clicking [here](https://dentolos19.github.io/FakerSpotter/about).
+> **Announcement**: We have won Silver award for the National Cyberwellness Advocacy Challenge 2021!
