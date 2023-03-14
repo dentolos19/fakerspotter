@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { pickRandom } from "@/lib/utilities";
 import { getTips, getNewsQuestions } from "@/lib/database";
@@ -16,13 +16,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Page({
-  tips,
-  questions,
-}: {
-  tips: TipDocument[];
-  questions: NewsDocument[];
-}) {
+export default function Page({ tips, questions }: { tips: TipDocument[]; questions: NewsDocument[] }) {
   const router = useRouter();
 
   const [tip, setTip] = useState<TipDocument>(pickRandom(tips));
@@ -41,36 +35,32 @@ export default function Page({
   };
 
   return (
-    <div className={"card"}>
-      <div className={"card-header"}>
-        Room 3: Spot the fake news! ({count}/5)
-      </div>
-      <div className={"card-body"}>
-        <h5>{question.headline}</h5>
-        <Image
-          alt={"News Image"}
-          src={question.imageUrl}
-          width={500}
-          height={300}
-        />
-        <p>{question.background}</p>
-        <div className={"btn-group"}>
-          <button
-            className={"btn btn-success"}
-            onClick={() => {
-              answerHandler(false);
-            }}
-          >
-            Real
-          </button>
-          <button
-            className={"btn btn-danger"}
-            onClick={() => {
-              answerHandler(true);
-            }}
-          >
-            Fake
-          </button>
+    <div>
+      <div className={"alert alert-primary"}>{tip.tip}</div>
+      <div className={"card"}>
+        <div className={"card-header"}>Room 3: Spot the fake news! ({count}/5)</div>
+        <div className={"card-body"}>
+          <h5>{question.headline}</h5>
+          <Image alt={"News Image"} src={question.imageUrl} width={500} height={300} />
+          <p>{question.background}</p>
+          <div className={"btn-group"}>
+            <button
+              className={"btn btn-success"}
+              onClick={() => {
+                answerHandler(false);
+              }}
+            >
+              Real
+            </button>
+            <button
+              className={"btn btn-danger"}
+              onClick={() => {
+                answerHandler(true);
+              }}
+            >
+              Fake
+            </button>
+          </div>
         </div>
       </div>
     </div>

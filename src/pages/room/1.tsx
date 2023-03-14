@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { pickRandom } from "@/lib/utilities";
 import { getTips, getStatementQuestions } from "@/lib/database";
@@ -15,19 +15,11 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Page({
-  tips,
-  questions,
-}: {
-  tips: TipDocument[];
-  questions: StatementDocument[];
-}) {
+export default function Page({ tips, questions }: { tips: TipDocument[]; questions: StatementDocument[] }) {
   const router = useRouter();
 
   const [tip, setTip] = useState<TipDocument>(pickRandom(tips));
-  const [question, setQuestion] = useState<StatementDocument>(
-    pickRandom(questions)
-  );
+  const [question, setQuestion] = useState<StatementDocument>(pickRandom(questions));
   const [count, setCount] = useState(0);
 
   const answerHandler = (answeredOpinion: boolean) => {
@@ -43,11 +35,9 @@ export default function Page({
 
   return (
     <div>
-      <div className={"alert alert-primary"}>{tip?.tip}</div>
+      <div className={"alert alert-primary"}>{tip.tip}</div>
       <div className={"card"}>
-        <div className={"card-header"}>
-          Room 1: Is it a fact or an opinion? ({count}/10)
-        </div>
+        <div className={"card-header"}>Room 1: Is it a fact or an opinion? ({count}/10)</div>
         <div className={"card-body"}>
           <h5>{question.statement}</h5>
           <div className={"btn-group"}>

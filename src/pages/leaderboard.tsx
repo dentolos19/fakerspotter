@@ -11,11 +11,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Page({
-  leaderboard,
-}: {
-  leaderboard: LeaderboardDocument[];
-}) {
+export default function Page({ leaderboard }: { leaderboard: LeaderboardDocument[] }) {
   return (
     <div className={"d-flex flex-column align-items-center"}>
       <table className={"table"}>
@@ -38,60 +34,35 @@ export default function Page({
                   if (entry.score > 1000) {
                     return (
                       <>
-                        <Image
-                          alt={"Cyberwellness Arance Champion"}
-                          src={"/static/icon.png"}
-                          width={32}
-                          height={32}
-                        />
+                        <Image alt={"Cyberwellness Arance Champion"} src={"/static/icon.png"} width={32} height={32} />
                         <span>Cyberwellness Arcane Champion</span>
                       </>
                     );
                   } else if (entry.score > 800) {
                     return (
                       <>
-                        <Image
-                          alt={"Cyberwellness Champion"}
-                          src={"/static/champion.svg"}
-                          width={32}
-                          height={32}
-                        />
+                        <Image alt={"Cyberwellness Champion"} src={"/static/champion.svg"} width={32} height={32} />
                         <span>Cyberwellness Champion</span>
                       </>
                     );
                   } else if (entry.score > 600) {
                     return (
                       <>
-                        <Image
-                          alt={"Cyberwellness Master"}
-                          src={"/static/master.svg"}
-                          width={32}
-                          height={32}
-                        />
+                        <Image alt={"Cyberwellness Master"} src={"/static/master.svg"} width={32} height={32} />
                         <span>Cyberwellness Master</span>
                       </>
                     );
                   } else if (entry.score > 400) {
                     return (
                       <>
-                        <Image
-                          alt={"Cyberwellness Apprentice"}
-                          src={"/static/apprentice.svg"}
-                          width={32}
-                          height={32}
-                        />
+                        <Image alt={"Cyberwellness Apprentice"} src={"/static/apprentice.svg"} width={32} height={32} />
                         <span>Cyberwellness Apprentice</span>
                       </>
                     );
                   } else {
                     return (
                       <>
-                        <Image
-                          alt={"Cyberwellness Novice"}
-                          src={"/static/novice.svg"}
-                          width={32}
-                          height={32}
-                        />
+                        <Image alt={"Cyberwellness Novice"} src={"/static/novice.svg"} width={32} height={32} />
                         <span>Cyberwellness Novice</span>
                       </>
                     );
