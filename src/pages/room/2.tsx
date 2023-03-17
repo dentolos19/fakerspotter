@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { pickRandom } from "@/lib/utilities";
+import { pickRandom, generateRandom } from "@/lib/utilities";
+import { getScore, setScore } from "@/lib/settings";
 import { getTips, getClosedHeadlineQuestions, getMultipleHeadlineQuestions } from "@/lib/database";
 import type { TipDocument, ClosedHeadlineDocument, MultipleHeadlineDocument } from "@/lib/database";
+
+const MAX_SCORE = 200;
 
 export async function getServerSideProps() {
   const tips = await getTips();
@@ -20,12 +23,15 @@ export default function Page({ tips, questions }: { tips: TipDocument[]; questio
 
   const [tip, setTip] = useState<TipDocument>(pickRandom(tips));
   const [question, setQuestion] = useState<ClosedHeadlineDocument>(pickRandom(questions));
-  const [count, setCount] = useState(0);
+  const [currentCount, setCurrentCount] = useState(0);
+  const [currentScore, setCurrentScore] = useState(MAX_SCORE);
 
   const answerHandler = (answeredFake: boolean) => {
     if (question.isFake === answeredFake) {
-      setCount(count + 1);
-      if (count >= 5) {
+      setCurrentCount(currentCount + 1);
+      setCurrentScore(currentScore - generateRandom(0, 40));
+      if (currentCount >= 5 || currentScore < 100) {
+        setScore(getScore() + currentScore);
         router.push("/room/3");
       }
     }
@@ -37,7 +43,9 @@ export default function Page({ tips, questions }: { tips: TipDocument[]; questio
     <div>
       <div className={"alert alert-primary"}>{tip.tip}</div>
       <div className={"card"}>
-        <div className={"card-header"}>Room 2: Spot the fake headline! ({count}/5)</div>
+        <div className={"card-header"}>
+          Room 2: Spot the fake headline! ({currentCount}/5) | {MAX_SCORE} room points → {currentScore} current points
+        </div>
         <div className={"card-body"}>
           <h5>{question.headline}</h5>
           <div className={"btn-group"}>

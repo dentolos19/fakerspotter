@@ -1,9 +1,12 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { pickRandom } from "@/lib/utilities";
+import { pickRandom, generateRandom } from "@/lib/utilities";
+import { getScore, setScore } from "@/lib/settings";
 import { getTips, getNewsQuestions } from "@/lib/database";
 import type { TipDocument, NewsDocument } from "@/lib/database";
+
+const MAX_SCORE = 500;
 
 export async function getServerSideProps() {
   const tips = await getTips();
@@ -21,12 +24,15 @@ export default function Page({ tips, questions }: { tips: TipDocument[]; questio
 
   const [tip, setTip] = useState<TipDocument>(pickRandom(tips));
   const [question, setQuestion] = useState<NewsDocument>(pickRandom(questions));
-  const [count, setCount] = useState(0);
+  const [currentCount, setCurrentCount] = useState(0);
+  const [currentScore, setCurrentScore] = useState(0);
 
   const answerHandler = (answeredFake: boolean) => {
     if (question.isFake === answeredFake) {
-      setCount(count + 1);
-      if (count >= 5) {
+      setCurrentCount(currentCount + 1);
+      setCurrentScore(currentScore - generateRandom(0, 100));
+      if (currentCount >= 5 || currentScore < 100) {
+        setScore(getScore() + currentScore);
         router.push("/finish");
       }
     }
@@ -38,7 +44,9 @@ export default function Page({ tips, questions }: { tips: TipDocument[]; questio
     <div>
       <div className={"alert alert-primary"}>{tip.tip}</div>
       <div className={"card"}>
-        <div className={"card-header"}>Room 3: Spot the fake news! ({count}/5)</div>
+        <div className={"card-header"}>
+          Room 3: Spot the fake news! ({currentCount}/5) | {MAX_SCORE} room points → {currentScore} current points
+        </div>
         <div className={"card-body"}>
           <h5>{question.headline}</h5>
           <Image alt={"News Image"} src={question.imageUrl} width={500} height={300} />
