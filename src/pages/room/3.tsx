@@ -30,11 +30,12 @@ export default function Page({ tips, questions }: { tips: TipDocument[]; questio
   const answerHandler = (answeredFake: boolean) => {
     if (question.isFake === answeredFake) {
       setCurrentCount(currentCount + 1);
-      setCurrentScore(currentScore - generateRandom(0, 100));
       if (currentCount >= 5 || currentScore < 100) {
         setScore(getScore() + currentScore);
         router.push("/finish");
       }
+    } else {
+      setCurrentScore(currentScore - generateRandom(0, 100));
     }
     setTip(pickRandom(tips));
     setQuestion(pickRandom(questions));
