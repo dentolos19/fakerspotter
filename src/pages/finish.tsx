@@ -1,26 +1,35 @@
 import Link from "next/link";
 import Image from "next/image";
+import settings from "@/lib/settings";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { getScore, setScore } from "@/lib/settings";
 
 export default function Page() {
   const router = useRouter();
 
   const [currentScore, setCurrentScore] = useState(0);
+  const [allowAccess, setAllowAccess] = useState(false);
 
   const postHandler = () => {
     // TODO
   };
 
   const resetHandler = () => {
-    setScore(0);
+    settings.score = 0;
+    settings.isRoom1Completed = false;
+    settings.isRoom2Completed = false;
+    settings.isRoom3Completed = false;
     router.push("..");
   };
 
   useEffect(() => {
-    setCurrentScore(getScore());
+    setAllowAccess(settings.isRoom1Completed && settings.isRoom2Completed && settings.isRoom3Completed);
+    setCurrentScore(settings.score);
   }, []);
+
+  if (!allowAccess) {
+    return <div className={"alert alert-danger"}>Please complete all rooms.</div>;
+  }
 
   return (
     <div className={"d-flex flex-column align-items-center"}>

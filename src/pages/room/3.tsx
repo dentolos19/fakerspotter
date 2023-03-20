@@ -1,12 +1,13 @@
 import Image from "next/image";
-import { useState } from "react";
+import Spinner from "@/components/spinner";
+import settings from "@/lib/settings";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { pickRandom, generateRandom } from "@/lib/utilities";
-import { getScore, setScore } from "@/lib/settings";
 import { getTips, getNewsQuestions } from "@/lib/database";
 import type { TipDocument, NewsDocument } from "@/lib/database";
 
-const MAX_SCORE = 500;
+const MAX_POINTS = 500;
 
 export async function getServerSideProps() {
   const tips = await getTips();
@@ -25,28 +26,49 @@ export default function Page({ tips, questions }: { tips: TipDocument[]; questio
   const [tip, setTip] = useState<TipDocument>(pickRandom(tips));
   const [question, setQuestion] = useState<NewsDocument>(pickRandom(questions));
   const [currentCount, setCurrentCount] = useState(0);
+  const [currentPoints, setCurrentPoints] = useState(MAX_POINTS);
   const [currentScore, setCurrentScore] = useState(0);
+  const [roomCompleted, setRoomCompleted] = useState(false);
+  const [allowAccess, setAllowAccess] = useState(false);
 
   const answerHandler = (answeredFake: boolean) => {
     if (question.isFake === answeredFake) {
       setCurrentCount(currentCount + 1);
-      if (currentCount >= 5 || currentScore < 100) {
-        setScore(getScore() + currentScore);
-        router.push("/finish");
-      }
     } else {
-      setCurrentScore(currentScore - generateRandom(0, 100));
+      setCurrentPoints(currentPoints - generateRandom(0, 100));
     }
     setTip(pickRandom(tips));
     setQuestion(pickRandom(questions));
   };
+
+  useEffect(() => {
+    setCurrentScore(settings.score);
+    setRoomCompleted(settings.isRoom3Completed);
+    setAllowAccess(settings.isRoom1Completed && settings.isRoom2Completed);
+  }, []);
+
+  if (roomCompleted) {
+    return <div className={"alert alert-danger"}>You have already completed this room.</div>;
+  }
+
+  if (!allowAccess) {
+    return <div className={"alert alert-danger"}>Please complete the previous room(s).</div>;
+  }
+
+  if (currentCount >= 5 || currentPoints < 100) {
+    settings.score = settings.score + currentPoints;
+    settings.isRoom3Completed = true;
+    router.push("/finish");
+    return <Spinner />;
+  }
 
   return (
     <div>
       <div className={"alert alert-primary"}>{tip.tip}</div>
       <div className={"card"}>
         <div className={"card-header"}>
-          Room 3: Spot the fake news! ({currentCount}/5) | {MAX_SCORE} room points → {currentScore} current points
+          Room 3: Spot the fake news! ({currentCount}/5) | {MAX_POINTS} room points → {currentPoints} current points |{" "}
+          {currentScore} total score
         </div>
         <div className={"card-body"}>
           <h5>{question.headline}</h5>
