@@ -18,7 +18,8 @@ resharper_keep_existing_arrangement = true
 resharper_xmldoc_wrap_lines = false
 resharper_xml_wrap_lines = false
 
-[*.{js,jsx,ts,tsx}]
+max_line_length = 120 # prettier
+
+[*.{js,jsx,ts,tsx,css,json}]
 
 indent_size = 2
-max_line_length = 120 # prettier
