@@ -1,10 +1,12 @@
-import Spinner from "@/components/spinner";
 import settings from "@/lib/settings";
+import Spinner from "@/components/spinner";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { pickRandom, generateRandom } from "@/lib/utilities";
 import { getTips, getClosedHeadlineQuestions, getMultipleHeadlineQuestions } from "@/lib/database";
 import type { TipDocument, ClosedHeadlineDocument, MultipleHeadlineDocument } from "@/lib/database";
+
+// TODO: add multiple headline questions
 
 const MAX_POINTS = 200;
 

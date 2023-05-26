@@ -11,7 +11,7 @@ export default function Page() {
   const [allowAccess, setAllowAccess] = useState(false);
 
   const postHandler = () => {
-    // TODO
+    // TODO: add function for posting to leaderboard
   };
 
   const resetHandler = () => {

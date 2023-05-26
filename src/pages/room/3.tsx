@@ -1,6 +1,6 @@
+import settings from "@/lib/settings";
 import Image from "next/image";
 import Spinner from "@/components/spinner";
-import settings from "@/lib/settings";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { pickRandom, generateRandom } from "@/lib/utilities";
