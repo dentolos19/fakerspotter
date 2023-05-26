@@ -1,7 +1,3 @@
-import { MongoClient } from "mongodb";
-
-// const client = new MongoClient(process.env["MONGODB_URI"] as string);
-
 const apiKey = process.env["DATABASE_API_KEY"] as string;
 const apiUrl = "https://ap-southeast-1.aws.data.mongodb-api.com/app/data-fisvz/endpoint/data/v1";
 
@@ -36,25 +32,7 @@ export type NewsDocument = {
   isFake: boolean;
 };
 
-function removeIds(documents: any[]) {
-  for (let index = 0; index < documents.length; index++) {
-    delete documents[index]._id;
-  }
-  return documents;
-}
-
 export async function getLeaderboard() {
-  /*
-  const agent = await client.connect();
-  const documents = (await agent
-    .db("general")
-    .collection<LeaderboardDocument>("leaderboard")
-    .find()
-    .sort({ score: -1 })
-    .limit(10)
-    .toArray()) as LeaderboardDocument[];
-  return removeIds(documents);
-  */
   return fetch(`${apiUrl}/action/find`, {
     method: "POST",
     headers: {
@@ -76,11 +54,6 @@ export async function getLeaderboard() {
 }
 
 export async function getTips() {
-  /*
-  const agent = await client.connect();
-  const documents = (await agent.db("general").collection<TipDocument>("tips").find().toArray()) as TipDocument[];
-  return removeIds(documents);
-  */
   return fetch(`${apiUrl}/action/find`, {
     method: "POST",
     headers: {
@@ -100,15 +73,6 @@ export async function getTips() {
 }
 
 export async function getStatementQuestions() {
-  /*
-  const agent = await client.connect();
-  const documents = (await agent
-    .db("questions")
-    .collection<StatementDocument>("statements")
-    .find()
-    .toArray()) as StatementDocument[];
-  return removeIds(documents);
-  */
   return fetch(`${apiUrl}/action/find`, {
     method: "POST",
     headers: {
@@ -128,15 +92,6 @@ export async function getStatementQuestions() {
 }
 
 export async function getClosedHeadlineQuestions() {
-  /*
-  const agent = await client.connect();
-  const documents = (await agent
-    .db("questions")
-    .collection<ClosedHeadlineDocument>("headlines-closed")
-    .find()
-    .toArray()) as ClosedHeadlineDocument[];
-  return removeIds(documents);
-  */
   return fetch(`${apiUrl}/action/find`, {
     method: "POST",
     headers: {
@@ -156,15 +111,6 @@ export async function getClosedHeadlineQuestions() {
 }
 
 export async function getMultipleHeadlineQuestions() {
-  /*
-  const agent = await client.connect();
-  const documents = (await agent
-    .db("questions")
-    .collection<MultipleHeadlineDocument>("headlines-multiple")
-    .find()
-    .toArray()) as MultipleHeadlineDocument[];
-  return removeIds(documents);
-  */
   return fetch(`${apiUrl}/action/find`, {
     method: "POST",
     headers: {
@@ -184,11 +130,6 @@ export async function getMultipleHeadlineQuestions() {
 }
 
 export async function getNewsQuestions() {
-  /*
-  const agent = await client.connect();
-  const documents = (await agent.db("questions").collection<NewsDocument>("news").find().toArray()) as NewsDocument[];
-  return removeIds(documents);
-  */
   return fetch(`${apiUrl}/action/find`, {
     method: "POST",
     headers: {
