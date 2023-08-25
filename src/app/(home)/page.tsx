@@ -2,9 +2,12 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className={"p-4 bg-light rounded"}>
+    <main className={"p-4 bg-light rounded"}>
       <h1>Welcome!</h1>
-      <p>A cyberwellness digital toolkit for learning on how to protect yourself from fake news!</p>
+      <p>
+        A cyberwellness digital toolkit for learning on how to protect yourself
+        from fake news!
+      </p>
       <div className={"btn-group"}>
         <Link className={"btn btn-primary"} href={"/play"}>
           Play
@@ -13,6 +16,6 @@ export default function Page() {
           About
         </Link>
       </div>
-    </div>
+    </main>
   );
 }

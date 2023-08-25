@@ -1,17 +1,21 @@
+"use client";
+
 import useSWR from "swr";
-import settings from "@/lib/settings";
-import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import Spinner from "@/components/spinner";
-import { useRouter } from "next/router";
+import Link from "next/link";
+import Loading from "@/app/loading";
+import settings from "@/lib/settings";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
   const router = useRouter();
 
-  const { data, error } = useSWR("/static/intro.md", (url) => fetch(url).then((res) => res.text()));
+  const { data, error } = useSWR("/assets/intro.md", (url) =>
+    fetch(url).then((res) => res.text())
+  );
 
   if (error) return <div className={"alert alert-danger"}>Error</div>;
-  if (!data) return <Spinner />;
+  if (!data) return <Loading />;
 
   const continueHandler = () => {
     if (settings.isRoom3Completed) {
@@ -26,7 +30,7 @@ export default function Page() {
   };
 
   return (
-    <div>
+    <main>
       <ReactMarkdown>{data}</ReactMarkdown>
       <div className={"d-flex justify-content-center"}>
         <div className={"btn-group"}>
@@ -38,6 +42,6 @@ export default function Page() {
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
