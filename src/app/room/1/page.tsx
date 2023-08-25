@@ -49,7 +49,7 @@ export default function Page() {
     settings.score = settings.score + currentPoints;
     settings.isRoom1Completed = true;
     router.push("/room/2");
-    return <div>Loading</div>; // TODO: replace this with proper loading spinner
+    return <Loading />;
   }
 
   const answerHandler = (answeredOpinion: boolean) => {

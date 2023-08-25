@@ -33,6 +33,7 @@ export default function Page() {
     if (!name)
       return;
     await createLeaderboardEntry(name, currentScore);
+    router.push("/leaderboard");
   }
 
   const resetHandler = () => {

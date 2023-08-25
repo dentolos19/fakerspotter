@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import { getTips, getNewsQuestions, NewsDocument } from "@/lib/database";
 import { pickRandom, generateRandom } from "@/lib/utilities";
 
+// TODO: fix the images
+
 const MAX_POINTS = 500;
 
 export default function Page() {
@@ -56,7 +58,7 @@ export default function Page() {
     settings.score = settings.score + currentPoints;
     settings.isRoom3Completed = true;
     router.push("/finish");
-    return <div>Loading</div>; // TODO: replace this with proper loading spinner
+    return <Loading />;
   }
 
   const answerHandler = (answeredFake: boolean) => {

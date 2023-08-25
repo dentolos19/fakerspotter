@@ -9,9 +9,9 @@ import {
   getClosedHeadlineQuestions,
   ClosedHeadlineDocument,
 } from "@/lib/database";
+import { pickRandom, generateRandom } from "@/lib/utilities";
 
 // TODO: add multiple headline questions
-import { pickRandom, generateRandom } from "@/lib/utilities";
 
 const MAX_POINTS = 200;
 
@@ -61,7 +61,7 @@ export default function Page() {
     settings.score = settings.score + currentPoints;
     settings.isRoom2Completed = true;
     router.push("/room/3");
-    return <div>Loading</div>; // TODO: replace this with proper loading spinner
+    return <Loading />;
   }
 
   const answerHandler = (answeredFake: boolean) => {
