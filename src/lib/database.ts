@@ -1,4 +1,7 @@
 import useSWR from "swr";
+import PocketBase from "pocketbase";
+
+const pb = new PocketBase("https://screeching-autumn.pockethost.io");
 
 export type TipDocument = {
   tip: string;
@@ -26,6 +29,40 @@ export type NewsDocument = {
   isFake: boolean;
 };
 
+export type LeaderboardEntry = {
+  name: string;
+  score: number;
+};
+
+export function getLeaderboardEntries(
+  page: number = 1,
+  limit: number = 10
+) {
+  try {
+    return pb
+      .collection("leaderboard")
+      .getList<LeaderboardEntry>(page, limit, {
+        sort: "-score",
+      });
+  } catch {
+    return null;
+  }
+}
+
+export function createLeaderboardEntry(
+  name: string,
+  score: number
+) {
+  try {
+    return pb.collection("leaderboard").create<LeaderboardEntry>({
+      name,
+      score,
+    });
+  } catch {
+    return null;
+  }
+}
+
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export function getTips() {
@@ -41,9 +78,15 @@ export function getNewsQuestions() {
 }
 
 export function getClosedHeadlineQuestions() {
-  return useSWR<ClosedHeadlineDocument[]>("/database/headlines-closed.json", fetcher);
+  return useSWR<ClosedHeadlineDocument[]>(
+    "/database/headlines-closed.json",
+    fetcher
+  );
 }
 
 export function getMultipleHeadlineQuestions() {
-  return useSWR<MultipleHeadlineDocument[]>("/database/headlines-multiple.json", fetcher);
+  return useSWR<MultipleHeadlineDocument[]>(
+    "/database/headlines-multiple.json",
+    fetcher
+  );
 }

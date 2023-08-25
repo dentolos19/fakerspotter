@@ -4,13 +4,13 @@ During the cyberwellness week, you might have learnt many ways to protect yourse
 
 You need to answer all questions correctly in order to proceed to the next room. If you answered a question incorrectly, the game will deduct a small amount of points depending on the difficulty of the room and you will need to retry again until the amount of the room points left is under 100.
 
-##### Escape Rooms
+**Escape Rooms**
 
 - **Room 1**: Is it a fact or a opinion? (max 300 points/10 questions)
 - **Room 2**: Spot the fake headline! (max 200 points/5 questions)
 - **Room 3**: Spot the fake news! (max 500 points/5 questions)
 
-##### End Awards
+**End Awards**
 
 - **Cyberwellness Champion**: 800-1000 points 👑
 - **Cyberwellness Master**: 600-800 points ⚔

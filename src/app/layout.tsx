@@ -37,9 +37,9 @@ export default function RootLayout({
             </Link>
             <Link
               className={"text-muted text-decoration-none"}
-              href={"https://github.com/dentolos19/FakerSpotter"}
+              href={"/leaderboard"}
             >
-              GitHub
+              Leaderboard
             </Link>
           </header>
           <div className={"pt-4 mx-4"}>{children}</div>

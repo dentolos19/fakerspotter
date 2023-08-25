@@ -5,6 +5,7 @@ import Image from "next/image";
 import settings from "@/lib/settings";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { createLeaderboardEntry } from "@/lib/database";
 
 export default function Page() {
   const router = useRouter();
@@ -25,6 +26,13 @@ export default function Page() {
     return (
       <div className={"alert alert-danger"}>Please complete all rooms.</div>
     );
+  }
+
+  const postHandler = async () => {
+    const name = prompt("Please enter your name...");
+    if (!name)
+      return;
+    await createLeaderboardEntry(name, currentScore);
   }
 
   const resetHandler = () => {
@@ -107,6 +115,9 @@ export default function Page() {
         {"You've"} scored {currentScore} points!
       </p>
       <div className={"btn-group"}>
+        <button className={"btn btn-primary"} onClick={postHandler}>
+          Post
+        </button>
         <button className={"btn btn-danger"} onClick={resetHandler}>
           Reset
         </button>

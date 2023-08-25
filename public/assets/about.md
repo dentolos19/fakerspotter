@@ -2,7 +2,7 @@ A cyberwellness digital toolkit for learning on how to protect yourself from fak
 
 We teach players by making them learn from their mistakes and through trial-and-error. This project is made to participate in the National Cyberwellness Advocacy Challenge (NCAC) 2021.
 
-##### Research Materials
+**Research Materials**
 
 -   [Google News](https://news.google.com)
 -   [Examples of Viral Fake News](https://libguides.valenciacollege.edu/c.php?g=612299&p=4251645)
@@ -10,7 +10,7 @@ We teach players by making them learn from their mistakes and through trial-and-
 -   [Quiz: Can you spot the fake news headline?](https://this.deakin.edu.au/society/quiz-can-you-spot-the-fake-news-headline)
 -   [30 Fake Viral Photos People Believed Were Real](https://boredpanda.com/fake-news-photos-viral-photoshop)
 
-##### Cyberwellness Team (2021)
+**Cyberwellness Team (2021)**
 
 -   **3G** Amanda (Brooksian News Champion)
 -   **3I** Syabil
