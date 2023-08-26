@@ -4,11 +4,7 @@ import Loading from "@/app/loading";
 import settings from "@/lib/settings";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import {
-  getTips,
-  getClosedHeadlineQuestions,
-  ClosedHeadlineDocument,
-} from "@/lib/database";
+import { getTips, getClosedHeadlineQuestions, ClosedHeadlineDocument } from "@/lib/database";
 import { pickRandom, generateRandom } from "@/lib/utilities";
 
 // TODO: add multiple headline questions
@@ -42,19 +38,11 @@ export default function Page() {
   if (!tip || !question) return <Loading />;
 
   if (roomCompleted) {
-    return (
-      <div className={"alert alert-danger"}>
-        You have already completed this room.
-      </div>
-    );
+    return <div className={"alert alert-danger"}>You have already completed this room.</div>;
   }
 
   if (!allowAccess) {
-    return (
-      <div className={"alert alert-danger"}>
-        Please complete the previous room.
-      </div>
-    );
+    return <div className={"alert alert-danger"}>Please complete the previous room.</div>;
   }
 
   if (currentCount >= 5 || currentPoints < 100) {
@@ -79,8 +67,8 @@ export default function Page() {
       <div className={"alert alert-primary"}>{tip}</div>
       <div className={"card"}>
         <div className={"card-header"}>
-          Room 2: Spot the fake headline! ({currentCount}/5) | {MAX_POINTS} room
-          points → {currentPoints} current points | {currentScore} total score
+          Room 2: Spot the fake headline! ({currentCount}/5) | {MAX_POINTS} room points → {currentPoints} current points
+          | {currentScore} total score
         </div>
         <div className={"card-body"}>
           <h5>{question.headline}</h5>

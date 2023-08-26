@@ -5,11 +5,7 @@ import Image from "next/image";
 import settings from "@/lib/settings";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import {
-  createLeaderboardEntry,
-  getLeaderboardEntry,
-  updateLeaderboardEntry,
-} from "@/lib/database";
+import { createLeaderboardEntry, getLeaderboardEntry, updateLeaderboardEntry } from "@/lib/database";
 
 export default function Page() {
   const router = useRouter();
@@ -18,18 +14,12 @@ export default function Page() {
   const [allowAccess, setAllowAccess] = useState(false);
 
   useEffect(() => {
-    setAllowAccess(
-      settings.isRoom1Completed &&
-        settings.isRoom2Completed &&
-        settings.isRoom3Completed
-    );
+    setAllowAccess(settings.isRoom1Completed && settings.isRoom2Completed && settings.isRoom3Completed);
     setCurrentScore(settings.score);
   }, []);
 
   if (!allowAccess) {
-    return (
-      <div className={"alert alert-danger"}>Please complete all rooms.</div>
-    );
+    return <div className={"alert alert-danger"}>Please complete all rooms.</div>;
   }
 
   const postHandler = async () => {
@@ -67,60 +57,35 @@ export default function Page() {
           if (currentScore > 1000) {
             return (
               <>
-                <Image
-                  alt={"Cyberwellness Arance Champion"}
-                  src={"/assets/icon.png"}
-                  width={256}
-                  height={256}
-                />
+                <Image alt={"Cyberwellness Arance Champion"} src={"/assets/icon.png"} width={256} height={256} />
                 <h5>Cyberwellness Arcane Champion</h5>
               </>
             );
           } else if (currentScore > 800) {
             return (
               <>
-                <Image
-                  alt={"Cyberwellness Champion"}
-                  src={"/assets/champion.svg"}
-                  width={256}
-                  height={256}
-                />
+                <Image alt={"Cyberwellness Champion"} src={"/assets/champion.svg"} width={256} height={256} />
                 <h5>Cyberwellness Champion</h5>
               </>
             );
           } else if (currentScore > 600) {
             return (
               <>
-                <Image
-                  alt={"Cyberwellness Master"}
-                  src={"/assets/master.svg"}
-                  width={256}
-                  height={256}
-                />
+                <Image alt={"Cyberwellness Master"} src={"/assets/master.svg"} width={256} height={256} />
                 <h5>Cyberwellness Master</h5>
               </>
             );
           } else if (currentScore > 400) {
             return (
               <>
-                <Image
-                  alt={"Cyberwellness Apprentice"}
-                  src={"/assets/apprentice.svg"}
-                  width={256}
-                  height={256}
-                />
+                <Image alt={"Cyberwellness Apprentice"} src={"/assets/apprentice.svg"} width={256} height={256} />
                 <h5>Cyberwellness Apprentice</h5>
               </>
             );
           } else {
             return (
               <>
-                <Image
-                  alt={"Cyberwellness Novice"}
-                  src={"/assets/novice.svg"}
-                  width={256}
-                  height={256}
-                />
+                <Image alt={"Cyberwellness Novice"} src={"/assets/novice.svg"} width={256} height={256} />
                 <h5>Cyberwellness Novice</h5>
               </>
             );

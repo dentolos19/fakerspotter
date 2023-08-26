@@ -89,15 +89,9 @@ export function getNewsQuestions() {
 }
 
 export function getClosedHeadlineQuestions() {
-  return useSWR<ClosedHeadlineDocument[]>(
-    "/database/headlines-closed.json",
-    fetcher
-  );
+  return useSWR<ClosedHeadlineDocument[]>("/database/headlines-closed.json", fetcher);
 }
 
 export function getMultipleHeadlineQuestions() {
-  return useSWR<MultipleHeadlineDocument[]>(
-    "/database/headlines-multiple.json",
-    fetcher
-  );
+  return useSWR<MultipleHeadlineDocument[]>("/database/headlines-multiple.json", fetcher);
 }

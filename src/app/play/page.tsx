@@ -10,9 +10,7 @@ import { useRouter } from "next/navigation";
 export default function Page() {
   const router = useRouter();
 
-  const { data, error } = useSWR("/assets/intro.md", (url) =>
-    fetch(url).then((res) => res.text())
-  );
+  const { data, error } = useSWR("/assets/intro.md", (url) => fetch(url).then((res) => res.text()));
 
   if (error) return <div className={"alert alert-danger"}>Error</div>;
   if (!data) return <Loading />;

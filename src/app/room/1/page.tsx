@@ -4,11 +4,7 @@ import Loading from "@/app/loading";
 import settings from "@/lib/settings";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import {
-  StatementDocument,
-  getStatementQuestions,
-  getTips,
-} from "@/lib/database";
+import { StatementDocument, getStatementQuestions, getTips } from "@/lib/database";
 import { generateRandom, pickRandom } from "@/lib/utilities";
 
 const MAX_POINTS = 300;
@@ -38,11 +34,7 @@ export default function Page() {
   if (!tip || !question) return <Loading />;
 
   if (roomCompleted) {
-    return (
-      <div className={"alert alert-danger"}>
-        You have already completed this room.
-      </div>
-    );
+    return <div className={"alert alert-danger"}>You have already completed this room.</div>;
   }
 
   if (currentCount >= 10 || currentPoints < 100) {
@@ -67,9 +59,8 @@ export default function Page() {
       <div className={"alert alert-primary"}>{tip}</div>
       <div className={"card"}>
         <div className={"card-header"}>
-          Room 1: Is it a fact or an opinion? ({currentCount}/10) | {MAX_POINTS}{" "}
-          room points → {currentPoints} current points | {currentScore} total
-          score
+          Room 1: Is it a fact or an opinion? ({currentCount}/10) | {MAX_POINTS} room points → {currentPoints} current
+          points | {currentScore} total score
         </div>
         <div className={"card-body"}>
           <h5>{question.statement}</h5>
