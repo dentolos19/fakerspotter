@@ -30,33 +30,44 @@ export type NewsDocument = {
 };
 
 export type LeaderboardEntry = {
+  id: string;
   name: string;
   score: number;
 };
 
-export function getLeaderboardEntries(
-  page: number = 1,
-  limit: number = 10
-) {
+export function getLeaderboardEntry(id: string) {
   try {
-    return pb
-      .collection("leaderboard")
-      .getList<LeaderboardEntry>(page, limit, {
-        sort: "-score",
-      });
+    return pb.collection("leaderboard").getOne<LeaderboardEntry>(id);
   } catch {
     return null;
   }
 }
 
-export function createLeaderboardEntry(
-  name: string,
-  score: number
-) {
+export function getLeaderboardEntries(page: number = 1, limit: number = 10) {
+  try {
+    return pb.collection("leaderboard").getList<LeaderboardEntry>(page, limit, {
+      sort: "-score",
+    });
+  } catch {
+    return null;
+  }
+}
+
+export function createLeaderboardEntry(name: string, score: number) {
   try {
     return pb.collection("leaderboard").create<LeaderboardEntry>({
       name,
       score,
+    });
+  } catch {
+    return null;
+  }
+}
+
+export function updateLeaderboardEntry(id: string, score: number) {
+  try {
+    return pb.collection("leaderboard").update<LeaderboardEntry>(id, {
+      score: score,
     });
   } catch {
     return null;

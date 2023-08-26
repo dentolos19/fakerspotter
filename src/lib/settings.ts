@@ -1,4 +1,13 @@
 class Settings {
+  // uniqueId
+  get uniqueId() {
+    const value = localStorage.getItem("uniqueId");
+    if (!value) return "";
+    return value;
+  }
+  set uniqueId(value: string) {
+    localStorage.setItem("uniqueId", value);
+  }
   // score
   get score() {
     const value = localStorage.getItem("score");

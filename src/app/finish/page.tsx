@@ -5,7 +5,11 @@ import Image from "next/image";
 import settings from "@/lib/settings";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { createLeaderboardEntry } from "@/lib/database";
+import {
+  createLeaderboardEntry,
+  getLeaderboardEntry,
+  updateLeaderboardEntry,
+} from "@/lib/database";
 
 export default function Page() {
   const router = useRouter();
@@ -29,19 +33,30 @@ export default function Page() {
   }
 
   const postHandler = async () => {
-    const name = prompt("Please enter your name...");
-    if (!name)
-      return;
-    await createLeaderboardEntry(name, currentScore);
-    router.push("/leaderboard");
-  }
+    let entry, temp;
+    if ((temp = settings.uniqueId)) {
+      entry = await getLeaderboardEntry(temp);
+    }
+    if (!entry) {
+      const name = prompt("Please enter your name...");
+      if (!name) return;
+      entry = await createLeaderboardEntry(name, currentScore);
+      if (entry) settings.uniqueId = entry.id;
+    } else {
+      const answer = confirm(
+        `You have already posted your results. Do you want to update? Current: ${entry.score}, New: ${currentScore}`
+      );
+      if (!answer) return;
+      await updateLeaderboardEntry(entry.id, currentScore);
+    }
+  };
 
   const resetHandler = () => {
     settings.score = 0;
     settings.isRoom1Completed = false;
     settings.isRoom2Completed = false;
     settings.isRoom3Completed = false;
-    router.push("..");
+    router.push("/");
   };
 
   return (
