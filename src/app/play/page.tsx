@@ -10,8 +10,8 @@ import { useRouter } from "next/navigation";
 export default function Page() {
   const router = useRouter();
 
-  const { data } = useSWR("/assets/intro.md", (url) => fetch(url).then((res) => res.text()));
-  if (!data) return <Loading />;
+  const { data: text } = useSWR("/assets/intro.md", (url) => fetch(url).then((res) => res.text()));
+  if (!text) return <Loading />;
 
   const startHandler = () => {
     if (settings.isRoom3Completed) {
@@ -27,7 +27,7 @@ export default function Page() {
 
   return (
     <main>
-      <ReactMarkdown>{data}</ReactMarkdown>
+      <ReactMarkdown>{text}</ReactMarkdown>
       <div className={"d-flex justify-content-center"}>
         <div className={"btn-group"}>
           <div className={"btn btn-primary"} onClick={startHandler}>

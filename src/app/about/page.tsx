@@ -6,11 +6,11 @@ import Link from "next/link";
 import Loading from "@/app/loading";
 
 export default function Page() {
-  const { data } = useSWR("/assets/about.md", (url) => fetch(url).then((res) => res.text()));
-  if (!data) return <Loading />;
+  const { data: text } = useSWR("/assets/about.md", (url) => fetch(url).then((res) => res.text()));
+  if (!text) return <Loading />;
   return (
     <main>
-      <ReactMarkdown>{data}</ReactMarkdown>
+      <ReactMarkdown>{text}</ReactMarkdown>
       <div className={"d-flex justify-content-center"}>
         <Link className={"btn btn-secondary"} href={".."}>
           Back

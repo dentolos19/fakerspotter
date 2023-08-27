@@ -3,10 +3,6 @@ import PocketBase from "pocketbase";
 
 const pb = new PocketBase("https://screeching-autumn.pockethost.io");
 
-export type TipDocument = {
-  tip: string;
-};
-
 export type StatementDocument = {
   statement: string;
   isOpinion: boolean;

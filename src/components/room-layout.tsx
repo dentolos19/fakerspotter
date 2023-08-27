@@ -21,12 +21,12 @@ export default function RoomLayout({
   }, [tips]);
 
   return (
-    <div>
+    <main>
       {tip && <div className={"alert alert-primary"}>{tip}</div>}
       <div className={"card"}>
         <div className={"card-header"}>{title}</div>
         <div className={`card-body ${className}`}>{children}</div>
       </div>
-    </div>
+    </main>
   );
 }

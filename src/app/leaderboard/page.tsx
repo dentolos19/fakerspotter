@@ -26,35 +26,35 @@ export default async function Page() {
                   if (entry.score > 1000) {
                     return (
                       <>
-                        <img alt={"Cyberwellness Arance Champion"} src={"/assets/icon.png"} width={32} height={32} />
+                        <img alt={"Cyberwellness Arance Champion"} src={"/assets/icon.png"} height={32} />
                         <span>Cyberwellness Arcane Champion</span>
                       </>
                     );
                   } else if (entry.score > 800) {
                     return (
                       <>
-                        <img alt={"Cyberwellness Champion"} src={"/assets/champion.svg"} width={32} height={32} />
+                        <img alt={"Cyberwellness Champion"} src={"/assets/champion.svg"} height={32} />
                         <span>Cyberwellness Champion</span>
                       </>
                     );
                   } else if (entry.score > 600) {
                     return (
                       <>
-                        <img alt={"Cyberwellness Master"} src={"/assets/master.svg"} width={32} height={32} />
+                        <img alt={"Cyberwellness Master"} src={"/assets/master.svg"} height={32} />
                         <span>Cyberwellness Master</span>
                       </>
                     );
                   } else if (entry.score > 400) {
                     return (
                       <>
-                        <img alt={"Cyberwellness Apprentice"} src={"/assets/apprentice.svg"} width={32} height={32} />
+                        <img alt={"Cyberwellness Apprentice"} src={"/assets/apprentice.svg"} height={32} />
                         <span>Cyberwellness Apprentice</span>
                       </>
                     );
                   } else {
                     return (
                       <>
-                        <img alt={"Cyberwellness Novice"} src={"/assets/novice.svg"} width={32} height={32} />
+                        <img alt={"Cyberwellness Novice"} src={"/assets/novice.svg"} height={32} />
                         <span>Cyberwellness Novice</span>
                       </>
                     );
