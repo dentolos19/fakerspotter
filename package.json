@@ -1,6 +1,6 @@
 {
   "name": "fakerspotter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,7 +14,7 @@
     "@types/react-dom": "18.2.7",
     "bootstrap": "5.3.1",
     "next": "13.4.19",
-    "pocketbase": "0.16.0",
+    "pocketbase": "0.17.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "8.0.7",
