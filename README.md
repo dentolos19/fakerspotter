@@ -9,11 +9,11 @@ A cyberwellness digital toolkit for learning on how to protect yourself from fak
 
 We teach players by making them learn from their mistakes and through trial-and-error. This project is made to participate in the National Cyberwellness Advocacy Challenge (NCAC) 2021. Our goal is to create a game that not only entertains but also educates players on identifying fake news. Through our game, players will learn how to protect themselves from online threats such as fake news. We believe that by raising awareness and educating people on cyberwellness, we can create a safer and more secure online environment for everyone.
 
-> **Note**: The project final state for submission for the challenge is at [this tag](https://github.com/dentolos19/FakerSpotter/tree/final).
+> **Note**: The project's final state for submission for the challenge is at [this tag](https://github.com/dentolos19/FakerSpotter/tree/final).
 
 ## 🫂 Project Information
 
-**Task**: Create an interactive online toolkit to educate students on how to identify and protect themselves from fake news on the internet.
+**Task**: Develop an interactive online toolkit to educate students on how to identify and protect themselves from fake news on the internet.
 
 ## Members
 
