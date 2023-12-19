@@ -1,5 +1,5 @@
 <h1>
-    <img src="docs/icon.png" style="height: 1em;"/>
+    <img src="icon.png" style="height: 1em;"/>
     <span>FakerSpotter</span>
 </h1>
 
@@ -11,7 +11,7 @@ We teach players by making them learn from their mistakes and through trial-and-
 
 ## 🫂 Project Information
 
-**Task**: Develop an interactive online toolkit to educate students on how to identify and protect themselves from fake news on the internet.
+**Problem Statement**: Develop an interactive online toolkit to educate students on how to identify and protect themselves from fake news on the internet.
 
 ## Members
 
