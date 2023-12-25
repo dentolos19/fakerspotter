@@ -1,7 +1,11 @@
+import { Client, Databases, ID, Models, Query } from "appwrite";
 import useSWR from "swr";
-import PocketBase from "pocketbase";
 
-const pb = new PocketBase("https://screeching-autumn.pockethost.io");
+const client = new Client();
+client.setEndpoint("https://cloud.appwrite.io/v1").setProject("658911b1ee07093aa03e");
+const databases = new Databases(client);
+const mainDatabaseId = "658911c44b8f36947d2d";
+const leaderboardCollectionId = "65891270838d906f0d32";
 
 export type StatementDocument = {
   statement: string;
@@ -25,15 +29,16 @@ export type NewsDocument = {
   isFake: boolean;
 };
 
-export type LeaderboardEntry = {
-  id: string;
+export type LeaderboardEntry = Models.Document & {
   name: string;
   score: number;
 };
 
 export function getLeaderboardEntry(id: string) {
   try {
-    return pb.collection("leaderboard").getOne<LeaderboardEntry>(id);
+    return databases.getDocument(mainDatabaseId, leaderboardCollectionId, id).then((res) => {
+      return res as LeaderboardEntry;
+    });
   } catch {
     return null;
   }
@@ -41,9 +46,15 @@ export function getLeaderboardEntry(id: string) {
 
 export function getLeaderboardEntries(page: number = 1, limit: number = 10) {
   try {
-    return pb.collection("leaderboard").getList<LeaderboardEntry>(page, limit, {
-      sort: "-score",
-    });
+    return databases
+      .listDocuments(mainDatabaseId, leaderboardCollectionId, [
+        Query.orderDesc("score"),
+        Query.offset((page - 1) * limit),
+        Query.limit(limit),
+      ])
+      .then((res) => {
+        return res.documents as LeaderboardEntry[];
+      });
   } catch {
     return null;
   }
@@ -51,10 +62,14 @@ export function getLeaderboardEntries(page: number = 1, limit: number = 10) {
 
 export function createLeaderboardEntry(name: string, score: number) {
   try {
-    return pb.collection("leaderboard").create<LeaderboardEntry>({
-      name,
-      score,
-    });
+    return databases
+      .createDocument(mainDatabaseId, leaderboardCollectionId, ID.unique(), {
+        name,
+        score,
+      })
+      .then((res) => {
+        return res as LeaderboardEntry;
+      });
   } catch {
     return null;
   }
@@ -62,9 +77,13 @@ export function createLeaderboardEntry(name: string, score: number) {
 
 export function updateLeaderboardEntry(id: string, score: number) {
   try {
-    return pb.collection("leaderboard").update<LeaderboardEntry>(id, {
-      score: score,
-    });
+    return databases
+      .updateDocument(mainDatabaseId, leaderboardCollectionId, id, {
+        score,
+      })
+      .then((res) => {
+        return res as LeaderboardEntry;
+      });
   } catch {
     return null;
   }

@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import settings from "@/lib/settings";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { createLeaderboardEntry, getLeaderboardEntry, updateLeaderboardEntry } from "@/lib/database";
+import settings from "@/lib/settings";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Page() {
   const router = useRouter();
@@ -31,13 +31,13 @@ export default function Page() {
       const name = prompt("Please enter your name...");
       if (!name) return;
       entry = await createLeaderboardEntry(name, currentScore);
-      if (entry) settings.uniqueId = entry.id;
+      if (entry) settings.uniqueId = entry.$id;
     } else {
       const answer = confirm(
         `You have already posted your results. Do you want to update? Current: ${entry.score}, New: ${currentScore}`
       );
       if (!answer) return;
-      await updateLeaderboardEntry(entry.id, currentScore);
+      await updateLeaderboardEntry(entry.$id, currentScore);
     }
   };
 
@@ -102,7 +102,7 @@ export default function Page() {
         <button className={"btn btn-danger"} onClick={resetHandler}>
           Reset
         </button>
-        <Link className={"btn btn-secondary"} href={".."}>
+        <Link className={"btn btn-secondary"} href={"/"}>
           Back
         </Link>
       </div>

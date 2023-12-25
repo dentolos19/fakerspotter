@@ -3,7 +3,7 @@ import { LeaderboardEntry, getLeaderboardEntries } from "@/lib/database";
 export const revalidate = 0;
 
 export default async function Page() {
-  const entries = ((await getLeaderboardEntries())?.items as Array<LeaderboardEntry>) ?? [];
+  const entries = (await getLeaderboardEntries()) as Array<LeaderboardEntry>;
   return (
     <main className={"table-responsive"}>
       <table className={"table"}>
