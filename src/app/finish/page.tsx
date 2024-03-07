@@ -57,8 +57,8 @@ export default function Page() {
           if (currentScore > 1000) {
             return (
               <>
-                <Image alt={"Cyberwellness Arance Champion"} src={"/assets/icon.png"} width={256} height={256} />
-                <h5>Cyberwellness Arcane Champion</h5>
+                <Image alt={"Cyberwellness Arance Champion"} src={"/favicon.png"} width={256} height={256} />
+                <h5 className={"mt-4"}>Cyberwellness Arcane Champion</h5>
               </>
             );
           } else if (currentScore > 800) {
