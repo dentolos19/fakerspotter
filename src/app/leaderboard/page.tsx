@@ -26,7 +26,7 @@ export default async function Page() {
                   if (entry.score > 1000) {
                     return (
                       <>
-                        <img alt={"Cyberwellness Arance Champion"} src={"/assets/icon.png"} height={32} />
+                        <img alt={"Cyberwellness Arance Champion"} src={"/favicon.png"} height={32} />
                         <span>Cyberwellness Arcane Champion</span>
                       </>
                     );

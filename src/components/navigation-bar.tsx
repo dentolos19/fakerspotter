@@ -7,7 +7,7 @@ export default function NavigationBar() {
     <Navbar className={"border-bottom"} expand={"lg"}>
       <Container>
         <Navbar.Brand href={"/"}>
-          <img alt={"FakerSpotter"} src={"/assets/icon.png"} width={32} />
+          <img alt={"FakerSpotter"} src={"/favicon.png"} width={32} />
           <span className={"ms-2"}>FakerSpotter</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navigation" />

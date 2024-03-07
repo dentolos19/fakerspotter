@@ -1,5 +1,5 @@
 <h1>
-    <img src="icon.png" style="height: 1em;"/>
+    <img src="public/favicon.png" alt="Icon" height="30">
     <span>FakerSpotter</span>
 </h1>
 
@@ -7,13 +7,11 @@ A cyberwellness digital toolkit for learning on how to protect yourself from fak
 
 > **Announcement**: We have won Silver award for the National Cyberwellness Advocacy Challenge 2021! The project's final state for submission for the challenge is at [this tag](https://github.com/dentolos19/FakerSpotter/tree/submission).
 
-We teach players by making them learn from their mistakes and through trial-and-error. This project is made to participate in the National Cyberwellness Advocacy Challenge (NCAC) 2021. Our goal is to create a game that not only entertains but also educates players on identifying fake news. Through our game, players will learn how to protect themselves from online threats such as fake news. We believe that by raising awareness and educating people on cyberwellness, we can create a safer and more secure online environment for everyone.
-
 ## 🫂 Project Information
 
 **Problem Statement**: Develop an interactive online toolkit to educate students on how to identify and protect themselves from fake news on the internet.
 
-## Members
+## Team Members
 
 - **3G** Amanda (Brooksian News Champion)
 - **3I** Syabil
@@ -21,3 +19,11 @@ We teach players by making them learn from their mistakes and through trial-and-
 - **3T** Dennise (Programmer)
 - **3E** Aqilah
 - **3D** Mirza
+
+## 💖 Credits
+
+- Icon by [Freepik](https://flaticon.com/free-icon/fake_1483341)
+
+## 📜 License
+
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
