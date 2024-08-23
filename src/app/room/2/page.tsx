@@ -1,7 +1,7 @@
 "use client";
 
 import Loading from "@/app/loading";
-import RoomLayout from "@/components/room-layout";
+import RoomContainer from "@/components/room-container";
 import { ClosedHeadlineDocument, useClosedHeadlineQuestions } from "@/lib/database";
 import settings from "@/lib/settings";
 import { generateRandom, pickRandom } from "@/lib/utilities";
@@ -58,7 +58,7 @@ export default function Page() {
   };
 
   return (
-    <RoomLayout
+    <RoomContainer
       title={`Room 2: Spot the fake headline! (${currentCount}/5) | ${MAX_POINTS} room points → ${currentPoints} current points | ${currentScore} total score`}
     >
       <h5>{question.headline}</h5>
@@ -80,6 +80,6 @@ export default function Page() {
           False
         </button>
       </div>
-    </RoomLayout>
+    </RoomContainer>
   );
 }

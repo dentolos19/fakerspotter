@@ -1,6 +1,5 @@
 "use client";
 
-import { createLeaderboardEntry, getLeaderboardEntry, updateLeaderboardEntry } from "@/lib/database";
 import settings from "@/lib/settings";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,25 +20,6 @@ export default function Page() {
   if (!allowAccess) {
     return <div className={"alert alert-danger"}>Please complete all rooms.</div>;
   }
-
-  const postHandler = async () => {
-    let entry, temp;
-    if ((temp = settings.uniqueId)) {
-      entry = await getLeaderboardEntry(temp);
-    }
-    if (!entry) {
-      const name = prompt("Please enter your name...");
-      if (!name) return;
-      entry = await createLeaderboardEntry(name, currentScore);
-      if (entry) settings.uniqueId = entry.$id;
-    } else {
-      const answer = confirm(
-        `You have already posted your results. Do you want to update? Current: ${entry.score}, New: ${currentScore}`
-      );
-      if (!answer) return;
-      await updateLeaderboardEntry(entry.$id, currentScore);
-    }
-  };
 
   const resetHandler = () => {
     settings.score = 0;
@@ -96,9 +76,6 @@ export default function Page() {
         {"You've"} scored {currentScore} points!
       </p>
       <div className={"btn-group"}>
-        <button className={"btn btn-primary"} onClick={postHandler}>
-          Post
-        </button>
         <button className={"btn btn-danger"} onClick={resetHandler}>
           Reset
         </button>

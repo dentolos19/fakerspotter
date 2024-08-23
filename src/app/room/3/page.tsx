@@ -1,7 +1,7 @@
 "use client";
 
 import Loading from "@/app/loading";
-import RoomLayout from "@/components/room-layout";
+import RoomContainer from "@/components/room-container";
 import { NewsDocument, useNewsQuestions } from "@/lib/database";
 import settings from "@/lib/settings";
 import { generateRandom, pickRandom } from "@/lib/utilities";
@@ -58,7 +58,7 @@ export default function Page() {
   };
 
   return (
-    <RoomLayout
+    <RoomContainer
       className={"text-center"}
       title={`Room 3: Spot the fake news! (${currentCount}/5) | ${MAX_POINTS} room points → ${currentPoints} current points | ${currentScore} total score`}
     >
@@ -83,6 +83,6 @@ export default function Page() {
           Fake
         </button>
       </div>
-    </RoomLayout>
+    </RoomContainer>
   );
 }

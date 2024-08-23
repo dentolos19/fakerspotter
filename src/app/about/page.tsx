@@ -8,6 +8,7 @@ import useSWR from "swr";
 export default function Page() {
   const { data: text } = useSWR("/assets/about.md", (url) => fetch(url).then((res) => res.text()));
   if (!text) return <Loading />;
+
   return (
     <main>
       <ReactMarkdown>{text}</ReactMarkdown>

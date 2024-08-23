@@ -2,7 +2,7 @@ import { useTips } from "@/lib/database";
 import { pickRandom } from "@/lib/utilities";
 import { useEffect, useState } from "react";
 
-export default function RoomLayout({
+export default function RoomContainer({
   className,
   title,
   children,

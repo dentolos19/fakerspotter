@@ -1,7 +1,7 @@
 "use client";
 
 import Loading from "@/app/loading";
-import RoomLayout from "@/components/room-layout";
+import RoomContainer from "@/components/room-container";
 import { StatementDocument, useStatementQuestions } from "@/lib/database";
 import settings from "@/lib/settings";
 import { generateRandom, pickRandom } from "@/lib/utilities";
@@ -50,7 +50,7 @@ export default function Page() {
   };
 
   return (
-    <RoomLayout
+    <RoomContainer
       title={`Room 1: Is it a fact or an opinion? (${currentCount}/10) | ${MAX_POINTS} room points → ${currentPoints} current points | ${currentScore} total score`}
     >
       <h5>{question.statement}</h5>
@@ -72,6 +72,6 @@ export default function Page() {
           Opinion
         </button>
       </div>
-    </RoomLayout>
+    </RoomContainer>
   );
 }
