@@ -7,13 +7,13 @@ export default function NavigationBar() {
     <Navbar className={"border-bottom"} expand={"lg"}>
       <Container>
         <Navbar.Brand href={"/"}>
-          <img alt={"FakerSpotter"} src={"/favicon.png"} width={32} />
+          <img alt={"FakerSpotter"} src={"/icon.png"} width={32} />
           <span className={"ms-2"}>FakerSpotter</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navigation" />
         <Navbar.Collapse id="navigation">
           <Nav className={"w-100 justify-content-end"}>
-            <Nav.Link href={"/leaderboard"}>Leaderboard</Nav.Link>
+            <Nav.Link href={"/about"}>About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

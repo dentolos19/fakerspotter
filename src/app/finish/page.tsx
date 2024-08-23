@@ -57,7 +57,7 @@ export default function Page() {
           if (currentScore > 1000) {
             return (
               <>
-                <Image alt={"Cyberwellness Arance Champion"} src={"/favicon.png"} width={256} height={256} />
+                <Image alt={"Cyberwellness Arance Champion"} src={"/icon.png"} width={256} height={256} />
                 <h5 className={"mt-4"}>Cyberwellness Arcane Champion</h5>
               </>
             );

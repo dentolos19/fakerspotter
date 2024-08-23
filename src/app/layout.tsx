@@ -1,9 +1,9 @@
 import NavigationBar from "@/components/navigation-bar";
-import "@/styles/globals.scss";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./globals.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "FakerSpotter",
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={inter.className}>
+      <body className={font.className}>
         <div className={"d-flex flex-column vh-100"}>
           <NavigationBar />
           <div className="container h-100 py-4">{children}</div>

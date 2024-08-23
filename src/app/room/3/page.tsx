@@ -2,11 +2,11 @@
 
 import Loading from "@/app/loading";
 import RoomLayout from "@/components/room-layout";
+import { NewsDocument, useNewsQuestions } from "@/lib/database";
 import settings from "@/lib/settings";
-import { useEffect, useState } from "react";
+import { generateRandom, pickRandom } from "@/lib/utilities";
 import { useRouter } from "next/navigation";
-import { getNewsQuestions, NewsDocument } from "@/lib/database";
-import { pickRandom, generateRandom } from "@/lib/utilities";
+import { useEffect, useState } from "react";
 
 // TODO: fix the images
 
@@ -22,7 +22,7 @@ export default function Page() {
   const [roomCompleted, setRoomCompleted] = useState(false);
   const [allowAccess, setAllowAccess] = useState(false);
 
-  const { data: questions } = getNewsQuestions();
+  const { data: questions } = useNewsQuestions();
 
   useEffect(() => {
     setCurrentScore(settings.score);

@@ -1,11 +1,11 @@
 "use client";
 
-import useSWR from "swr";
-import ReactMarkdown from "react-markdown";
-import Link from "next/link";
 import Loading from "@/app/loading";
 import settings from "@/lib/settings";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import ReactMarkdown from "react-markdown";
+import useSWR from "swr";
 
 export default function Page() {
   const router = useRouter();

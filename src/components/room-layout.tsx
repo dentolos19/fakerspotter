@@ -1,4 +1,4 @@
-import { getTips } from "@/lib/database";
+import { useTips } from "@/lib/database";
 import { pickRandom } from "@/lib/utilities";
 import { useEffect, useState } from "react";
 
@@ -13,7 +13,7 @@ export default function RoomLayout({
 }) {
   const [tip, setTip] = useState<string>();
 
-  const { data: tips } = getTips();
+  const { data: tips } = useTips();
 
   useEffect(() => {
     if (!tips) return;

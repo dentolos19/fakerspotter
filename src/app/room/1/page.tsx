@@ -2,11 +2,11 @@
 
 import Loading from "@/app/loading";
 import RoomLayout from "@/components/room-layout";
+import { StatementDocument, useStatementQuestions } from "@/lib/database";
 import settings from "@/lib/settings";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { StatementDocument, getStatementQuestions } from "@/lib/database";
 import { generateRandom, pickRandom } from "@/lib/utilities";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const MAX_POINTS = 300;
 
@@ -19,7 +19,7 @@ export default function Page() {
   const [currentScore, setCurrentScore] = useState(0);
   const [roomCompleted, setRoomCompleted] = useState(false);
 
-  const { data: questions } = getStatementQuestions();
+  const { data: questions } = useStatementQuestions();
 
   useEffect(() => {
     setCurrentScore(settings.score);

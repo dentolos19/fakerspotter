@@ -1,9 +1,9 @@
 "use client";
 
-import useSWR from "swr";
-import ReactMarkdown from "react-markdown";
-import Link from "next/link";
 import Loading from "@/app/loading";
+import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import useSWR from "swr";
 
 export default function Page() {
   const { data: text } = useSWR("/assets/about.md", (url) => fetch(url).then((res) => res.text()));

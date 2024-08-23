@@ -2,11 +2,11 @@
 
 import Loading from "@/app/loading";
 import RoomLayout from "@/components/room-layout";
+import { ClosedHeadlineDocument, useClosedHeadlineQuestions } from "@/lib/database";
 import settings from "@/lib/settings";
-import { useEffect, useState } from "react";
+import { generateRandom, pickRandom } from "@/lib/utilities";
 import { useRouter } from "next/navigation";
-import { getClosedHeadlineQuestions, ClosedHeadlineDocument } from "@/lib/database";
-import { pickRandom, generateRandom } from "@/lib/utilities";
+import { useEffect, useState } from "react";
 
 // TODO: add multiple headline questions
 
@@ -22,7 +22,7 @@ export default function Page() {
   const [roomCompleted, setRoomCompleted] = useState(false);
   const [allowAccess, setAllowAccess] = useState(false);
 
-  const { data: questions } = getClosedHeadlineQuestions();
+  const { data: questions } = useClosedHeadlineQuestions();
 
   useEffect(() => {
     setCurrentScore(settings.score);
