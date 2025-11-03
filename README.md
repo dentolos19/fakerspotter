@@ -1,15 +1,12 @@
-<h1>
-  <img src="public/icon.png" alt="Icon" height="30" />
-  <span>FakerSpotter</span>
-</h1>
+# FakerSpotter
 
 A cyberwellness digital toolkit for learning on how to protect yourself from fake news!
 
 > **Announcement**: We have won Silver award for the National Cyberwellness Advocacy Challenge 2021! The project's final state for submission for the challenge is at [this tag](https://github.com/dentolos19/FakerSpotter/tree/submission).
 
-## 🏢 Mission
+## Assignment
 
-**Problem Statement**: Develop an interactive online toolkit to educate students on how to identify and protect themselves from fake news on the internet.
+Develop an interactive online toolkit to educate students on how to identify and protect themselves from fake news on the internet.
 
 ## Team Members
 
@@ -20,10 +17,6 @@ A cyberwellness digital toolkit for learning on how to protect yourself from fak
 - **3E** Aqilah
 - **3D** Mirza
 
-## 💖 Credits
-
-- Icon by [Freepik](https://flaticon.com/free-icon/fake_1483341)
-
-## 📜 License
+## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
