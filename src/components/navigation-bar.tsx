@@ -7,8 +7,8 @@ export default function NavigationBar() {
     <Navbar className={"border-bottom"} expand={"lg"}>
       <Container>
         <Navbar.Brand href={"/"}>
-          <img alt={"FakerSpotter"} src={"/icon.png"} width={32} />
-          <span className={"ms-2"}>FakerSpotter</span>
+          <img alt={"Faker Spotter"} src={"/icon.png"} width={32} />
+          <span className={"ms-2"}>Faker Spotter</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navigation" />
         <Navbar.Collapse id="navigation">

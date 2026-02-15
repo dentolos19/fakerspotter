@@ -19,4 +19,4 @@ We teach players by making them learn from their mistakes and through trial-and-
 - **3E** Aqilah
 - **3D** Mirza
 
-Source code hosted at [GitHub](https://github.com/dentolos19/FakerSpotter).
+Source code hosted at [GitHub](https://github.com/dentolos19/Faker Spotter).
