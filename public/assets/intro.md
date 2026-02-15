@@ -1,4 +1,4 @@
-Welcome to FakerSpotter! This is a digital toolkit prepared by the Sec 3 Cyberwellness Team 2021! Learn more about this toolkit by visiting the [about page](./about).
+Welcome to Faker Spotter! This is a digital toolkit prepared by the Sec 3 Cyberwellness Team 2021! Learn more about this toolkit by visiting the [about page](./about).
 
 During the cyberwellness week, you might have learnt many ways to protect yourself online, but how about fake news? Learn ways to protect yourself by playing this game!
 

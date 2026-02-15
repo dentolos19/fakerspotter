@@ -6,7 +6,7 @@ import "./globals.scss";
 const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FakerSpotter",
+  title: "Faker Spotter",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
