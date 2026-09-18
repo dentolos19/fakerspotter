@@ -1,6 +1,7 @@
+import { useMemo } from "react";
+
 import { useTips } from "@/lib/database";
 import { pickRandom } from "@/lib/utilities";
-import { useEffect, useState } from "react";
 
 export default function RoomContainer({
   className,
@@ -11,14 +12,8 @@ export default function RoomContainer({
   title: string;
   children: React.ReactNode;
 }) {
-  const [tip, setTip] = useState<string>();
-
   const { data: tips } = useTips();
-
-  useEffect(() => {
-    if (!tips) return;
-    setTip(pickRandom(tips));
-  }, [tips]);
+  const tip = useMemo(() => (tips ? pickRandom(tips) : undefined), [tips]);
 
   return (
     <main>

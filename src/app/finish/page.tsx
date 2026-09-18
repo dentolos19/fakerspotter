@@ -1,25 +1,23 @@
 "use client";
 
-import settings from "@/lib/settings";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+
+import Loading from "@/app/loading";
+import settings, { useHydrated } from "@/lib/settings";
 
 export default function Page() {
   const router = useRouter();
+  const hydrated = useHydrated();
 
-  const [currentScore, setCurrentScore] = useState(0);
-  const [allowAccess, setAllowAccess] = useState(false);
+  if (!hydrated) return <Loading />;
 
-  useEffect(() => {
-    setAllowAccess(settings.isRoom1Completed && settings.isRoom2Completed && settings.isRoom3Completed);
-    setCurrentScore(settings.score);
-  }, []);
-
-  if (!allowAccess) {
+  if (!(settings.isRoom1Completed && settings.isRoom2Completed && settings.isRoom3Completed)) {
     return <div className={"alert alert-danger"}>Please complete all rooms.</div>;
   }
+
+  const currentScore = settings.score;
 
   const resetHandler = () => {
     settings.score = 0;

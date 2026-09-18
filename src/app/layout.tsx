@@ -1,6 +1,8 @@
-import NavigationBar from "@/components/navigation-bar";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
+
+import NavigationBar from "@/components/navigation-bar";
+
 import "./globals.scss";
 
 const font = Inter({ subsets: ["latin"] });

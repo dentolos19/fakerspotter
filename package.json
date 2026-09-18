@@ -2,9 +2,12 @@
   "name": "fakerspotter",
   "private": true,
   "scripts": {
+    "postinstall": "bun run types",
     "dev": "next dev",
     "build": "next build",
-    "types": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "deploy": "wrangler deploy",
+    "types": "wrangler types --env-interface=CloudflareEnv cloudflare-env.d.ts",
+    "check": "oxlint --fix && oxfmt --write && tsc --noEmit"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "1.11.1",
@@ -14,14 +17,16 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "18.3.1",
     "react-markdown": "^9.1.0",
-    "swr": "^2.4.0"
+    "swr": "^2.5.1"
   },
   "devDependencies": {
-    "@types/node": "^25.3.0",
-    "@types/react": "^18.3.28",
+    "@types/node": "latest",
+    "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "sass": "^1.97.3",
+    "oxfmt": "^0.55.0",
+    "oxlint": "^1.83.0",
+    "sass": "^1.104.1",
     "typescript": "^5.9.3",
-    "wrangler": "^4.67.0"
+    "wrangler": "^4.135.0"
   }
 }

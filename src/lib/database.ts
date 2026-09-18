@@ -22,7 +22,15 @@ export type NewsDocument = {
   isFake: boolean;
 };
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = async <T>(url: string): Promise<T> => {
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`Failed to load ${url}: ${response.status} ${response.statusText}`);
+  }
+
+  return (await response.json()) as T;
+};
 
 export function useTips() {
   return useSWR<string[]>("/database/tips.json", fetcher);
