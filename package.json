@@ -1,32 +1,41 @@
 {
   "name": "fakerspotter",
   "private": true,
+  "type": "module",
   "scripts": {
     "postinstall": "bun run types",
-    "dev": "next dev",
-    "build": "next build",
-    "deploy": "wrangler deploy",
-    "types": "wrangler types --env-interface=CloudflareEnv cloudflare-env.d.ts",
+    "dev": "vite dev",
+    "build": "vite build",
+    "deploy": "vinext-cloudflare deploy",
+    "types": "wrangler types --env-file .env.template",
     "check": "oxlint --fix && oxfmt --write && tsc --noEmit"
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "1.11.1",
+    "@vinext/cloudflare": "^1.1.1",
     "bootstrap": "^5.3.8",
-    "next": "14.2.35",
-    "react": "18.3.1",
+    "react": "^19.3.1",
     "react-bootstrap": "^2.10.10",
-    "react-dom": "18.3.1",
-    "react-markdown": "^9.1.0",
-    "swr": "^2.5.1"
+    "react-dom": "^19.3.1",
+    "react-markdown": "^10.1.0",
+    "react-server-dom-webpack": "^19.3.1",
+    "swr": "^2.5.1",
+    "vinext": "^1.2.0"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "^18.3.31",
-    "@types/react-dom": "^18.3.7",
-    "oxfmt": "^0.55.0",
-    "oxlint": "^1.83.0",
-    "sass": "^1.104.1",
-    "typescript": "^5.9.3",
-    "wrangler": "^4.135.0"
+    "@cloudflare/vite-plugin": "^1.64.0",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "@vitejs/plugin-rsc": "^0.5.37",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0",
+    "sass": "^1.105.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "wrangler": "^4.151.0"
+  },
+  "overrides": {
+    "fflate": "0.8.3"
   }
 }
