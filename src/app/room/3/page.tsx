@@ -60,7 +60,7 @@ export default function Page() {
       title={`Room 3: Spot the fake news! (${currentCount}/5) | ${MAX_POINTS} room points → ${currentPoints} current points | ${currentScore} total score`}
     >
       <h5>{currentQuestion.headline}</h5>
-      <img className={"img-fluid rounded my-2"} alt={"News Image"} src={currentQuestion.imageUrl} />
+      <img className={"img-fluid my-2 rounded"} alt={"News Image"} src={currentQuestion.imageUrl} />
       <p>{currentQuestion.background}</p>
       <div className={"btn-group"}>
         <button
