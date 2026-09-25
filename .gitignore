@@ -2,15 +2,18 @@
 .vs/
 .idea/
 
-# Environment files
-.vercel/
+# Build files
 .next/
 .open-next/
+.vinext/
 .wrangler/
-.convex/
 node_modules/
-*.d*
+dist/
+build/
+out/
+coverage/
 *.tsbuildinfo
+*.d.ts
 
 # User files
 .env*

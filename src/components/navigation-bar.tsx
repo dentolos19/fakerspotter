@@ -12,7 +12,7 @@ export default function NavigationBar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navigation" />
         <Navbar.Collapse id="navigation">
-          <Nav className={"w-100 justify-content-end"}>
+          <Nav className={"justify-content-end w-100"}>
             <Nav.Link href={"/about"}>About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
