@@ -6,13 +6,16 @@ import ReactMarkdown from "react-markdown";
 import useSWR from "swr";
 
 import Loading from "@/app/loading";
+import LoadError from "@/components/load-error";
+import { fetchText } from "@/lib/database";
 import settings from "@/lib/settings";
 
 export default function Page() {
   const router = useRouter();
 
-  const { data: text } = useSWR("/assets/intro.md", (url) => fetch(url).then((res) => res.text()));
-  if (!text) return <Loading />;
+  const { data: text, error } = useSWR("/assets/intro.md", fetchText);
+  if (error && text === undefined) return <LoadError />;
+  if (text === undefined) return <Loading />;
 
   const startHandler = () => {
     if (settings.isRoom3Completed) {
@@ -31,9 +34,9 @@ export default function Page() {
       <ReactMarkdown>{text}</ReactMarkdown>
       <div className={"d-flex justify-content-center"}>
         <div className={"btn-group"}>
-          <div className={"btn btn-primary"} onClick={startHandler}>
+          <button type="button" className={"btn btn-primary"} onClick={startHandler}>
             Start
-          </div>
+          </button>
           <Link className={"btn btn-secondary"} href={".."}>
             Back
           </Link>

@@ -12,7 +12,8 @@ You need to answer all questions correctly in order to proceed to the next room.
 
 **End Awards**
 
-- **Cyberwellness Champion**: 800-1000 points 👑
-- **Cyberwellness Master**: 600-800 points ⚔
-- **Cyberwellness Apprentice**: 400-600 points 💁‍♂️
-- **Cyberwellness Novice**: 0-400 points 🤔
+- **Cyberwellness Arcane Champion**: 1000 points 👑
+- **Cyberwellness Champion**: 800-999 points 👑
+- **Cyberwellness Master**: 600-799 points ⚔
+- **Cyberwellness Apprentice**: 400-599 points 💁‍♂️
+- **Cyberwellness Novice**: 0-399 points 🤔

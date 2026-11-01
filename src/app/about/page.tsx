@@ -5,10 +5,13 @@ import ReactMarkdown from "react-markdown";
 import useSWR from "swr";
 
 import Loading from "@/app/loading";
+import LoadError from "@/components/load-error";
+import { fetchText } from "@/lib/database";
 
 export default function Page() {
-  const { data: text } = useSWR("/assets/about.md", (url) => fetch(url).then((res) => res.text()));
-  if (!text) return <Loading />;
+  const { data: text, error } = useSWR("/assets/about.md", fetchText);
+  if (error && text === undefined) return <LoadError />;
+  if (text === undefined) return <Loading />;
 
   return (
     <main>
