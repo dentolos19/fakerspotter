@@ -1,7 +1,11 @@
 set dotenv-load
+set dotenv-filename := dotenv_file
+set dotenv-override
 
-# Accept the shared setup mode. No containers need to stay running.
-setup mode="": install
+environment := ""
+dotenv_file := if environment == "" { ".env" } else { ".env." + environment }
+
+setup: install
 
 install:
     bun install --frozen-lockfile
@@ -13,9 +17,12 @@ build:
     bun run build
 
 check:
-    bun run check
+    bun lint --fix && bun fmt && bun check --no-script
 
-deploy: install
+test:
+    bun test
+
+deploy: install build
     #!/usr/bin/env bash
     set -euo pipefail
-    bun run deploy
+    bun run deploy --prebuilt

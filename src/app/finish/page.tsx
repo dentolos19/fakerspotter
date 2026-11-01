@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import Loading from "@/app/loading";
+import { awardFor } from "@/lib/awards";
 import settings, { useHydrated } from "@/lib/settings";
 
 export default function Page() {
@@ -18,6 +19,7 @@ export default function Page() {
   }
 
   const currentScore = settings.score;
+  const award = awardFor(currentScore);
 
   const resetHandler = () => {
     settings.score = 0;
@@ -31,44 +33,8 @@ export default function Page() {
     <main className={"d-flex flex-column align-items-center"}>
       <h1>Congratulations!</h1>
       <div className={"d-flex flex-column align-items-center"}>
-        {function () {
-          if (currentScore > 1000) {
-            return (
-              <>
-                <Image alt={"Cyberwellness Arance Champion"} src={"/icon.png"} width={256} height={256} />
-                <h5 className={"mt-4"}>Cyberwellness Arcane Champion</h5>
-              </>
-            );
-          } else if (currentScore > 800) {
-            return (
-              <>
-                <Image alt={"Cyberwellness Champion"} src={"/assets/champion.svg"} width={256} height={256} />
-                <h5>Cyberwellness Champion</h5>
-              </>
-            );
-          } else if (currentScore > 600) {
-            return (
-              <>
-                <Image alt={"Cyberwellness Master"} src={"/assets/master.svg"} width={256} height={256} />
-                <h5>Cyberwellness Master</h5>
-              </>
-            );
-          } else if (currentScore > 400) {
-            return (
-              <>
-                <Image alt={"Cyberwellness Apprentice"} src={"/assets/apprentice.svg"} width={256} height={256} />
-                <h5>Cyberwellness Apprentice</h5>
-              </>
-            );
-          } else {
-            return (
-              <>
-                <Image alt={"Cyberwellness Novice"} src={"/assets/novice.svg"} width={256} height={256} />
-                <h5>Cyberwellness Novice</h5>
-              </>
-            );
-          }
-        }.call(null)}
+        <Image alt={award.title} src={award.image} width={256} height={256} />
+        <h5 className={currentScore >= 1000 ? "mt-4" : undefined}>{award.title}</h5>
       </div>
       <p>
         {"You've"} scored {currentScore} points!

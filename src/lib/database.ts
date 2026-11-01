@@ -11,10 +11,6 @@ export type ClosedHeadlineDocument = {
   isFake: boolean;
 };
 
-export type MultipleHeadlineDocument = {
-  headlines: Record<string, boolean>;
-};
-
 export type NewsDocument = {
   imageUrl: string;
   headline: string;
@@ -22,15 +18,24 @@ export type NewsDocument = {
   isFake: boolean;
 };
 
-const fetcher = async <T>(url: string): Promise<T> => {
+async function fetchResponse(url: string) {
   const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error(`Failed to load ${url}: ${response.status} ${response.statusText}`);
   }
 
+  return response;
+}
+
+const fetcher = async <T>(url: string): Promise<T> => {
+  const response = await fetchResponse(url);
   return (await response.json()) as T;
 };
+
+export async function fetchText(url: string) {
+  return (await fetchResponse(url)).text();
+}
 
 export function useTips() {
   return useSWR<string[]>("/database/tips.json", fetcher);
@@ -46,8 +51,4 @@ export function useNewsQuestions() {
 
 export function useClosedHeadlineQuestions() {
   return useSWR<ClosedHeadlineDocument[]>("/database/headlines-closed.json", fetcher);
-}
-
-export function useMultipleHeadlineQuestions() {
-  return useSWR<MultipleHeadlineDocument[]>("/database/headlines-multiple.json", fetcher);
 }
