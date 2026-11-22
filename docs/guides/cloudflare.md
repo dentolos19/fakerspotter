@@ -1,4 +1,4 @@
-# Cloudflare development
+# Cloudflare Development
 
 `just setup` installs dependencies, `just start` runs the app and `just build` creates the Cloudflare build output. `just check` uses Bun's linter, formatter and type checker; `bun run types` generates the Worker bindings in `.cloudflare/types`.
 
