@@ -1,6 +1,6 @@
 import { expect, spyOn, test } from "bun:test";
 
-import { fetchText } from "../src/lib/database";
+import { fetchText } from "#/lib/database";
 
 test("text requests return content and reject unsuccessful responses", async () => {
   const fetch = spyOn(globalThis, "fetch");

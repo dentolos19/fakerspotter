@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import Loading from "@/app/loading";
-import { awardFor } from "@/lib/awards";
-import settings, { useHydrated } from "@/lib/settings";
+import Loading from "#/app/loading";
+import { awardFor } from "#/lib/awards";
+import settings, { useHydrated } from "#/lib/settings";
 
 export default function Page() {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { awardFor } from "../src/lib/awards";
+import { awardFor } from "#/lib/awards";
 
 test("scores at award boundaries receive the intended award", () => {
   expect(awardFor(1000).title).toBe("Cyberwellness Arcane Champion");

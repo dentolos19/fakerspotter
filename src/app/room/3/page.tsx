@@ -3,12 +3,12 @@
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
-import Loading from "@/app/loading";
-import LoadError from "@/components/load-error";
-import RoomContainer from "@/components/room-container";
-import { NewsDocument, useNewsQuestions } from "@/lib/database";
-import settings, { useHydrated } from "@/lib/settings";
-import { generateRandom, pickRandom } from "@/lib/utilities";
+import Loading from "#/app/loading";
+import LoadError from "#/components/load-error";
+import RoomContainer from "#/components/room-container";
+import { NewsDocument, useNewsQuestions } from "#/lib/database";
+import settings, { useHydrated } from "#/lib/settings";
+import { generateRandom, pickRandom } from "#/lib/utilities";
 
 const MAX_POINTS = 500;
 

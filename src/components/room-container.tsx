@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
-import { useTips } from "@/lib/database";
-import { pickRandom } from "@/lib/utilities";
+import { useTips } from "#/lib/database";
+import { pickRandom } from "#/lib/utilities";
 
 export default function RoomContainer({
   className,

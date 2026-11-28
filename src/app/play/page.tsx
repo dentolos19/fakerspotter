@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import useSWR from "swr";
 
-import Loading from "@/app/loading";
-import LoadError from "@/components/load-error";
-import { fetchText } from "@/lib/database";
-import settings from "@/lib/settings";
+import Loading from "#/app/loading";
+import LoadError from "#/components/load-error";
+import { fetchText } from "#/lib/database";
+import settings from "#/lib/settings";
 
 export default function Page() {
   const router = useRouter();

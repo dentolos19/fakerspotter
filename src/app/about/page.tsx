@@ -4,9 +4,9 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import useSWR from "swr";
 
-import Loading from "@/app/loading";
-import LoadError from "@/components/load-error";
-import { fetchText } from "@/lib/database";
+import Loading from "#/app/loading";
+import LoadError from "#/components/load-error";
+import { fetchText } from "#/lib/database";
 
 export default function Page() {
   const { data: text, error } = useSWR("/assets/about.md", fetchText);

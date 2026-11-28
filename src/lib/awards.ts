@@ -6,5 +6,7 @@ const awards = [
 ];
 
 export function awardFor(score: number) {
-  return awards.find((award) => score >= award.minimum) ?? { title: "Cyberwellness Novice", image: "/assets/novice.svg" };
+  return (
+    awards.find((award) => score >= award.minimum) ?? { title: "Cyberwellness Novice", image: "/assets/novice.svg" }
+  );
 }

@@ -3,12 +3,12 @@
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
-import Loading from "@/app/loading";
-import LoadError from "@/components/load-error";
-import RoomContainer from "@/components/room-container";
-import { ClosedHeadlineDocument, useClosedHeadlineQuestions } from "@/lib/database";
-import settings, { useHydrated } from "@/lib/settings";
-import { generateRandom, pickRandom } from "@/lib/utilities";
+import Loading from "#/app/loading";
+import LoadError from "#/components/load-error";
+import RoomContainer from "#/components/room-container";
+import { ClosedHeadlineDocument, useClosedHeadlineQuestions } from "#/lib/database";
+import settings, { useHydrated } from "#/lib/settings";
+import { generateRandom, pickRandom } from "#/lib/utilities";
 
 // TODO: add multiple headline questions
 
